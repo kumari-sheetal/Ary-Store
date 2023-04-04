@@ -12,7 +12,7 @@ const AdminMenu = () => {
     <div>
       <div>
         <a
-          className="btn btn-primary"
+          className="btn btn-dark"
           data-bs-toggle="offcanvas"
           href="#offcanvasExample"
           role="button"

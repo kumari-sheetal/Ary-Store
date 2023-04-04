@@ -117,7 +117,7 @@ export const productPhotoController = async (req, res) => {
 export const deleteProductController = async (req, res) => {
   try {
     const { pid } = req.params;
-    const products = await productModel.findByIdAndDelete(pid);
+    await productModel.findByIdAndDelete(pid).select("-photo");
     res.status(200).send({
       success: true,
       message: "product deleted successfully ",
@@ -128,6 +128,54 @@ export const deleteProductController = async (req, res) => {
       success: false,
       error,
       message: "error in deleting the product ",
+    });
+  }
+};
+
+//update-Product-Controller
+export const updateProductController = async (req, res) => {
+  try {
+    const { name, slug, description, price, category, quantity, shipping } =
+      req.fields;
+    const { photo } = req.files;
+    //Validations
+    switch (true) {
+      case !name:
+        return res.status(500).send({ error: "Name is required" });
+      case !description:
+        return res.status(500).send({ error: "descriptionis required" });
+      case !price:
+        return res.status(500).send({ error: "price is required" });
+      case !category:
+        return res.status(500).send({ error: "category is required" });
+      case !quantity:
+        return res.status(500).send({ error: "quantity is required" });
+      case photo && photo.size > 1000000:
+        return res
+          .status(500)
+          .send({ error: "photo  is required and should be less 1mb " });
+    }
+    const products = await productModel.findByIdAndUpdate(
+      req.params.pid,
+      { ...req.fields, slug: slugify(name) },
+      { new: true }
+    );
+    if (photo) {
+      products.photo.data = fs.readFileSync(photo.path);
+      products.photo.contentType = photo.type;
+    }
+    await products.save();
+    res.status(201).send({
+      success: true,
+      meaage: "Product updated Successfully",
+      products,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "error in updating product Controller",
     });
   }
 };
