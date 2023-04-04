@@ -1,6 +1,12 @@
 import express from "express";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
-import { productController } from "../controllers/productController.js";
+import {
+  deleteProductController,
+  getproductController,
+  getSingleProductController,
+  productController,
+  productPhotoController,
+} from "../controllers/productController.js";
 import formidable from "express-formidable";
 //route object
 const router = express.Router();
@@ -14,5 +20,17 @@ router.post(
   formidable(),
   productController
 );
+
+//get products
+router.get("/get-product", getproductController);
+
+//get-single-product
+router.get("/get-product/:slug", getSingleProductController);
+
+//get-photo
+router.get("/product-photo/:pid", productPhotoController);
+
+//delete products
+router.delete("/delete-product/:pid", deleteProductController);
 
 export default router;
