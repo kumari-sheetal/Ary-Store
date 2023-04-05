@@ -10,7 +10,9 @@ export default function PrivateRoute() {
 
   useEffect(() => {
     const authCheck = async () => {
-      const res = await axios.get("http://localhost:8080/api/v1/auth/user-auth");
+      const res = await axios.get(
+        "http://localhost:8081/api/v1/auth/user-auth"
+      );
       if (res.data.ok) {
         setOk(true);
       } else {
@@ -22,10 +24,6 @@ export default function PrivateRoute() {
 
   return ok ? <Outlet /> : <Spinner />;
 }
-
-
-
-
 
 // // import { Outlet } from "react-router-dom";
 
@@ -42,7 +40,7 @@ export default function PrivateRoute() {
 
 //   useEffect(() => {
 //     const authCheck = async () => {
-//       const res = await axios.get("http://localhost:8080/api/v1/auth/user-auth");
+//       const res = await axios.get("http://localhost:8081/api/v1/auth/user-auth");
 //       console.log(res,"response...")
 //       if (res.data.ok) {
 //         console.log(res.data.ok,"ok...")
@@ -72,4 +70,3 @@ export default function PrivateRoute() {
 //     return <Spinner/>
 //   }
 // }
-

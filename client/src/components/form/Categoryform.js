@@ -1,6 +1,6 @@
 import React from "react";
 
-const categoryform = ({ handleSubmit, value, setValue }) => {
+const Categoryform = ({ handleSubmit, value, setValue }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -10,7 +10,7 @@ const categoryform = ({ handleSubmit, value, setValue }) => {
             className="form-control"
             placeholder="Enter new category "
             value={value}
-            onchange={(e) => setValue(e.target.value)}
+            onChange={(e) => setValue(e.target.value)}
           />
         </div>
 
@@ -22,4 +22,4 @@ const categoryform = ({ handleSubmit, value, setValue }) => {
   );
 };
 
-export default categoryform;
+export default Categoryform;
