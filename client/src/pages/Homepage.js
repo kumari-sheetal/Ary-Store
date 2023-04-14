@@ -16,7 +16,7 @@ const Homepage = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-
+  console.log(products, "products...");
   //get all category
   const getAllCategory = async () => {
     try {
@@ -58,8 +58,8 @@ const Homepage = () => {
       const { data } = await axios.get(
         `http://localhost:8081/api/v1/product/product-list/${page}`
       );
+      setProducts([...products, ...data?.products]);
       setLoading(false);
-      setProducts(...products, ...data?.products);
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -159,7 +159,7 @@ const Homepage = () => {
         <div className="col-md-10">
           <h1 className="text-center mt-5">All Products</h1>
           <div className="d-flex flex-wrap">
-            {products.map((p) => (
+            {products?.map((p) => (
               <div className="card m-1 " style={{ width: "18rem" }} key={p._id}>
                 <img
                   src={`http://localhost:8081/api/v1/product/product-photo/${p._id}`}
