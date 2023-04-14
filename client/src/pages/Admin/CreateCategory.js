@@ -92,75 +92,94 @@ const CreateCategory = () => {
   };
 
   return (
-    <Layout title={"Dashboard-Create Category"}>
-      <div className="container-fluid m-3 p-3">
-        <div className="row">
-          <div className="col-md-3">
-            <AdminMenu />
-          </div>
-          <div className="col-md-9">
-            <h1>Manage category</h1>
-            <div className="p-3 w-50">
-              <Categoryform
-                handleSubmit={handleSubmit}
-                value={name}
-                setValue={setName}
-              />
+    <>
+      <Layout title={"Dashboard-Create Category"}>
+        <div className="container-fluid m-3 p-3 mt-5">
+          <div className="row">
+            <div className="col-md-3">
+              <AdminMenu />
             </div>
-            <div className="w-75">
-              <table className="table table-info table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {categories?.map((c) => (
-                    <>
+            <div className="col-md-9">
+              <h1>Manage category</h1>
+              <div className="p-3 w-50">
+                <Categoryform
+                  handleSubmit={handleSubmit}
+                  value={name}
+                  setValue={setName}
+                />
+              </div>
+              <div className="w-75">
+                <div
+                  className="table-responsive"
+                  style={{ maxHeight: "600px" }}
+                >
+                  <table className="table table-light table-striped ">
+                    <thead
+                      style={{
+                        position: "sticky",
+                        top: -1,
+                        border: "2px solid #cecece",
+                        boxShadow: "200px 2px 200px gray",
+                        height: "50px",
+                      }}
+                    >
                       <tr>
-                        <td key={c._id}>{c.name}</td>
-                        <td>
-                          <button
-                            className="btn btn-outline-dark ms-2"
-                            onClick={() => {
-                              setVisible(true);
-                              setUpdatedName(c.name);
-                              setSelected(c);
-                            }}
-                          >
-                            Edit
-                          </button>
-                          <button
-                            className="btn btn-outline-danger ms-2"
-                            onClick={() => {
-                              handleDelete(c._id);
-                            }}
-                          >
-                            Delete
-                          </button>
-                        </td>
+                        <th scope="col">Sr.No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Actions</th>
                       </tr>
-                    </>
-                  ))}
-                </tbody>
-              </table>
+                    </thead>
+                    <tbody>
+                      {categories?.map((c, index) => (
+                        <>
+                          <tr>
+                            <td>{index + 1}</td>
+                            <td key={c._id}>{c.name}</td>
+
+                            <td>
+                              <button
+                                className="btn btn-outline-dark ms-2"
+                                onClick={() => {
+                                  setVisible(true);
+                                  setUpdatedName(c.name);
+                                  setSelected(c);
+                                }}
+                              >
+                                Edit
+                              </button>
+                              <button
+                                className="btn btn-outline-danger ms-2"
+                                body
+                                onClick={() => {
+                                  handleDelete(c._id);
+                                }}
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
+                        </>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <Modal
+                onCancel={() => setVisible(false)}
+                footer={null}
+                visible={visible}
+              >
+                <Categoryform
+                  value={updatedName}
+                  setValue={setUpdatedName}
+                  handleSubmit={handleUpdate}
+                />
+              </Modal>
             </div>
-            <Modal
-              onCancel={() => setVisible(false)}
-              footer={null}
-              visible={visible}
-            >
-              <Categoryform
-                value={updatedName}
-                setValue={setUpdatedName}
-                handleSubmit={handleUpdate}
-              />
-            </Modal>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 };
 
