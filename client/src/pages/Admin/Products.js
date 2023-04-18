@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
   //get all products
   const getAllProducts = async () => {
     try {
@@ -20,10 +22,43 @@ const Products = () => {
       toast.error("Somethong went wrong");
     }
   };
-  //useeffect
+  //use-effect
   useEffect(() => {
     getAllProducts();
+    getTotal();
   }, []);
+  //get Total Count
+  const getTotal = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://localhost:8081/api/v1/product/product-count"
+      );
+      setTotal(data?.total);
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(total, "data");
+  };
+
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page]);
+  //load more function
+  const loadMore = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get(
+        `http://localhost:8081/api/v1/product/product-list/${page}`
+      );
+      setProducts([...products, ...data?.products]);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
   return (
     <Layout title={"All products"}>
       <div className="container-fluid m-3 p-3 ">
@@ -59,6 +94,19 @@ const Products = () => {
                 </Link>
               ))}
             </div>
+          </div>
+          <div className="m-2 p-3">
+            {products && products.length < total && (
+              <button
+                className="btn btn-dark"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPage(page + 1);
+                }}
+              >
+                {loading ? "Loading ..." : "Loadmore"}
+              </button>
+            )}
           </div>
         </div>
       </div>

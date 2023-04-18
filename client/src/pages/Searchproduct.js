@@ -1,9 +1,12 @@
+import { useCart } from "../context/Cart";
 import { useSearch } from "../context/Search";
 import Layout from "./../components/Layout/Layout";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Badge } from "antd";
 
 const Searchproduct = () => {
+  const [cart] = useCart();
   const navigate = useNavigate();
   const [values, setValues] = useSearch();
   return (
@@ -43,6 +46,7 @@ const Searchproduct = () => {
                   >
                     More Details
                   </button>
+
                   <button className="btn btn-outline-dark ms-2">
                     Add To Cart
                   </button>
