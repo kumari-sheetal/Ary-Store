@@ -100,6 +100,20 @@ const AdminMenu = () => {
                 <TbUsers size="3em" />
                 <span>Users</span>
               </NavLink>
+
+              <NavLink
+                to="/dashboard/admin/orders"
+                className="list-group-item list-group-item-action"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "15px",
+                  alignItems: "center",
+                }}
+              >
+                <TbUsers size="3em" />
+                <span>All Orders</span>
+              </NavLink>
             </div>
           </div>
         </div>

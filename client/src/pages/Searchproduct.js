@@ -3,10 +3,11 @@ import { useSearch } from "../context/Search";
 import Layout from "./../components/Layout/Layout";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Badge } from "antd";
+// import { Badge } from "antd";
+import toast from "react-hot-toast";
 
 const Searchproduct = () => {
-  const [cart] = useCart();
+  const [cart, setCart] = useCart();
   const navigate = useNavigate();
   const [values, setValues] = useSearch();
   return (
@@ -47,7 +48,17 @@ const Searchproduct = () => {
                     More Details
                   </button>
 
-                  <button className="btn btn-outline-dark ms-2">
+                  <button
+                    className="btn btn-outline-dark ms-2"
+                    onClick={() => {
+                      setCart([...cart, p]);
+                      localStorage.setItem(
+                        "cart",
+                        JSON.stringify([...cart, p])
+                      );
+                      toast.success("Item Added to Cart");
+                    }}
+                  >
                     Add To Cart
                   </button>
                 </div>

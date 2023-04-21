@@ -6,6 +6,7 @@ import axios from "axios";
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 
+import "./../../components/style/category.css";
 const { Option } = Select;
 
 const CreateProduct = () => {

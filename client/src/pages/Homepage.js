@@ -123,6 +123,8 @@ const Homepage = () => {
           <div className="d-flex flex-column">
             {categories?.map((c) => (
               <Checkbox
+                className="abc"
+                style={{ margin: 0 }}
                 key={c._id}
                 onChange={(e) => handleFilter(e.target.checked, c._id)}
               >
@@ -175,9 +177,7 @@ const Homepage = () => {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">
-                    {p.description.substring(0, 30)}.....
-                  </p>
+                  <p className="card-text">{p.description.substring(0, 30)}</p>
                   <p className="card-text">₹{p.price}</p>
 
                   <button
