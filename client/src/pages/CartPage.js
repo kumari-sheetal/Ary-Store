@@ -6,14 +6,20 @@ import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { IoMdAdd } from "react-icons/io";
+import { AiOutlineMinus } from "react-icons/ai";
 
 const CartPage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
+  console.log(cart, "cart");
   const [auth, setAuth] = useAuth();
   const [clientToken, setClientToken] = useState("");
   const [instance, setInstance] = useState("");
   const [loading, setLoading] = useState(false);
+  const [addquantity, setAddQuantity] = useState(1);
+  const [minusquantity, setMinusQuantity] = useState("");
+  const [selectedItem, setSelecteditem] = useState(null);
 
   //total price
   const totalPrice = () => {
@@ -42,6 +48,10 @@ const CartPage = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+  ///handleShopping
+  const handleShopping = () => {
+    navigate("/paymment");
   };
 
   //get payment gateway token
@@ -81,6 +91,21 @@ const CartPage = () => {
     } catch (error) {
       console.log(error);
       setLoading(false);
+    }
+  };
+  //handleAdd
+  const handleAdd = () => {
+    setAddQuantity(addquantity + 1);
+  };
+
+  //handleMinus
+  const handleMinus = (pid) => {
+    console.log(pid, "pid...");
+    if (addquantity >= 1) {
+      setAddQuantity(addquantity - 1);
+    }
+    if (addquantity === 0) {
+      removeCartItem(pid);
     }
   };
   return (
@@ -125,7 +150,19 @@ const CartPage = () => {
                   <div className="col-md-8">
                     <p>{p.name}</p>
                     <p>{p.description.substring(0, 30)}</p>
-                    <p>Price: {p.price}</p>
+                    <p> Price: {p.price}</p>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                      }}
+                    >
+                      <IoMdAdd onClick={handleAdd} />
+                      {addquantity}{" "}
+                      <AiOutlineMinus onClick={() => handleMinus(p._id)} />
+                    </div>
+
                     <button
                       className="btn btn-dark"
                       onClick={() => removeCartItem(p._id)}
@@ -192,10 +229,12 @@ const CartPage = () => {
                         }}
                         onInstance={(instance) => setInstance(instance)}
                       />
-                      <h1>COD</h1>
+                      <div className="box">
+                        <h6>COD</h6>
+                      </div>
 
                       <button
-                        className="btn btn-outline-warning"
+                        className="btn btn-outline-warning mt-2"
                         onClick={handlePayment}
                         // disabled={!loading || !instance || !auth?.user?.address}
                       >
@@ -205,6 +244,13 @@ const CartPage = () => {
                   )}
                 </div>
               )}
+
+              <button
+                className="btn btn-outline-warning mt-2"
+                onClick={handleShopping}
+              >
+                Continue Shopping
+              </button>
             </div>
           </div>
         </div>

@@ -125,3 +125,18 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
   width: 80%;
   height: 80%;
 }
+
+/* cart */
+.box{
+
+    background-color:white;
+    width: 15.5cm;
+
+    padding: 15px;
+    margin: 2px;
+  
+}
+.category {
+  width: 80cm;
+  height: 80cm;
+}

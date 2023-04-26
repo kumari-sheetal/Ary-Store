@@ -26,6 +26,8 @@ import Categories from "./pages/Categories";
 import CategoryProduct from "./pages/CategoryProduct";
 import CartPage from "./pages/CartPage";
 import AdminOrders from "./pages/Admin/AdminOrders";
+import PaymentPage from "./pages/Admin/PaymentPage";
+import Password from "antd/es/input/Password";
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
         <Route path="/product/:slug" element={<ProductDetails />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/paymment" element={<PaymentPage />} />
         <Route path="/category/:slug" element={<CategoryProduct />} />
         <Route path="/search" element={<Searchproduct />} />
         <Route path="/dashboard" element={<PrivateRoute />}>
@@ -54,6 +57,12 @@ function App() {
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        {/* <Route
+          path="/forgot-password/:id/:token"
+          element={<ForgotPassword />}
+        /> */}
+
+        <Route path="/password" element={<Password />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

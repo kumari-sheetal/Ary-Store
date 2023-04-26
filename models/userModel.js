@@ -32,7 +32,19 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    tokens: [
+      {
+        token: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+    verifytoken: {
+      type: String,
+    },
   },
+
   { timestamps: true }
 );
 
