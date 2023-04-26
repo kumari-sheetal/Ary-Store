@@ -86,3 +86,86 @@ const ForgotPassword = () => {
 };
 
 export default ForgotPassword;
+
+// import React, { useState } from "react";
+// import toast from "react-hot-toast";
+// import Layout from "../../components/Layout/Layout";
+
+// const ForgotPassword = () => {
+//   const [email, setEmail] = useState("");
+
+//   const [message, setMessage] = useState("");
+
+//   const setVal = (e) => {
+//     setEmail(e.target.value);
+//   };
+
+//   const sendLink = async (e) => {
+//     e.preventDefault();
+
+//     if (email === "") {
+//       toast.error("email is required!", {
+//         position: "top-center",
+//       });
+//     } else if (!email.includes("@")) {
+//       toast.warning("includes @ in your email!", {
+//         position: "top-center",
+//       });
+//     } else {
+//       const res = await fetch("/sendlink", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({ email }),
+//       });
+
+//       const data = await res.json();
+
+//       if (data.status == 201) {
+//         setEmail("");
+//         setMessage(true);
+//       } else {
+//         toast.error("Invalid User", {
+//           position: "top-center",
+//         });
+//       }
+//     }
+//   };
+//   return (
+//     <Layout title={"Forgot Password - Ary Store"}>
+//       <div className="register">
+//         <div className="register_heading"></div>
+
+//         {message ? (
+//           <p style={{ color: "green", fontWeight: "bold" }}>
+//             pasword reset link send Succsfully in Your Email
+//           </p>
+//         ) : (
+//           ""
+//         )}
+//         <form>
+//           <h4 className="title">RESET PASSWORD</h4>
+//           <div className="mb-3">
+//             {/* <label htmlFor="email">Email</label> */}
+//             <input
+//               type="email"
+//               value={email}
+//               onChange={setVal}
+//               name="email"
+//               id="email"
+//               placeholder="Enter Your Email Address"
+//               className="form-control"
+//             />
+//           </div>
+
+//           <button className="btn btn-primary" onClick={sendLink}>
+//             Send
+//           </button>
+//         </form>
+//       </div>
+//     </Layout>
+//   );
+// };
+
+// export default ForgotPassword;
