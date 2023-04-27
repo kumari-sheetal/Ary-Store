@@ -17,7 +17,7 @@ const CartPage = () => {
   const [clientToken, setClientToken] = useState("");
   const [instance, setInstance] = useState("");
   const [loading, setLoading] = useState(false);
-  const [addquantity, setAddQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const [minusquantity, setMinusQuantity] = useState("");
   const [selectedItem, setSelecteditem] = useState(null);
 
@@ -26,7 +26,7 @@ const CartPage = () => {
     try {
       let total = 0;
       cart?.map((item) => {
-        total = total + item.price;
+        total = total + quantity * item.price;
       });
       return total.toLocaleString("en-US", {
         style: "currency",
@@ -94,17 +94,33 @@ const CartPage = () => {
     }
   };
   //handleAdd
-  const handleAdd = () => {
-    setAddQuantity(addquantity + 1);
+  const handleAdd = (pid) => {
+    console.log(pid, "pid...");
+    const myCart = [...cart];
+    // console.log(myCart, "myCart...");
+    console.log(myCart, "mycart...");
+    let index = myCart.findIndex((item) => item._id === pid);
+    const reqCartItem = myCart.filter((item) => item._id === pid);
+    const qty = reqCartItem[0].quantity + 1;
+    console.log(qty, "qty..");
+    const newValues = [...reqCartItem];
+    console.log(newValues, "newValues...");
+    // console.log(index, "index...");
+    console.log(quantity, "quantity");
+    myCart[index].quantity += 1;
+
+    // setCart(myCart);
+    // const newqunatity = quantity + 1;
+    setQuantity(myCart);
   };
 
   //handleMinus
   const handleMinus = (pid) => {
     console.log(pid, "pid...");
-    if (addquantity >= 1) {
-      setAddQuantity(addquantity - 1);
+    if (quantity >= 1) {
+      setQuantity(quantity - 1);
     }
-    if (addquantity === 0) {
+    if (quantity === 0) {
       removeCartItem(pid);
     }
   };
@@ -158,8 +174,8 @@ const CartPage = () => {
                         gap: "10px",
                       }}
                     >
-                      <IoMdAdd onClick={handleAdd} />
-                      {addquantity}{" "}
+                      <IoMdAdd onClick={handleAdd(p._id)} />
+                      {p.quantity}
                       <AiOutlineMinus onClick={() => handleMinus(p._id)} />
                     </div>
 

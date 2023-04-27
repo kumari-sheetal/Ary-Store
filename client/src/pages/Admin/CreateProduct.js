@@ -16,7 +16,7 @@ const CreateProduct = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [stock, setStock] = useState("");
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
 
@@ -46,7 +46,7 @@ const CreateProduct = () => {
       productData.append("name", name);
       productData.append("description", description);
       productData.append("price", price);
-      productData.append("quantity", quantity);
+      productData.append("stock", stock);
       productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.post(
@@ -145,10 +145,10 @@ const CreateProduct = () => {
               <div className="mb-3">
                 <input
                   type="number"
-                  value={quantity}
-                  placeholder="write a quantity"
+                  value={stock}
+                  placeholder="write a stock"
                   className="form-control"
-                  onChange={(e) => setQuantity(e.target.value)}
+                  onChange={(e) => setStock(e.target.value)}
                 />
               </div>
               <div className="mb-3">

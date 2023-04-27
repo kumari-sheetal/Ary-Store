@@ -18,6 +18,8 @@ const Homepage = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   console.log(products, "products...");
+
+  useEffect(() => console.log(products, "mount"), []);
   //get all category
   const getAllCategory = async () => {
     try {
@@ -67,8 +69,6 @@ const Homepage = () => {
     }
   };
 
-  console.log(products, ".....products");
-
   //get products
   const getAllProducts = async () => {
     try {
@@ -113,6 +113,20 @@ const Homepage = () => {
       setProducts(data?.products);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const onClick = (product) => {
+    const productExist = cart.some((item) => item._id === product._id);
+
+    if (!productExist) {
+      toast.success("item already in the cart");
+    }
+    if (productExist) {
+      toast.error("item already in the cart");
+    } else {
+      setCart([...cart, product]);
+      localStorage.setItem("cart", JSON.stringify([...cart, product]));
     }
   };
   return (
@@ -188,14 +202,7 @@ const Homepage = () => {
                   </button>
                   <button
                     className="btn btn-outline-dark ms-2 "
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to Cart");
-                    }}
+                    onClick={() => onClick(p)}
                   >
                     Add To Cart
                   </button>
