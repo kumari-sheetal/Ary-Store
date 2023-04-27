@@ -24,7 +24,8 @@ const productSchema = new mongoose.Schema(
       ref: "Category",
       required: true,
     },
-    quantity: {
+    quantity: { type: Number, default: 1 },
+    stock: {
       type: Number,
       required: true,
     },

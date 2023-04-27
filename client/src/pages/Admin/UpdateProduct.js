@@ -16,7 +16,7 @@ const UpdateProduct = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [stock, setStock] = useState("");
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
   const [id, setId] = useState("");
@@ -31,7 +31,7 @@ const UpdateProduct = () => {
       setDescription(data.products.description);
       setPrice(data.products.price);
       setPhoto(data.products.photo);
-      setQuantity(data.products.quantity);
+      setStock(data.products.stock);
       setShipping(data.products.shipping);
       setCategory(data.products.category._id);
     } catch (error) {
@@ -67,7 +67,7 @@ const UpdateProduct = () => {
       productData.append("name", name);
       productData.append("description", description);
       productData.append("price", price);
-      productData.append("quantity", quantity);
+      productData.append("stock", stock);
       photo && productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.put(
@@ -192,10 +192,10 @@ const UpdateProduct = () => {
               <div className="mb-3">
                 <input
                   type="number"
-                  value={quantity}
-                  placeholder="write a quantity"
+                  value={stock}
+                  placeholder="write a stock"
                   className="form-control"
-                  onChange={(e) => setQuantity(e.target.value)}
+                  onChange={(e) => setStock(e.target.value)}
                 />
               </div>
               <div className="mb-3">
