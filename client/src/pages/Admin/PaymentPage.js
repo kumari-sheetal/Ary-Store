@@ -57,7 +57,7 @@ const PaymentPage = () => {
 
   return (
     <Layout>
-      <div className="col-md-4 text-center mt-5">
+      <div className="pricecard-container ">
         <h1>continue shopping</h1>
         {auth?.token && (
           <div className="mt-2">
@@ -74,7 +74,18 @@ const PaymentPage = () => {
                   }}
                   onInstance={(instance) => setInstance(instance)}
                 />
-                <h1>COD</h1>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="checkbox"
+                    id="flexCheckChecked"
+                    checked
+                  />
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Checked checkbox
+                  </label>
+                </div>
 
                 <button
                   className="btn btn-outline-warning"

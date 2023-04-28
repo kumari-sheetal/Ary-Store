@@ -26,7 +26,8 @@ const CartPage = () => {
     try {
       let total = 0;
       cart?.map((item) => {
-        total = total + quantity * item.price;
+        // total = total + quantity * item.price;
+        total = total + item.price * item.quantity;
       });
       return total.toLocaleString("en-US", {
         style: "currency",
@@ -93,37 +94,138 @@ const CartPage = () => {
       setLoading(false);
     }
   };
-  //handleAdd
+
   const handleAdd = (pid) => {
     console.log(pid, "pid...");
     const myCart = [...cart];
-    // console.log(myCart, "myCart...");
-    console.log(myCart, "mycart...");
-    let index = myCart.findIndex((item) => item._id === pid);
-    const reqCartItem = myCart.filter((item) => item._id === pid);
-    const qty = reqCartItem[0].quantity + 1;
-    console.log(qty, "qty..");
-    const newValues = [...reqCartItem];
-    console.log(newValues, "newValues...");
-    // console.log(index, "index...");
-    console.log(quantity, "quantity");
-    myCart[index].quantity += 1;
-
-    // setCart(myCart);
-    // const newqunatity = quantity + 1;
-    setQuantity(myCart);
+    const cartItem = myCart.findIndex((item) => item._id === pid);
+    if (cartItem !== -1) {
+      const updateCartItem = myCart[cartItem];
+      updateCartItem.quantity += 1;
+      myCart.splice(cartItem, 1, updateCartItem);
+    } else {
+      myCart.push({ _id: pid, quantity: 1 });
+    }
+    setCart(myCart);
   };
 
-  //handleMinus
+  // //handleAdd
+  // const handleAdd = (pid) => {
+  //   console.log(pid, "pid...");
+  //   const myCart = [...cart];
+  //   const cartItem = myCart.find((item) => item._id === pid);
+  //   if (cartItem) {
+  //     cartItem.quantity = cartItem.quantity + 1;
+  //     console.log(cartItem, "cartItem...");
+  //     const updatedCartItems = myCart.filter((item) => item._id !== pid);
+  //     const ref = [...updatedCartItems, { ...cartItem }];
+  //     console.log(ref, "reference...");
+  //     setCart([...updatedCartItems, { ...cartItem }]);
+  //   }
+  //   // setQuantity(myCart);
+  // };
+
+  // {
+  //   if (cart.some((cartItems) => cartItems.pid === pid)) {
+  //     setCart((cart) =>
+  //       cart.map((cartItems) =>
+  //         cartItems.pid === pid
+  //           ? {
+  //               ...cartItems,
+  //               amount: cartItems.quantity + 1,
+  //             }
+  //           : cartItems
+  //       )
+  //     );
+  //     return;
+  //   }
+  //   setCart(...pid);
+  // };
+
   const handleMinus = (pid) => {
     console.log(pid, "pid...");
-    if (quantity >= 1) {
-      setQuantity(quantity - 1);
+    const myCart = [...cart];
+    const cartItem = myCart.findIndex((item) => item._id === pid);
+    if (cartItem !== -1) {
+      var updateCartItem = myCart[cartItem];
+      updateCartItem.quantity -= 1;
+      myCart.splice(cartItem, 1, updateCartItem);
+    } else {
+      myCart.push({ _id: pid, quantity: 1 });
     }
-    if (quantity === 0) {
+    setCart(myCart);
+    const updatedQuantity = updateCartItem.quantity;
+
+    if (updatedQuantity >= 1) {
+      setQuantity(updatedQuantity);
+    } else {
       removeCartItem(pid);
     }
   };
+
+  // //handleMinus--------new
+  // const handleMinus = (pid) => {
+  //   console.log(pid, "pid...");
+  //   const myCart = [...cart];
+  //   const cartItem = myCart.findIndex((item) => item._id === pid);
+  //   if (cartItem !== -1) {
+  //     const updateCartItem = myCart[cartItem];
+  //     updateCartItem.quantity -= 1;
+
+  //     myCart.splice(cartItem, 1, updateCartItem);
+  //   } else {
+  //     myCart.push({ _id: pid, quantity: 1 });
+  //   }
+  //   setCart(myCart);
+  // };
+
+  // //handleMinus
+  // const handleMinus = (pid) => {
+  //   console.log(pid, "pid...");
+  //   const myCart = [...cart];
+  //   const cartItem = myCart.find((item) => item._id === pid);
+
+  //   if (cartItem) {
+  //     if (cartItem.quantity >= 1) {
+  //       cartItem.quantity = cartItem.quantity - 1;
+  //     }
+  //     if (cartItem.quantity === 0) {
+  //       removeCartItem(pid);
+  //       return;
+  //     }
+  //     console.log(cartItem, "cartItem...");
+  //     const updatedCartItems = myCart.filter((item) => item._id !== pid);
+  //     const ref = [...updatedCartItems, { ...cartItem }];
+  //     console.log(ref, "reference...");
+  //     setCart([...updatedCartItems, { ...cartItem }]);
+  //   }
+  // };
+
+  // const handleMinus = (pid) => {
+  //   console.log(pid, "pid...");
+  //   const myCart = [...cart];
+  //   const cartItem = myCart.find((item) => item._id === pid);
+
+  //   if (cartItem) {
+  //     cartItem.quantity = cartItem.quantity + 1;
+
+  //     console.log(cartItem, "cartItem...");
+  //     const updatedCartItems = myCart.filter((item) => item._id !== pid);
+  //     const ref = [...updatedCartItems, { ...cartItem }];
+  //     console.log(ref, "reference...");
+  //     setCart([...updatedCartItems, { ...cartItem }]);
+  //   }
+  // };
+
+  // {
+  //   console.log(pid, "pid...");
+  //   if (quantity >= 1) {
+  //     setQuantity(quantity - 1);
+  //   }
+  //   if (quantity === 0) {
+  //     removeCartItem(pid);
+  //   }
+  // };
   return (
     <Layout>
       <div className="conatiner" style={{ marginTop: "100px" }}>
@@ -174,7 +276,7 @@ const CartPage = () => {
                         gap: "10px",
                       }}
                     >
-                      <IoMdAdd onClick={handleAdd(p._id)} />
+                      <IoMdAdd onClick={() => handleAdd(p._id)} />
                       {p.quantity}
                       <AiOutlineMinus onClick={() => handleMinus(p._id)} />
                     </div>
@@ -189,6 +291,7 @@ const CartPage = () => {
                 </div>
               ))}
             </div>
+
             <div className="col-md-4 text-center">
               <h2>Card Summary</h2>
               <p>Total | Checkout | Payment</p>
@@ -242,7 +345,25 @@ const CartPage = () => {
                           paypal: {
                             flow: "vault",
                           },
-                        }}
+                        }} //                     <button
+                        //                       className="btn btn-outline-warning"
+                        //                       onClick={handlePayment}
+                        //                       disabled={!loading || !instance || !auth?.user?.address}
+                        //                     >
+                        //                       {loading ? "Processing ...." : "Make Payment"}
+                        //                     </button>
+                        //                   </>
+                        //                 )}
+                        //               </div>
+                        //             </div>
+                        //           </div>
+                        //         </div>
+                        //       </div>
+                        //     </Layout>
+                        //   );
+                        // };
+
+                        // export default CartPage;
                         onInstance={(instance) => setInstance(instance)}
                       />
                       <div className="box">

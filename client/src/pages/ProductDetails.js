@@ -37,6 +37,22 @@ const ProductDetails = () => {
       console.log(error);
     }
   };
+
+  //cart func
+  const onClick = (product) => {
+    const productExist = cart.some((item) => item._id === product._id);
+
+    if (!productExist) {
+      toast.success("item already in the cart");
+    }
+    if (productExist) {
+      toast.error("item already in the cart");
+    } else {
+      setCart([...cart, product]);
+      localStorage.setItem("cart", JSON.stringify([...cart, product]));
+    }
+  };
+
   return (
     <Layout>
       <div className="row container mt-5">
@@ -57,11 +73,13 @@ const ProductDetails = () => {
 
           <button
             className="btn btn-outline-dark ms-2 "
-            onClick={() => {
-              setCart([...cart, product]);
-              localStorage.setItem("cart", JSON.stringify([...cart, product]));
-              toast.success("Item Added to Cart");
-            }}
+            onClick={() => onClick(product)}
+
+            // {
+            //   setCart([...cart, product]);
+            //   localStorage.setItem("cart", JSON.stringify([...cart, product]));
+            //   toast.success("Item Added to Cart");
+            // }}
           >
             Add To Cart
           </button>
@@ -96,11 +114,13 @@ const ProductDetails = () => {
 
                 <button
                   className="btn btn-outline-dark ms-2 "
-                  onClick={() => {
-                    setCart([...cart, p]);
-                    localStorage.setItem("cart", JSON.stringify([...cart, p]));
-                    toast.success("Item Added to Cart");
-                  }}
+                  onClick={() => onClick(p)}
+
+                  // {
+                  //   setCart([...cart, p]);
+                  //   localStorage.setItem("cart", JSON.stringify([...cart, p]));
+                  //   toast.success("Item Added to Cart");
+                  // }}
                 >
                   Add To Cart
                 </button>

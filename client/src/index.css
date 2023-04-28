@@ -130,7 +130,7 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
 .box{
 
     background-color:white;
-    width: 15.5cm;
+    width: 16.3cm;
 
     padding: 15px;
     margin: 2px;
@@ -139,4 +139,24 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
 .category {
   width: 80cm;
   height: 80cm;
+}
+.pricecard-container{
+  border:14px;
+  box-shadow: inset 0 -3em 3em rgba(255, 255, 255, 0.377), 0 0 0 2px rgb(17, 16, 16),
+ 0.3em 0.3em 1em rgba(255, 255, 255, 0.87);
+ border-radius: 10px;
+ padding: 20px;
+ 
+ 
+ justify-content: center;
+ align-items: center;
+ width: 80%;
+ margin:10vmax;
+
+ max-width: 700px;
+ width: 400%;
+ padding: 40px;
+ background-color: rgb(230, 230, 230,0.5);
+
+
 }
