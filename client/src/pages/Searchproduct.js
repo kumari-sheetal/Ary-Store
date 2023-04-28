@@ -10,6 +10,23 @@ const Searchproduct = () => {
   const [cart, setCart] = useCart();
   const navigate = useNavigate();
   const [values, setValues] = useSearch();
+
+  //cart onclick func
+
+  const onClick = (product) => {
+    const productExist = cart.some((item) => item._id === product._id);
+
+    if (!productExist) {
+      toast.success("item already in the cart");
+    }
+    if (productExist) {
+      toast.error("item already in the cart");
+    } else {
+      setCart([...cart, product]);
+      localStorage.setItem("cart", JSON.stringify([...cart, product]));
+    }
+  };
+
   return (
     <Layout title={"Search Results"}>
       <div className="container">
@@ -50,14 +67,16 @@ const Searchproduct = () => {
 
                   <button
                     className="btn btn-outline-dark ms-2"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to Cart");
-                    }}
+                    onClick={() => onClick(p)}
+
+                    // {
+                    //   setCart([...cart, p]);
+                    //   localStorage.setItem(
+                    //     "cart",
+                    //     JSON.stringify([...cart, p])
+                    //   );
+                    //   toast.success("Item Added to Cart");
+                    // }}
                   >
                     Add To Cart
                   </button>
