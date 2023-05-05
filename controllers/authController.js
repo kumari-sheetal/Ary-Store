@@ -197,6 +197,78 @@ export const updateProfileController = async (req, res) => {
     });
   }
 };
+//postOrderController
+// export const postOrderController = async (req, res) => {
+//   try {
+//     const { cart, paymentStatus } = req.body;
+
+//     // Create a new order in the database
+//     const order = new orderModel({
+//       cart,
+//       paymentStatus,
+//       buyer: req.user._id,
+//       // ...other fields
+//     });
+
+//     // Populate product details in the order
+//     await order.populate("products").execPopulate();
+
+//     // Save the order in the database
+//     await order.save();
+
+//     res.status(201).json({ message: "Order created successfully", order });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// };
+
+export const postOrderController = async (req, res) => {
+  try {
+    const { cart, paymentStatus } = req.body;
+
+    // Create a new order in the database
+    const order = new orderModel({
+      paymentStatus,
+      buyer: req.user._id,
+      products: cart,
+    });
+
+    await order.save();
+
+    res.status(201).json({ message: "Order created successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+// export const postOrderController = async (req, res) => {
+//   try {
+//     const { cart, paymentStatus } = req.body;
+
+//     // Create a new order in the database
+//     const order = new orderModel({
+//       cart,
+//       paymentStatus,
+//       buyer: {
+//         name: req.user.name,
+//       },
+//       products: cart.map((item) => ({
+//         product: item.product,
+//         quantity: item.quantity,
+//         photo: item.photo,
+//       })),
+//     });
+
+//     await order.save();
+
+//     res.status(201).json({ message: "Order created successfully" });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// };
 
 //get-Order-Controller
 export const getOrderController = async (req, res) => {
@@ -251,5 +323,26 @@ export const orderStatusController = async (req, res) => {
       message: "error while geting order status",
       error,
     });
+  }
+};
+//delete deleteAllOrderControlle
+export const deleteAllOrderController = async (req, res) => {
+  try {
+    await orderModel.deleteMany();
+    res.status(204).json();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
+//delete user side orders
+export const deleteOrderController = async (req, res) => {
+  try {
+    const order = await orderModel.findByIdAndDelete(req.params.orderId);
+    res.json(order);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
   }
 };

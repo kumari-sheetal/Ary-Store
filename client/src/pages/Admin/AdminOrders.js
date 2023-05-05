@@ -4,8 +4,8 @@ import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
 import AdminMenu from "../../components/Layout/AdminMenu";
 import { useAuth } from "../../context/auth";
-import moment from "moment";
-import { Select } from "antd";
+
+import { Select, Button } from "antd";
 
 const { Option } = Select;
 
@@ -35,6 +35,18 @@ const AdminOrders = () => {
     if (auth?.token) getOrders();
   }, [auth?.token]);
 
+  //delete orders
+  // const deleteOrders = async () => {
+  //   try {
+  //     await axios.delete("http://localhost:8081/api/v1/auth/all-orders");
+  //     setOrders([]);
+  //     toast.success("All orders deleted successfully");
+  //   } catch (error) {
+  //     console.log(error);
+  //     toast.error("Error deleting all orders");
+  //   }
+  // };
+
   const handleChange = async (orderId, value) => {
     try {
       const { data } = await axios.put(
@@ -57,7 +69,14 @@ const AdminOrders = () => {
             <AdminMenu />
           </div>
           <div className="col-md-6">
-            <h1>All Orders list</h1>
+            <div className="d-flex justify-content-between align-items-center mb-4">
+              <h1>All Orders list</h1>
+
+              {/* 
+              <Button type="primary" onClick={deleteOrders}>
+                Delete All Orders
+              </Button> */}
+            </div>
             {orders?.map((o, i) => {
               return (
                 <div className="border shadow">
@@ -70,6 +89,8 @@ const AdminOrders = () => {
                         <th scope="col">Date</th>
                         <th scope="col">Payment</th>
                         <th scope="col">Quantity</th>
+                        {/* <th scope="col">Cart</th> */}
+                        <th scope="col">Payment Status</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -91,11 +112,28 @@ const AdminOrders = () => {
                         <td>{o?.buyer?.name}</td>
                         <td>{new Date(o?.createdAt).toLocaleString()}</td>
 
-                        <td>{o?.payment.success ? "Success" : "Failed"}</td>
-                        <td>{o?.products?.length}</td>
+                        <td>
+                          {o?.paymentStatus === "COD" ? "Pending" : "Success"}
+                        </td>
+                        {/* <td>{o?.products?.length}</td> */}
+                        <td>
+                          {o?.products?.reduce(
+                            (acc, curr) => acc + curr.quantity,
+                            0
+                          )}
+                        </td>
+                        {/* <td>
+                          {o?.cart?.map((c, i) => (
+                            <p key={i}>
+                              {c.product?.name} x {c.quantity}
+                            </p>
+                          ))}
+                        </td> */}
+                        <td>{o?.paymentStatus}</td>
                       </tr>
                     </tbody>
                   </table>
+
                   <div className="conatiner">
                     {o?.products?.map((p, i) => (
                       <div
@@ -120,6 +158,19 @@ const AdminOrders = () => {
                               }}
                               alt={p.name}
                             />
+                            {/* {o?.payment?.Pending && (
+                              <img
+                                src={`http://localhost:8081/api/v1/product/product-photo/${p._id}`}
+                                className="card-img-top"
+                                style={{
+                                  maxHeight: "250px",
+                                  maxWidth: "350px",
+                                  minWidth: "200px",
+                                  minHeight: "250px",
+                                }}
+                                alt={p.name}
+                              />
+                            )} */}
                           </div>
                         </div>
                         <div className="col-md-4">
