@@ -23,6 +23,16 @@ const Orders = () => {
     if (auth?.token) getOrders();
   }, [auth?.token]);
 
+  //delete order
+
+  // const handleDeleteOrder = async (_id) => {
+  //   try {
+  //     await axios.delete(`http://localhost:8081/api/v1/auth/orders/${_id}`);
+  //     setOrders(orders.filter((order) => order._id !== _id));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   return (
     <Layout title={"Dashboard-My orders"}>
       <div className="container-fluid m-3 p-3 mt-5">
@@ -46,6 +56,8 @@ const Orders = () => {
                             <th scope="col">Date</th>
                             <th scope="col">Payment</th>
                             <th scope="col">Quantity</th>
+                            <th scope="col">Payment Status</th>
+                            {/* <th scope="col">Delete </th> */}
                           </tr>
                         </thead>
                         <tbody>
@@ -53,9 +65,25 @@ const Orders = () => {
                             <td>{i + 1}</td>
                             <td>{o?.status}</td>
                             <td>{o?.buyer?.name}</td>
-                            <td>{moment(o?.createAt).fromNow()}</td>
-                            <td>{o?.payment.success ? "Success" : "Failed"}</td>
+                            <td>{new Date(o?.createdAt).toLocaleString()}</td>
+
+                            <td>
+                              {o?.paymentStatus === "COD"
+                                ? "Pending"
+                                : "Success"}
+                            </td>
+
                             <td>{o?.products?.length}</td>
+                            <td>{o?.paymentStatus}</td>
+                            {/* <td>
+                              <button
+                                type="button"
+                                className="btn btn-danger"
+                                onClick={() => handleDeleteOrder(o._id)}
+                              >
+                                Delete
+                              </button>
+                            </td> */}
                           </tr>
                         </tbody>
                       </table>
@@ -83,6 +111,19 @@ const Orders = () => {
                                   }}
                                   alt={p.name}
                                 />
+                                {/* {o?.payment?.Success && (
+                                  <img
+                                    src={`http://localhost:8081/api/v1/product/product-photo/${p._id}`}
+                                    className="card-img-top"
+                                    style={{
+                                      maxHeight: "250px",
+                                      maxWidth: "350px",
+                                      minWidth: "200px",
+                                      minHeight: "250px",
+                                    }}
+                                    alt={p.name}
+                                  />
+                                )} */}
                               </div>
                             </div>
                             <div className="col-md-4">

@@ -158,7 +158,7 @@ export const updateProductController = async (req, res) => {
       shipping,
     } = req.fields;
     const { photo } = req.files;
-    //Validations
+    //   Validations
     switch (true) {
       case !name:
         return res.status(500).send({ error: "Name is required" });
@@ -168,10 +168,11 @@ export const updateProductController = async (req, res) => {
         return res.status(500).send({ error: "price is required" });
       case !category:
         return res.status(500).send({ error: "category is required" });
-      case !quantity:
-        return res.status(500).send({ error: "quantity is required" });
-      case !stock:
-        return res.status(500).send({ error: "stock is required" });
+      // case !stock:
+      //   return res.status(500).send({ error: "stock is required" });
+      // case !quantity:
+      //   return res.status(500).send({ error: "quantity is required" });
+
       case photo && photo.size > 1000000:
         return res
           .status(500)

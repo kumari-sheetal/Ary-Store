@@ -276,9 +276,10 @@ const CartPage = () => {
                         gap: "10px",
                       }}
                     >
-                      <IoMdAdd onClick={() => handleAdd(p._id)} />
-                      {p.quantity}
                       <AiOutlineMinus onClick={() => handleMinus(p._id)} />
+
+                      {p.quantity}
+                      <IoMdAdd onClick={() => handleAdd(p._id)} />
                     </div>
 
                     <button
@@ -303,10 +304,10 @@ const CartPage = () => {
                     <h4>Current Address -{auth?.user?.address} </h4>
                     {/* <h5>{auth?.user?.address}</h5> */}
                     <button
-                      className="btn btn-outline-warning"
-                      onClick={() => navigate("/dashboard/user/profile")}
+                      className="btn btn-outline-warning mt-2"
+                      onClick={handleShopping}
                     >
-                      Update Address
+                      Continue Shopping
                     </button>
                   </div>
                 </>
@@ -314,10 +315,10 @@ const CartPage = () => {
                 <div className="mb-3">
                   {auth?.token ? (
                     <button
-                      className="btn btn-outline-warning"
-                      onClick={() => navigate("/dashboard/user/profile")}
+                      className="btn btn-outline-warning mt-2"
+                      onClick={handleShopping}
                     >
-                      Update Address
+                      Continue Shopping
                     </button>
                   ) : (
                     <button
@@ -333,7 +334,7 @@ const CartPage = () => {
                   )}
                 </div>
               )}
-              {auth?.token && (
+              {/* {auth?.token && (
                 <div className="mt-2">
                   {!clientToken || !cart?.length ? (
                     ""
@@ -387,7 +388,7 @@ const CartPage = () => {
                 onClick={handleShopping}
               >
                 Continue Shopping
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

@@ -18,6 +18,15 @@ const orderSchema = new mongoose.Schema(
       default: "Not Process",
       enum: ["Not Process", "Processing", "Shipped", "deliverd", "cancel"],
     },
+    cart: {
+      type: Array,
+      required: true,
+    },
+    paymentStatus: {
+      type: String,
+      enum: ["PAID", "COD"],
+      default: "PAID",
+    },
   },
   { timestamps: true }
 );
