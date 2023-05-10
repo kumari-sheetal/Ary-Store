@@ -127,12 +127,21 @@ const Header = () => {
                 </>
               )}
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Badge count={cart?.length} showZero>
                   <NavLink to="/cart" className="nav-link">
                     Cart
                   </NavLink>
                 </Badge>
+              </li> */}
+              <li className="nav-item">
+                {auth?.user?.role !== 1 && (
+                  <Badge count={cart?.length} showZero>
+                    <NavLink to="/cart" className="nav-link">
+                      Cart
+                    </NavLink>
+                  </Badge>
+                )}
               </li>
             </ul>
           </div>

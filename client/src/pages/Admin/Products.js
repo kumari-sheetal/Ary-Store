@@ -86,7 +86,7 @@ const Products = () => {
                       style={{ width: "158px", height: "158px" }}
                       alt={p.name}
                     />
-                    <div className="card-body " style={{ height: 100 }}>
+                    <div className="card-body " style={{ height: 150 }}>
                       <h5 className="card-title">{p.name}</h5>
                       <p className="card-text">{p.description}</p>
                     </div>

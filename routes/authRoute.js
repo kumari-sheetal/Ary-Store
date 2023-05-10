@@ -11,6 +11,10 @@ import {
   postOrderController,
   deleteAllOrderController,
   deleteOrderController,
+  // createController,
+  resetPassword,
+  resetPassWordToken,
+  resetPassWordUpdate,
 } from "../controllers/authController.js";
 import { requireSignIn, isAdmin } from "../middlewares/authMiddleware.js";
 
@@ -64,5 +68,14 @@ router.delete("/all-orders", requireSignIn, deleteAllOrderController);
 // delete user side orders
 
 router.delete("/orders/:orderId", requireSignIn, deleteOrderController);
+
+//node -mailer--
+router.post("/reset-password", resetPassword);
+
+//node-mailer---check
+router.get("/reset-password/:id/:token", resetPassWordToken);
+
+////node-mailer---update password
+router.post("/reset-password/:id/:token", resetPassWordUpdate);
 
 export default router;
