@@ -2,7 +2,38 @@ import userModel from "../models/userModel.js";
 import { comparePassword, hashpassword } from "../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
 import orderModel from "../models/orderModel.js";
+import nodemailer from "nodemailer";
+import bcrypt from "bcrypt";
 
+// import { creationMail } from "../mail/creationMail.js";
+
+//mail
+// export const createController = async (req, res) => {
+//   const { name, email } = req.body;
+
+//   try {
+//     const user = await userModel.create({
+//       name,
+//       email,
+//     });
+//     await creationMail({ name, email });
+
+//     res.json(user);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(400).json(error);
+//   }
+// };
+var transport = nodemailer.createTransport({
+  host: "sandbox.smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "bbf7538ea1cc1e",
+    pass: "ee5c566fb7273d",
+  },
+});
+
+//----------Register------------
 export const registerController = async (req, res) => {
   //register
   try {
@@ -113,6 +144,7 @@ export const loginController = async (req, res) => {
   }
 };
 
+//forgot
 export const forgotPasswordController = async (req, res) => {
   try {
     const { email, answer, newPassword } = req.body;
@@ -197,31 +229,6 @@ export const updateProfileController = async (req, res) => {
     });
   }
 };
-//postOrderController
-// export const postOrderController = async (req, res) => {
-//   try {
-//     const { cart, paymentStatus } = req.body;
-
-//     // Create a new order in the database
-//     const order = new orderModel({
-//       cart,
-//       paymentStatus,
-//       buyer: req.user._id,
-//       // ...other fields
-//     });
-
-//     // Populate product details in the order
-//     await order.populate("products").execPopulate();
-
-//     // Save the order in the database
-//     await order.save();
-
-//     res.status(201).json({ message: "Order created successfully", order });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// };
 
 export const postOrderController = async (req, res) => {
   try {
@@ -242,33 +249,6 @@ export const postOrderController = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
-// export const postOrderController = async (req, res) => {
-//   try {
-//     const { cart, paymentStatus } = req.body;
-
-//     // Create a new order in the database
-//     const order = new orderModel({
-//       cart,
-//       paymentStatus,
-//       buyer: {
-//         name: req.user.name,
-//       },
-//       products: cart.map((item) => ({
-//         product: item.product,
-//         quantity: item.quantity,
-//         photo: item.photo,
-//       })),
-//     });
-
-//     await order.save();
-
-//     res.status(201).json({ message: "Order created successfully" });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// };
 
 //get-Order-Controller
 export const getOrderController = async (req, res) => {
@@ -344,5 +324,127 @@ export const deleteOrderController = async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error" });
+  }
+};
+//----------mail-trap-- forgot password---------
+
+export const resetPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    console.log(email, "emailll..");
+
+    const oldUser = await userModel.findOne(
+      { email: email },
+      { _id: 1, password: 1 }
+    );
+
+    if (!oldUser) {
+      return res.status(400).send({
+        status: false,
+        message: "User Not Found",
+      });
+    }
+
+    // const secret = process.env.JWT_SECRET + oldUser .password;
+    const secret = process.env.JWT_SECRET;
+    const token = JWT.sign({ email: oldUser.email, id: oldUser._id }, secret, {
+      expiresIn: "5m",
+    });
+
+    const link = `http://localhost:8081/api/v1/auth/reset-password/${oldUser._id}/${token}`;
+    const textHtml = `Please click <a href=${link}> here </a>to reset Password`;
+
+    var mainOptions = {
+      from: "ranasheetal721@gmail.com",
+      to: email,
+      subject: "Password Reset",
+      text: link,
+      html: textHtml,
+    };
+
+    transport.sendMail(mainOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        return res.status(500).send({
+          status: false,
+          message: "Error occurred while sending email.",
+        });
+      } else {
+        console.log(info);
+        return res.status(200).send({
+          status: true,
+          message: "Password reset link has been sent to your email.",
+        });
+      }
+    });
+    console.log(oldUser);
+  } catch (err) {
+    return res.status(400).send({
+      status: false,
+      message: err.message,
+    });
+  }
+};
+
+export const resetPassWordToken = async (req, res) => {
+  const { id, token } = req.params;
+  console.log(req.params);
+  const oldUser = await userModel.findOne({ _id: id }, { email: 1 });
+  var userEmail;
+  if (!oldUser) {
+    return res.json({ status: "User Not Exists!!" });
+  } else {
+    userEmail = oldUser.email;
+  }
+
+  // const secret = process.env.JWT_SECRET + oldUser .password;
+  const secret = process.env.JWT_SECRET;
+  try {
+    const verify = JWT.verify(token, secret);
+    // res.send("Verified")
+    res.render("index", { email: userEmail });
+    // res.json({ email: verify.email, status: "verified" });
+  } catch (error) {
+    console.log(error);
+    res.send("Not Verified");
+  }
+};
+
+//----------reset password updated--------
+export const resetPassWordUpdate = async (req, res) => {
+  const { id, token } = req.params;
+  const { password } = req.body;
+  var userEmail;
+  if (!password) {
+    return res.json({ status: "Password is required!!" });
+  }
+
+  const oldUser = await userModel.findOne({ _id: id }, { email: 1 });
+  if (!oldUser) {
+    return res.json({ status: "User Not Exists!!" });
+  } else {
+    userEmail = oldUser.email;
+  }
+  // const secret = process.env.JWT_SECRET + oldUser .password;
+  const secret = process.env.JWT_SECRET;
+  try {
+    const verify = JWT.verify(token, secret);
+    console.log("New password:", password);
+    const encryptedPassword = await bcrypt.hash(password, 10);
+    await userModel.updateOne(
+      {
+        _id: id,
+      },
+      {
+        $set: {
+          password: encryptedPassword,
+        },
+      }
+    );
+
+    res.render("passwordSuccess", { email: verify.email });
+  } catch (error) {
+    console.log(error);
+    res.json({ status: "Something Went Wrong" });
   }
 };

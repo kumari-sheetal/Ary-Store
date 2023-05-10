@@ -6,6 +6,9 @@ import authRoute from "./routes/authRoute.js";
 import cors from "cors";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
+import bcrypt from "bcrypt";
+
+// import { transport } from "./mail/transporter.js";
 
 //configure env
 dotenv.config();
@@ -16,6 +19,9 @@ connectDB();
 //rest object
 const app = express();
 
+//node mailer
+app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: false }));
 //middlewares
 app.use(cors());
 app.use(express.json());

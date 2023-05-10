@@ -28,6 +28,7 @@ import CartPage from "./pages/CartPage";
 import AdminOrders from "./pages/Admin/AdminOrders";
 import PaymentPage from "./pages/Admin/PaymentPage";
 import Password from "antd/es/input/Password";
+import ResetPassword from "./pages/Auth/ResetPassword";
 
 function App() {
   return (
@@ -57,6 +58,8 @@ function App() {
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/Reset-password" element={<ResetPassword />} />
+
         {/* <Route
           path="/forgot-password/:id/:token"
           element={<ForgotPassword />}
