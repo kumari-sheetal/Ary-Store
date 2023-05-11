@@ -9,6 +9,8 @@ import toast from "react-hot-toast";
 import { IoMdAdd } from "react-icons/io";
 import { AiOutlineMinus } from "react-icons/ai";
 
+// import "./Cart.css";
+
 const CartPage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();

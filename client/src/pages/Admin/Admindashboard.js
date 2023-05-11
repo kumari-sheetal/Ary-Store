@@ -77,7 +77,7 @@ const Admindashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8081/api/v1/product/get-product")
+      .get("http://localhost:8081/api/v1/product/get-products")
       .then((res) => setProductCount(res.data.totalcount))
       .catch((err) => console.log(err));
 

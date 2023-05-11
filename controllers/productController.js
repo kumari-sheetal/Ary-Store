@@ -81,6 +81,30 @@ export const getproductController = async (req, res) => {
   }
 };
 
+//get -all -products --------------admindashboard(charts)
+export const getproductCharts = async (req, res) => {
+  try {
+    const products = await productModel
+      .find({})
+      .populate("category")
+      .select("-photo")
+      .sort({ createdAt: -1 });
+    res.status(200).send({
+      success: true,
+      totalcount: products.length,
+      message: "All products",
+      products,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "error in getting all product ",
+    });
+  }
+};
+
 //get-Single-Product-Controller
 export const getSingleProductController = async (req, res) => {
   try {

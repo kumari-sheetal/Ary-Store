@@ -6,6 +6,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
+import DarkMode from "./Darkmode/DarkMode";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -175,6 +176,7 @@ const Homepage = () => {
 
         <div className="col-md-10">
           <h1 className="text-center mt-5">All Products</h1>
+
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div className="card m-1 " style={{ width: "18rem" }} key={p._id}>
