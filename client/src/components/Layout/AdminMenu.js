@@ -87,7 +87,7 @@ const AdminMenu = () => {
                 <span> Products</span>
               </NavLink>
 
-              <NavLink
+              {/* <NavLink
                 to="/dashboard/admin/users"
                 className="list-group-item list-group-item-action"
                 style={{
@@ -99,7 +99,7 @@ const AdminMenu = () => {
               >
                 <TbUsers size="3em" />
                 <span>Users</span>
-              </NavLink>
+              </NavLink> */}
 
               <NavLink
                 to="/dashboard/admin/orders"

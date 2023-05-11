@@ -4,6 +4,7 @@ import {
   braintreePaymentController,
   braintreeTokenController,
   deleteProductController,
+  getproductCharts,
   getproductController,
   getSingleProductController,
   productCategoryController,
@@ -32,6 +33,8 @@ router.post(
 
 //get products
 router.get("/get-product", getproductController);
+//get -all -products --------------admindashboard(charts)
+router.get("/get-products", getproductCharts);
 
 //get-single-product
 router.get("/get-product/:slug", getSingleProductController);

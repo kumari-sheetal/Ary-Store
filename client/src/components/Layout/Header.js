@@ -8,6 +8,7 @@ import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/Cart";
 import { IoMdCart } from "react-icons/io";
 import { Badge } from "antd";
+import DarkMode from "../../pages/Darkmode/DarkMode";
 
 const Header = () => {
   const [cart] = useCart();
@@ -49,7 +50,6 @@ const Header = () => {
               <NavLink to="/" className="nav-link">
                 Home
               </NavLink>
-
               <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
@@ -76,7 +76,6 @@ const Header = () => {
                   ))}
                 </ul>
               </li>
-
               {!auth?.user ? (
                 <>
                   <li className="nav-item">
@@ -126,7 +125,6 @@ const Header = () => {
                   </li>
                 </>
               )}
-
               {/* <li className="nav-item">
                 <Badge count={cart?.length} showZero>
                   <NavLink to="/cart" className="nav-link">
@@ -143,6 +141,7 @@ const Header = () => {
                   </Badge>
                 )}
               </li>
+              <DarkMode />
             </ul>
           </div>
         </div>
