@@ -37,7 +37,7 @@ const Dashboard = () => {
           </div>
           <div className="col-md-9">
             <h1>Dashboard</h1>
-            <div className="col-md-8">
+            <div className="col-md-9">
               <div className="card m-5 p-3 ">
                 <h4>User Name: {auth?.user?.name}</h4>
                 <h4>User Email: {auth?.user?.email}</h4>
@@ -47,27 +47,29 @@ const Dashboard = () => {
             </div>
             <div className="row">
               <div className="col-md-6">
-                <PieChart width={600} height={300}>
-                  <Pie
-                    data={data}
-                    dataKey="value"
-                    nameKey="name"
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={80}
-                    fill="#8884d8"
-                    label
-                  >
-                    {data.map((entry, index) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                      />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                  <Legend />
-                </PieChart>
+                <div className="box">
+                  <PieChart width={600} height={300}>
+                    <Pie
+                      data={data}
+                      dataKey="value"
+                      nameKey="name"
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={80}
+                      fill="#8884d8"
+                      label
+                    >
+                      {data.map((entry, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={COLORS[index % COLORS.length]}
+                        />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                    <Legend />
+                  </PieChart>
+                </div>
               </div>
             </div>
           </div>

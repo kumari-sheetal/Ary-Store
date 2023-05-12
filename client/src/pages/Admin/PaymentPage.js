@@ -121,85 +121,90 @@ const PaymentPage = () => {
   return (
     <Layout>
       <div className="col-md-4 text-center mt-5">
-        <br></br>
-        <h2>Card Summary</h2>
-        <p>Total | Checkout | Payment</p>
-        <hr />
-        <h4>Total:{totalPrice()}</h4>
-        {auth?.user?.address ? (
-          <>
+        <div className="container ">
+          <br></br>
+          <h2>Card Summary</h2>
+          <p>Total | Checkout | Payment</p>
+
+          <hr />
+          <h4>Total:{totalPrice()}</h4>
+
+          {auth?.user?.address ? (
+            <>
+              <div className="mb-3">
+                <h4>Current Address -{auth?.user?.address} </h4>
+                {/* <h5>{auth?.user?.address}</h5> */}
+                <button
+                  className="btn btn-outline-warning"
+                  onClick={() => navigate("/dashboard/user/profile")}
+                >
+                  Update Address
+                </button>
+              </div>
+            </>
+          ) : (
             <div className="mb-3">
-              <h4>Current Address -{auth?.user?.address} </h4>
-              {/* <h5>{auth?.user?.address}</h5> */}
-              <button
-                className="btn btn-outline-warning"
-                onClick={() => navigate("/dashboard/user/profile")}
-              >
-                Update Address
-              </button>
-            </div>
-          </>
-        ) : (
-          <div className="mb-3">
-            {auth?.token ? (
-              <button
-                className="btn btn-outline-warning"
-                onClick={() => navigate("/dashboard/user/profile")}
-              >
-                Update Address
-              </button>
-            ) : (
-              <button
-                className="btn btn-outline-warning"
-                onClick={() =>
-                  navigate("/login", {
-                    state: "/cart",
-                  })
-                }
-              >
-                Please login to Checkout
-              </button>
-            )}
-          </div>
-        )}
-        <div className="pricecard-container ">
-          <h1>continue shopping</h1>
-          {auth?.token && (
-            <div className="mt-2">
-              {!clientToken || !cart?.length ? (
-                ""
+              {auth?.token ? (
+                <button
+                  className="btn btn-outline-warning"
+                  onClick={() => navigate("/dashboard/user/profile")}
+                >
+                  Update Address
+                </button>
               ) : (
-                <>
-                  <DropIn
-                    options={{
-                      authorization: clientToken,
-                      paypal: {
-                        flow: "vault",
-                      },
-                    }}
-                    onInstance={(instance) => setInstance(instance)}
-                  />
-                  <Form>
-                    <Form.Group className="mb-3" id="formGridCheckbox">
-                      <Form.Check
-                        type="checkbox"
-                        label="COD"
-                        onChange={(e) => setIsCODChecked(e.target.checked)}
-                      />
-                    </Form.Group>
-                  </Form>
-                  <button
-                    className="btn btn-outline-warning"
-                    onClick={handlePayment}
-                    // disabled={!loading || !instance || !auth?.user?.address}
-                  >
-                    Make Payment
-                    {/* {loading ? "Processing ...." : "Make Payment"} */}
-                  </button>
-                </>
+                <button
+                  className="btn btn-outline-warning"
+                  onClick={() =>
+                    navigate("/login", {
+                      state: "/cart",
+                    })
+                  }
+                >
+                  Please login to Checkout
+                </button>
               )}
             </div>
           )}
+          <div className="pricecard-container ">
+            <h3>Payment Method</h3>
+            {auth?.token && (
+              <div className="mt-2">
+                {!clientToken || !cart?.length ? (
+                  ""
+                ) : (
+                  <>
+                    <DropIn
+                      options={{
+                        authorization: clientToken,
+                        paypal: {
+                          flow: "vault",
+                        },
+                      }}
+                      onInstance={(instance) => setInstance(instance)}
+                    />
+                    <Form>
+                      <Form.Group className="mb-3" id="formGridCheckbox">
+                        <Form.Check
+                          style={{ fontSize: "1cm" }}
+                          type="checkbox"
+                          label="COD"
+                          onChange={(e) => setIsCODChecked(e.target.checked)}
+                        />
+                      </Form.Group>
+                    </Form>
+                    <button
+                      className="btn btn-outline-warning"
+                      onClick={handlePayment}
+                      // disabled={!loading || !instance || !auth?.user?.address}
+                    >
+                      Make Payment
+                      {/* {loading ? "Processing ...." : "Make Payment"} */}
+                    </button>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </Layout>
