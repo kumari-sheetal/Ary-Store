@@ -192,6 +192,7 @@ export const updateProductController = async (req, res) => {
         return res.status(500).send({ error: "price is required" });
       case !category:
         return res.status(500).send({ error: "category is required" });
+
       // case !stock:
       //   return res.status(500).send({ error: "stock is required" });
       // case !quantity:
@@ -384,6 +385,7 @@ export const braintreePaymentController = async (req, res) => {
     if (Array.isArray(cart)) {
       cart.map((i) => {
         total += i.price;
+        console.log(error);
       });
     }
     let newTransaction = await gateway.transaction.sale(
@@ -446,7 +448,8 @@ export const braintreePaymentController = async (req, res) => {
 //     } else {
 //       res.status(500).send(newTransaction.message);
 //       console.log("hello4");
-//     }
+//     }//     }
+
 //   } catch (error) {
 //     console.log("hello5");
 //     console.log(error);

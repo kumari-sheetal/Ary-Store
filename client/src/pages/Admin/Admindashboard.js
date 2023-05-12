@@ -71,6 +71,7 @@ import {
 } from "recharts";
 
 const Admindashboard = () => {
+  const [auth] = useAuth("");
   const [productCount, setProductCount] = useState(0);
   const [categoryCount, setCategoryCount] = useState(0);
   const [orderCount, setOrderCount] = useState(0);
@@ -111,37 +112,49 @@ const Admindashboard = () => {
             <h1>Admin Dashboard</h1>
             <div className="row">
               <div className="col-md-6">
-                <BarChart width={600} height={300} data={data}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Bar dataKey="value" fill="#8884d8" />
-                </BarChart>
+                <div class="box">
+                  <BarChart width={600} height={300} data={data}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="value" fill="#8884d8" />
+                  </BarChart>
+                </div>
               </div>
+
               <div className="col-md-6">
-                <PieChart width={600} height={300}>
-                  <Pie
-                    data={data}
-                    dataKey="value"
-                    nameKey="name"
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={80}
-                    fill="#8884d8"
-                    label
-                  >
-                    {data.map((entry, index) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                      />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                  <Legend />
-                </PieChart>
+                <div class="box">
+                  <PieChart width={600} height={300}>
+                    <Pie
+                      data={data}
+                      dataKey="value"
+                      nameKey="name"
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={80}
+                      fill="#8884d8"
+                      label
+                    >
+                      {data.map((entry, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={COLORS[index % COLORS.length]}
+                        />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                    <Legend />
+                  </PieChart>
+                </div>
+              </div>
+              <div className="col-md-80 ">
+                <div className="card m-5 .ml-0 p-3 ">
+                  <h4>User Name: {auth?.user?.name}</h4>
+                  <h4>User Email: {auth?.user?.email}</h4>
+                  <h4>User Contact:{auth?.user?.phone}</h4>
+                </div>
               </div>
             </div>
           </div>

@@ -80,17 +80,61 @@ const AdminOrders = () => {
             {orders?.map((o, i) => {
               return (
                 <div className="border shadow">
-                  <table className="table ">
+                  <table
+                    style={{
+                      borderCollapse: "collapse",
+                      width: "100%",
+                      marginBottom: "1rem",
+                      backgroundColor: "#fff",
+                      color: "black",
+                      border: "1px solid rgba(0, 0, 0, 0.1)",
+                    }}
+                  >
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Buyer</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Payment</th>
-                        <th scope="col">Quantity</th>
-                        {/* <th scope="col">Cart</th> */}
-                        <th scope="col">Payment Status</th>
+                        <th
+                          style={{ backgroundColor: "black", color: "white" }}
+                          scope="col"
+                        >
+                          #
+                        </th>
+                        <th
+                          style={{ backgroundColor: "black", color: "white" }}
+                          scope="col"
+                        >
+                          Status
+                        </th>
+                        <th
+                          style={{ backgroundColor: "black", color: "white" }}
+                          scope="col"
+                        >
+                          Buyer
+                        </th>
+                        <th
+                          style={{ backgroundColor: "black", color: "white" }}
+                          scope="col"
+                        >
+                          Date
+                        </th>
+                        <th
+                          style={{ backgroundColor: "black", color: "white" }}
+                          scope="col"
+                        >
+                          Payment
+                        </th>
+                        <th
+                          style={{ backgroundColor: "black", color: "white" }}
+                          scope="col"
+                        >
+                          Quantity
+                        </th>
+                        <th
+                          style={{ backgroundColor: "black", color: "white" }}
+                          scope="col"
+                        >
+                          Payment Status
+                        </th>
+                        {/* <th scope="col">Delete </th> */}
                       </tr>
                     </thead>
                     <tbody>

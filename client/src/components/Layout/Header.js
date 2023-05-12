@@ -9,6 +9,7 @@ import { useCart } from "../../context/Cart";
 import { IoMdCart } from "react-icons/io";
 import { Badge } from "antd";
 import DarkMode from "../../pages/Darkmode/DarkMode";
+import { BsCart4 } from "react-icons/bs";
 
 const Header = () => {
   const [cart] = useCart();
@@ -132,15 +133,25 @@ const Header = () => {
                   </NavLink>
                 </Badge>
               </li> */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 {auth?.user?.role !== 1 && (
                   <Badge count={cart?.length} showZero>
-                    <NavLink to="/cart" className="nav-link">
+                    <NavLink to="/cart" className="nav-link" style={{}}>
                       Cart
                     </NavLink>
                   </Badge>
                 )}
+              </li> */}
+              <li className="nav-item">
+                {auth?.user?.role !== 1 && (
+                  <NavLink to="/cart" className="nav-link">
+                    <Badge count={cart?.length} showZero>
+                      <BsCart4 size="2em" />
+                    </Badge>
+                  </NavLink>
+                )}
               </li>
+
               <DarkMode />
             </ul>
           </div>
