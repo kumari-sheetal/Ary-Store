@@ -119,14 +119,21 @@ const CreateCategory = () => {
                         position: "sticky",
                         top: -1,
                         border: "2px solid #cecece",
+
                         boxShadow: "200px 2px 200px gray",
                         height: "50px",
                       }}
                     >
                       <tr>
-                        <th scope="col">Sr.No</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col" style={{ color: "black" }}>
+                          Sr.No
+                        </th>
+                        <th scope="col" style={{ color: "black" }}>
+                          Name
+                        </th>
+                        <th scope="col" style={{ color: "black" }}>
+                          Actions
+                        </th>
                       </tr>
                     </thead>
                     <tbody>

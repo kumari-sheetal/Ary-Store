@@ -122,7 +122,7 @@ const PaymentPage = () => {
     <Layout>
       <div className="col-md-4 text-center mt-5">
         <div className="container ">
-          <br></br>
+          <br />
           <h2>Card Summary</h2>
           <p>Total | Checkout | Payment</p>
 

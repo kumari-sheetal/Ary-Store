@@ -47,7 +47,7 @@ const Orders = () => {
                 {orders?.map((o, i) => {
                   return (
                     <div className="border shadow">
-                      <table className="table">
+                      <table className="table-responsive">
                         <thead>
                           <tr>
                             <th
@@ -146,13 +146,13 @@ const Orders = () => {
                       <div className="conatiner">
                         {o?.products?.map((p, i) => (
                           <div
-                            className="row mb-2  card flex-row"
+                            className="row mb-2  cards flex-row"
                             style={{ marginLeft: "0px", marginRight: "0px" }}
                           >
                             <div className="col-md-4 ">
                               <div
                                 // className="card m-1 "
-                                className="card "
+                                className="cards "
                                 style={{ width: "14rem" }}
                                 key={p._id}
                               >
