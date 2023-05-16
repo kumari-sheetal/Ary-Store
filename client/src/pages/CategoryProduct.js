@@ -45,15 +45,15 @@ const CategoryProduct = () => {
   return (
     <Layout>
       <div className="container" style={{ marginTop: "100px" }}>
-        <h4 className="text-center">Category-{category?.name}</h4>
-        <h6 className="text-center ">{products?.length} Total Result</h6>
+        <h4 className="text">Category-{category?.name}</h4>
+        <h6 className="text ">{products?.length} Total Result</h6>
 
         <div className="row">
           <div className="col-md-16">
             <div className="d-flex flex-wrap">
               {products?.map((p) => (
                 <div
-                  className="card m-1 "
+                  className="card m-3 "
                   style={{ width: "18rem" }}
                   key={p._id}
                 >

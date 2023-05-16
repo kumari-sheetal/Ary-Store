@@ -135,11 +135,11 @@ const Homepage = () => {
       <div className="row mt-5">
         <div className="col-md-2">
           <h4 className="text-center mt-5">Filter by Category</h4>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column ">
             {categories?.map((c) => (
               <Checkbox
                 className="abc"
-                style={{ margin: 0 }}
+                style={{ margin: 0, marginLeft: "1cm" }}
                 key={c._id}
                 onChange={(e) => handleFilter(e.target.checked, c._id)}
               >
@@ -150,9 +150,14 @@ const Homepage = () => {
           {/*--------  Price filter---------*/}
           <div className="row mt-3">
             <div className="col-md-7">
-              <h4 className="text-center mt-4">Filter by Price</h4>
+              <h4 className="text-center " style={{ marginLeft: "33px" }}>
+                Price Filter
+              </h4>
               <div className="d-flex flex-column">
-                <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+                <Radio.Group
+                  style={{ margin: 0, marginLeft: "1cm" }}
+                  onChange={(e) => setRadio(e.target.value)}
+                >
                   {Prices?.map((p) => (
                     <div key={p._id}>
                       <Radio value={p.array}>{p.name}</Radio>
@@ -160,26 +165,34 @@ const Homepage = () => {
                   ))}
                 </Radio.Group>
               </div>
-              <div className="col-md-70">
-                <div className="row mt-3 ">
-                  <button
-                    className="btn btn-outline-dark ms-2"
-                    onClick={() => window.location.reload()}
-                  >
-                    Reset Filters
-                  </button>
-                </div>
-              </div>
+              {/* <div className="col-md-70"> */}
+              {/* <div className="row mt-3 "> */}
+              <button
+                className="btn btn-outline-dark ms-4 mt-3 "
+                onClick={() => window.location.reload()}
+              >
+                Reset Filters
+              </button>
+              {/* </div> */}
+              {/* </div> */}
             </div>
           </div>
         </div>
 
-        <div className="col-md-10">
-          <h1 className="text-center mt-5">All Products</h1>
+        <div className="col-md-10  ">
+          <h1 className="product mt-5 ">All Products</h1>
 
-          <div className="d-flex flex-wrap">
+          <div className="d-flex flex-wrap flex-row ">
+            {/* <div
+            className="d-flex "
+            // style={{
+            //   flexDirection: "row",
+            //   flexWrap: "wrap",
+            //   justifyContent: "space-evenly",
+            // }}
+          > */}
             {products?.map((p) => (
-              <div className="card m-1 " style={{ width: "18rem" }} key={p._id}>
+              <div className="card m-3 " style={{ width: "18rem" }} key={p._id}>
                 <img
                   src={`http://localhost:8081/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
