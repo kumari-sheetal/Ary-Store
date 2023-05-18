@@ -30,7 +30,7 @@ const Searchproduct = () => {
   return (
     <Layout title={"Search Results"}>
       <div className="container">
-        <div className="text-center">
+        <div className="text">
           <h1>Search results</h1>
           <h6>
             {values?.results.length < 1
@@ -39,7 +39,7 @@ const Searchproduct = () => {
           </h6>
           <div className="d-flex flex-wrap">
             {values?.results.map((p) => (
-              <div className="card m-1 " style={{ width: "18rem" }} key={p._id}>
+              <div className="card m-3 " style={{ width: "18rem" }} key={p._id}>
                 <img
                   src={`http://localhost:8081/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"

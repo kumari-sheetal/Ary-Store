@@ -71,7 +71,7 @@ const CreateProduct = () => {
           <div className="col-md-3">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
+          <div className="col-md-9 create-product-container">
             <h1>Create Product</h1>
             <div className="m-1 w-75">
               <Select
@@ -91,8 +91,10 @@ const CreateProduct = () => {
                 ))}
               </Select>
               <div className="mb-3">
-                <label className="btn btn-outline-dark col-md-12">
-                  {photo ? photo.name : "Upload Photo"}
+                <label className="btn btn-outline-dark col-md-12 upload-photo-label">
+                  <span className="upload-photo-label-text">
+                    {photo ? photo.name : "Upload Photo"}
+                  </span>
                   <input
                     type="file"
                     name="photo"
@@ -104,12 +106,12 @@ const CreateProduct = () => {
               </div>
               <div className="mb-3">
                 {photo && (
-                  <div className="text-center">
+                  <div className="text-center uploaded-photo-container">
                     <img
                       src={URL.createObjectURL(photo)}
                       alt="product_photo"
                       height={"200px"}
-                      className="img img-responsive"
+                      className="uploaded-photo"
                     />
                   </div>
                 )}

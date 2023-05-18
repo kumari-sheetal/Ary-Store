@@ -36,3 +36,41 @@
   .category .card-img-top {
     height: 300px !important;
   }
+
+  /* createProduct.css */
+/* createProduct.css */
+
+/* Add additional CSS styles as needed */
+
+
+/* Add additional CSS styles as needed */
+/* createProduct.css */
+
+/* ...existing styles... */
+
+.upload-photo-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.upload-photo-label input[type="file"] {
+  display: none;
+}
+
+.upload-photo-label-text {
+  margin-left: 10px;
+}
+
+.uploaded-photo-container {
+  text-align: center;
+}
+
+.uploaded-photo {
+  max-width: 200px;
+  max-height: 200px;
+  display: inline-block;
+}

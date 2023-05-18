@@ -80,7 +80,31 @@ export const getproductController = async (req, res) => {
     });
   }
 };
+//-----------get-all--products--in---- admin side---productpage
 
+export const getproductadminController = async (req, res) => {
+  try {
+    const products = await productModel
+      .find({})
+      .populate("category")
+      .select("-photo")
+      .limit(9)
+      .sort({ createdAt: -1 });
+    res.status(200).send({
+      success: true,
+      totalcount: products.length,
+      message: "All products",
+      products,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "error in getting all product ",
+    });
+  }
+};
 //get -all -products --------------admindashboard(charts)
 export const getproductCharts = async (req, res) => {
   try {
@@ -325,7 +349,7 @@ export const relatedProductController = async (req, res) => {
         _id: { $ne: pid },
       })
       .select("-photo")
-      .limit(3)
+      .limit(4)
       .populate("category");
     res.status(200).send({
       success: true,

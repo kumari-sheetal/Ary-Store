@@ -55,9 +55,6 @@ const Profile = () => {
   };
   return (
     <Layout title={"Update profile"}>
-      <div className="container-fluid m-3 p-3 mt-5">
-        <UserMenu />
-      </div>
       <div className="register">
         <form onSubmit={handleSubmit}>
           <h4 className="title">User Profile</h4>

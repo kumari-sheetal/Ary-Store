@@ -137,3 +137,12 @@ input.dark-mode-checkbox:checked ~ body {
     color: #030303;
     border: none;
 }
+.dark-mode .navbar{
+      background-color:  #333;
+    color: #030303;
+
+}
+.dark-mode .abc{
+    color: #ffffff;
+}
+
