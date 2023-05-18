@@ -19,7 +19,7 @@ const AdminMenu = () => {
           role="button"
           aria-controls="offcanvasExample"
         >
-          Dashboard
+          &#9776; Open Sidebar
         </a>
 
         <div

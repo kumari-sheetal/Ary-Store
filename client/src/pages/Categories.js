@@ -26,14 +26,22 @@ const Categories = () => {
           {categories.map((c, index) => (
             <div className="col-md-3 mt-5 mb-3" key={c._id}>
               <Link to={`/category/${c.slug}`} className="category-link">
-                <div className="category-card">
-                  <img
-                    src={categoryImages[index]}
-                    alt={c.name}
-                    className="category-image"
-                  />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <div className="category-card">
+                    <img
+                      src={categoryImages[index]}
+                      alt={c.name}
+                      className="category-image"
+                    />
+                  </div>
+                  <span className="category-name">{c.name}</span>
                 </div>
-                <span className="category-name">{c.name}</span>
               </Link>
             </div>
           ))}

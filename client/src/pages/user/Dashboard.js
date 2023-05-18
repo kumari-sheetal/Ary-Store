@@ -14,43 +14,70 @@ import {
   PieChart,
   Pie,
   Cell,
+  LineChart,
+  Line,
 } from "recharts";
 
 const Dashboard = () => {
   const [auth] = useAuth("");
   const [orderCount, setOrderCount] = useState(0);
+  const [productCount, setProductCount] = useState(0);
+  const [activityData, setActivityData] = useState([]);
+
   useEffect(() => {
     axios
       .get("http://localhost:8081/api/v1/auth/orders")
       .then((res) => setOrderCount(res.data.length))
       .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:8081/api/v1/product/get-products")
+      .then((res) => setProductCount(res.data.totalcount))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:8081/api/v1/auth/user-activity")
+      .then((res) => setActivityData(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
-  const data = [{ name: "Total Orders", value: orderCount }];
+  const orderData = [{ name: "Total Orders", value: orderCount }];
+  const productData = [{ name: "Total Products", value: productCount }];
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
+
   return (
-    <Layout title={"Dashboard"}>
-      <div className="container-fluid m-3 p-3 mt-5">
+    <Layout title="Dashboard">
+      <div className="container-fluid mt-5">
         <div className="row">
           <div className="col-md-3">
             <UserMenu />
           </div>
-          <div className="col-md-9">
-            <h1>Dashboard</h1>
-            <div className="col-md-9">
-              <div className="card m-5 p-3 ">
-                <h4>User Name: {auth?.user?.name}</h4>
-                <h4>User Email: {auth?.user?.email}</h4>
-                <h4>User Contact:{auth?.user?.phone}</h4>
-                <h4>User Address:{auth?.user?.address}</h4>
+          <div className="col-md-9 mt-5">
+            <h1 className="mb-4">Dashboard</h1>
+            <div className="row">
+              <div className="col">
+                {/* <h4 className="mb-3">User Details</h4>
+                  <div className="mb-2">
+                    <strong>Name:</strong> {auth?.user?.name}
+                  </div>
+                  <div className="mb-2">
+                    <strong>Email:</strong> {auth?.user?.email}
+                  </div>
+                  <div className="mb-2">
+                    <strong>Contact:</strong> {auth?.user?.phone}
+                  </div>
+                  <div className="mb-2">
+                    <strong>Address:</strong> {auth?.user?.address}
+                  </div> */}
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-6">
-                <div className="box">
+            <div className="col-md-6">
+              <div className="card bg-light shadow-sm p-3">
+                <h4 className="mb-3">Total Orders</h4>
+                <div className="box mb-3">
                   <PieChart width={600} height={300}>
                     <Pie
-                      data={data}
+                      data={orderData}
                       dataKey="value"
                       nameKey="name"
                       cx="50%"
@@ -59,7 +86,7 @@ const Dashboard = () => {
                       fill="#8884d8"
                       label
                     >
-                      {data.map((entry, index) => (
+                      {orderData.map((entry, index) => (
                         <Cell
                           key={`cell-${index}`}
                           fill={COLORS[index % COLORS.length]}

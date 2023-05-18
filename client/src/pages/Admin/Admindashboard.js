@@ -68,6 +68,8 @@ import {
   PieChart,
   Pie,
   Cell,
+  LineChart,
+  Line,
 } from "recharts";
 
 const Admindashboard = () => {
@@ -99,6 +101,13 @@ const Admindashboard = () => {
     { name: "Total Orders", value: orderCount },
   ];
 
+  const previousOrderData = [
+    // Replace this with the actual data of previous orders
+    { month: "Jan", orders: 10 },
+    { month: "Feb", orders: 15 },
+    { month: "Mar", orders: 12 },
+    // Add more data points as needed
+  ];
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 
   return (
@@ -111,51 +120,76 @@ const Admindashboard = () => {
           <div className="col-md-9 mt-5">
             <h1>Admin Dashboard</h1>
             <div className="row">
-              <div className="col-md-6">
-                <div class="box">
-                  <BarChart width={600} height={300} data={data}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Bar dataKey="value" fill="#8884d8" />
-                  </BarChart>
+              <div className="col">
+                <div className="card bg-light shadow-sm p-3">
+                  <h4 className="mb-3"></h4>
+                  <div className="box mb-3">
+                    {" "}
+                    <BarChart width={600} height={300} data={data}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Bar dataKey="value" fill="#8884d8" />
+                    </BarChart>
+                  </div>
                 </div>
               </div>
-
               <div className="col-md-6">
-                <div class="box">
-                  <PieChart width={600} height={300}>
-                    <Pie
-                      data={data}
-                      dataKey="value"
-                      nameKey="name"
-                      cx="50%"
-                      cy="50%"
-                      outerRadius={80}
-                      fill="#8884d8"
-                      label
+                <div className="card bg-light shadow-sm p-3">
+                  <h4 className="mb-3"></h4>
+                  <div className="box mb-3">
+                    <PieChart width={600} height={300}>
+                      <Pie
+                        data={data}
+                        dataKey="value"
+                        nameKey="name"
+                        cx="50%"
+                        cy="50%"
+                        outerRadius={80}
+                        fill="#8884d8"
+                        label
+                      >
+                        {data.map((entry, index) => (
+                          <Cell
+                            key={`cell-${index}`}
+                            fill={COLORS[index % COLORS.length]}
+                          />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                      <Legend />
+                    </PieChart>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6 mt-4">
+                <div className="card bg-light shadow-sm p-3">
+                  <h4 className="mb-3">Orders Status</h4>
+                  <div className="box mb-3">
+                    <LineChart
+                      width={600}
+                      height={300}
+                      data={previousOrderData}
+                      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                     >
-                      {data.map((entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={COLORS[index % COLORS.length]}
-                        />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                    <Legend />
-                  </PieChart>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="month" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Line
+                        type="monotone"
+                        dataKey="orders"
+                        stroke="#8884d8"
+                        activeDot={{ r: 8 }}
+                      />
+                    </LineChart>
+                  </div>
                 </div>
               </div>
-              <div className="col-md-80 ">
-                <div className="card m-5 .ml-0 p-3 ">
-                  <h4>User Name: {auth?.user?.name}</h4>
-                  <h4>User Email: {auth?.user?.email}</h4>
-                  <h4>User Contact:{auth?.user?.phone}</h4>
-                </div>
-              </div>
+              <div className="col-md-6">{/* Additional content */}</div>
             </div>
           </div>
         </div>

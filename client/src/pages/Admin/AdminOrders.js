@@ -81,6 +81,7 @@ const AdminOrders = () => {
               return (
                 <div className="border shadow">
                   <table
+                    className="table-responsive"
                     style={{
                       borderCollapse: "collapse",
                       width: "100%",
@@ -181,13 +182,13 @@ const AdminOrders = () => {
                   <div className="conatiner">
                     {o?.products?.map((p, i) => (
                       <div
-                        className="row  mb-2  card flex-row"
+                        className="row  mb-2  cards flex-row"
                         style={{ marginLeft: "0px", marginRight: "0px" }}
                       >
                         <div className="col-md-4 ">
                           <div
                             // className="card m-1 "
-                            className="card "
+                            className="c "
                             style={{ width: "14rem" }}
                             key={p._id}
                           >

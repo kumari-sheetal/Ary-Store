@@ -14,7 +14,7 @@ const Products = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8081/api/v1/product/get-product"
+        "http://localhost:8081/api/v1/product/get-product-admin"
       );
       setProducts(data.products);
     } catch (error) {
@@ -49,7 +49,7 @@ const Products = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:8081/api/v1/product/product-list/${page}`
+        `http://localhost:8081/api/v1/product/product-list/$ {page}`
       );
       setProducts([...products, ...data?.products]);
       setLoading(false);
@@ -68,12 +68,12 @@ const Products = () => {
           </div>
           <h1>All Product list</h1>
           <div className="col-md-12">
-            <div className="row row-cols-8">
+            <div className="d-flex flex-wrap flex-row ">
               {products?.map((p) => (
                 <Link
                   key={p._id}
                   to={`/dashboard/admin/product/${p.slug}`}
-                  className="product-box  col"
+                  className="product-box col"
                 >
                   <div
                     className="card m-2 p-3"

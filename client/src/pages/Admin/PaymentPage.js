@@ -184,14 +184,31 @@ const PaymentPage = () => {
                     />
                     <Form>
                       <Form.Group className="mb-3" id="formGridCheckbox">
-                        <Form.Check
-                          style={{ fontSize: "1cm" }}
-                          type="checkbox"
-                          label="COD"
-                          onChange={(e) => setIsCODChecked(e.target.checked)}
-                        />
+                        <div
+                          className="border rounded p-3"
+                          style={{ background: "#dddcdc", border: "14px" }}
+                        >
+                          <div className="d-flex align-items-center">
+                            <Form.Check
+                              type="checkbox"
+                              id="cod-checkbox"
+                              label=""
+                              onChange={(e) =>
+                                setIsCODChecked(e.target.checked)
+                              }
+                              style={{ fontSize: "1.2rem" }}
+                            />
+                            <Form.Label
+                              htmlFor="cod-checkbox"
+                              className="mb-0 ms-2"
+                            >
+                              Cash on Delivery
+                            </Form.Label>
+                          </div>
+                        </div>
                       </Form.Group>
                     </Form>
+
                     <button
                       className="btn btn-outline-warning"
                       onClick={handlePayment}

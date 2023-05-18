@@ -236,7 +236,7 @@ const CartPage = () => {
           <h1 className="text-enter ">
             {/* {`Hello${auth?.token && auth?.user?.name}`} */}
           </h1>
-          <h4 className="text-center">
+          <h4 className="text">
             {cart?.length > 0
               ? `You have ${cart.length} items in your cart ${
                   auth?.token ? "" : "Please login to checkout"
@@ -268,9 +268,15 @@ const CartPage = () => {
                     </div>
                   </div>
                   <div className="col-md-8 ">
-                    <p>{p.name}</p>
-                    <p>{p.description.substring(0, 30)}</p>
-                    <p> Price: {p.price}</p>
+                    <p>
+                      <b>Name: </b> {p.name}
+                    </p>
+                    <p>
+                      <b>Description: </b> {p.description.substring(0, 30)}
+                    </p>
+                    <p>
+                      <b>Price: </b> {p.price}
+                    </p>
                     <div
                       style={{
                         display: "flex",
@@ -281,6 +287,7 @@ const CartPage = () => {
                       <AiOutlineMinus onClick={() => handleMinus(p._id)} />
 
                       {p.quantity}
+
                       <IoMdAdd onClick={() => handleAdd(p._id)} />
                     </div>
 

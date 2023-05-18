@@ -55,6 +55,7 @@ const Homepage = () => {
     if (page === 1) return;
     loadMore();
   }, [page]);
+
   //load more function
   const loadMore = async () => {
     try {
@@ -157,10 +158,13 @@ const Homepage = () => {
                 <Radio.Group
                   style={{ margin: 0, marginLeft: "1cm" }}
                   onChange={(e) => setRadio(e.target.value)}
+                  className="abc"
                 >
                   {Prices?.map((p) => (
                     <div key={p._id}>
-                      <Radio value={p.array}>{p.name}</Radio>
+                      <Radio className="abc" value={p.array}>
+                        {p.name}
+                      </Radio>
                     </div>
                   ))}
                 </Radio.Group>
@@ -226,7 +230,7 @@ const Homepage = () => {
             ))}
           </div>
           <div className="m-2 p-3">
-            {products && products.length < total && (
+            {products && products.length < total && products.length > 5 && (
               <button
                 className="btn btn-dark"
                 onClick={(e) => {
@@ -234,7 +238,7 @@ const Homepage = () => {
                   setPage(page + 1);
                 }}
               >
-                {loading ? "Loading ..." : "Loadmore"}
+                {loading ? "Loading ..." : "Load More"}
               </button>
             )}
           </div>
