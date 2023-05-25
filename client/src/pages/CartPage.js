@@ -230,16 +230,14 @@ const CartPage = () => {
   // };
   return (
     <Layout>
-      <div className="container" style={{ marginTop: "100px" }}>
+      <div className="container">
         <div className="row">
           <div className="col-md-12"></div>
-          <h1 className="text-enter ">
-            {/* {`Hello${auth?.token && auth?.user?.name}`} */}
-          </h1>
-          <h4 className="text">
+          {/* <h1 className="text">{`Hello${auth?.token && auth?.user?.name}`}</h1> */}
+          <h4 className=" filter text">
             {cart?.length > 0
-              ? `You have ${cart.length} items in your cart ${
-                  auth?.token ? "" : "Please login to checkout"
+              ? `You have ${cart.length} items in your Cart ${
+                  auth?.token ? "" : "Please Login to Checkout"
                 }`
               : "Your Cart is Empty"}
           </h4>
@@ -247,11 +245,11 @@ const CartPage = () => {
           <div className="row">
             <div className="col-md-7">
               {cart?.map((p) => (
-                <div className="row mb-4 p-3 card flex-row m-2">
+                <div className="row mb-4 p-2 card flex-row m-1">
                   <div className="col-md-4">
                     <div
                       className="cards m-1  "
-                      style={{ width: "18rem" }}
+                      // style={{ width: "18rem" }}
                       key={p._id}
                     >
                       <img
@@ -259,7 +257,7 @@ const CartPage = () => {
                         className="card-img-top"
                         style={{
                           maxHeight: "250px",
-                          maxWidth: "350px",
+                          maxWidth: "250px",
                           minWidth: "200px",
                           minHeight: "250px",
                         }}
@@ -292,7 +290,7 @@ const CartPage = () => {
                     </div>
 
                     <button
-                      className="btn btn-dark"
+                      className="add btn "
                       onClick={() => removeCartItem(p._id)}
                     >
                       Remove
@@ -302,10 +300,13 @@ const CartPage = () => {
               ))}
             </div>
 
-            <div className="col-md-4 text-center">
-              <h2>Card Summary</h2>
+            <div className=" col-md-4 ">
+              <div className="filter">
+                <h2>Card Summary</h2>
+              </div>
               <p>Total | Checkout | Payment</p>
               <hr />
+
               <h4>Total:{totalPrice()}</h4>
               {auth?.user?.address ? (
                 <>
@@ -313,7 +314,7 @@ const CartPage = () => {
                     <h4>Current Address -{auth?.user?.address} </h4>
                     {/* <h5>{auth?.user?.address}</h5> */}
                     <button
-                      className="btn btn-outline-warning mt-2"
+                      className="shoppi btn mt-2"
                       onClick={handleShopping}
                     >
                       Continue Shopping
@@ -324,14 +325,14 @@ const CartPage = () => {
                 <div className="mb-3">
                   {auth?.token ? (
                     <button
-                      className="btn btn-outline-warning mt-2"
+                      className="shoppi btn mt-2"
                       onClick={handleShopping}
                     >
                       Continue Shopping
                     </button>
                   ) : (
                     <button
-                      className="btn btn-outline-warning"
+                      className="shoppi btn"
                       onClick={() =>
                         navigate("/login", {
                           state: "/cart",

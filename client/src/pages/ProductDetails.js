@@ -65,14 +65,16 @@ const ProductDetails = () => {
           />
         </div>
         <div className="col mt-5  ">
-          <h1>Product Deatils</h1>
+          <div className="filter">
+            <h1>Product Deatils</h1>
+          </div>
           <h6>Name:{product.name}</h6>
           <h6>Description:{product.description}</h6>
-          <h6>Price:{product.price}</h6>
+          <h6>Price: ₹{product.price}</h6>
           <h6>Category:{product?.category?.name}</h6>
 
           <button
-            className="btn btn-outline-dark ms-2 "
+            className="more btn ms-2 mt-2 "
             onClick={() => onClick(product)}
 
             // {
@@ -87,9 +89,11 @@ const ProductDetails = () => {
       </div>
       <hr />
       <div className="row m-3 ">
-        <h2>Similar Products</h2>
+        <div className="filter">
+          <h2>Similar Products</h2>
+        </div>
         {relatedProducts.length < 1 && (
-          <p className="text-left">No Similar Products</p>
+          <p className=" filter text-left">No Similar Products</p>
         )}
         <div className="d-flex flex-wrap">
           {relatedProducts?.map((p) => (
@@ -113,7 +117,7 @@ const ProductDetails = () => {
                 <p className="card-text">₹{p.price}</p>
 
                 <button
-                  className="btn btn-outline-dark ms-2 "
+                  className=" add btn ms-2 "
                   onClick={() => onClick(p)}
 
                   // {

@@ -120,10 +120,12 @@ const PaymentPage = () => {
 
   return (
     <Layout>
-      <div className="col-md-4 text-center mt-5">
-        <div className="container ">
+      <div className="col-md-4 text mt-5">
+        <div className="container " style={{ textAlign: "-webkit-center" }}>
           <br />
-          <h2>Card Summary</h2>
+          <div className="filter">
+            <h2>Card Summary</h2>
+          </div>
           <p>Total | Checkout | Payment</p>
 
           <hr />
@@ -132,10 +134,10 @@ const PaymentPage = () => {
           {auth?.user?.address ? (
             <>
               <div className="mb-3">
-                <h4>Current Address -{auth?.user?.address} </h4>
+                <h4>Current Address - {auth?.user?.address} </h4>
                 {/* <h5>{auth?.user?.address}</h5> */}
                 <button
-                  className="btn btn-outline-warning"
+                  className="shoppi btn"
                   onClick={() => navigate("/dashboard/user/profile")}
                 >
                   Update Address
@@ -166,7 +168,9 @@ const PaymentPage = () => {
             </div>
           )}
           <div className="pricecard-container ">
-            <h3>Payment Method</h3>
+            <div className="filter">
+              <h3>Payment Method</h3>
+            </div>
             {auth?.token && (
               <div className="mt-2">
                 {!clientToken || !cart?.length ? (
@@ -183,10 +187,10 @@ const PaymentPage = () => {
                       onInstance={(instance) => setInstance(instance)}
                     />
                     <Form>
-                      <Form.Group className="mb-3" id="formGridCheckbox">
+                      <Form.Group className=" cash mb-3" id="formGridCheckbox">
                         <div
-                          className="border rounded p-3"
-                          style={{ background: "#dddcdc", border: "14px" }}
+                          className="  border rounded p-3"
+                          style={{ background: "#FAFAFA", border: "14px" }}
                         >
                           <div className="d-flex align-items-center">
                             <Form.Check
@@ -200,7 +204,7 @@ const PaymentPage = () => {
                             />
                             <Form.Label
                               htmlFor="cod-checkbox"
-                              className="mb-0 ms-2"
+                              className=" cash mb-0 ms-2"
                             >
                               Cash on Delivery
                             </Form.Label>
@@ -210,7 +214,7 @@ const PaymentPage = () => {
                     </Form>
 
                     <button
-                      className="btn btn-outline-warning"
+                      className="payment btn"
                       onClick={handlePayment}
                       // disabled={!loading || !instance || !auth?.user?.address}
                     >
