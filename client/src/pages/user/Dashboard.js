@@ -3,6 +3,8 @@ import Layout from "../../components/Layout/Layout";
 import UserMenu from "../../components/Layout/UserMenu";
 import { useAuth } from "../../context/auth";
 import axios from "axios";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 import {
   BarChart,
   Bar,
@@ -16,6 +18,7 @@ import {
   Cell,
   LineChart,
   Line,
+  ResponsiveContainer,
 } from "recharts";
 
 const Dashboard = () => {
@@ -52,30 +55,33 @@ const Dashboard = () => {
           <div className="col-md-3">
             <UserMenu />
           </div>
+
           <div className="col-md-9 mt-5">
             <h1 className="mb-4">Dashboard</h1>
-            <div className="row">
-              <div className="col">
-                {/* <h4 className="mb-3">User Details</h4>
-                  <div className="mb-2">
-                    <strong>Name:</strong> {auth?.user?.name}
-                  </div>
-                  <div className="mb-2">
-                    <strong>Email:</strong> {auth?.user?.email}
-                  </div>
-                  <div className="mb-2">
-                    <strong>Contact:</strong> {auth?.user?.phone}
-                  </div>
-                  <div className="mb-2">
-                    <strong>Address:</strong> {auth?.user?.address}
-                  </div> */}
+            <div className="dashboard-card">
+              <CircularProgressbar
+                value={orderCount}
+                text={`${orderCount}%`}
+                maxValue={100}
+                styles={{
+                  root: { width: "70px" },
+                  path: { stroke: "#FFBB28" },
+                  text: { fill: "#FFBB28", fontSize: "22px" },
+                }}
+              />
+              <div
+                className="name"
+                style={{ fontSize: "40px", marginLeft: "20px" }}
+              >
+                Orders
               </div>
             </div>
-            <div className="col-md-6">
-              <div className="card bg-light shadow-sm p-3">
-                <h4 className="mb-3">Total Orders</h4>
-                <div className="box mb-3">
-                  <PieChart width={600} height={300}>
+
+            <div className="col-md-8">
+              <h4 className="mb">Total Orders</h4>
+              <div className="box">
+                <ResponsiveContainer width="100%" height={300}>
+                  <PieChart>
                     <Pie
                       data={orderData}
                       dataKey="value"
@@ -96,6 +102,38 @@ const Dashboard = () => {
                     <Tooltip />
                     <Legend />
                   </PieChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="col-md-5">
+                <div className="card bg-dark shadow-sm p-1">
+                  <div className="card-body">
+                    <div className="text-center">
+                      {auth?.user?.gender === "female" ? (
+                        <img
+                          src="/images/female.jpeg"
+                          alt="Profile"
+                          style={{
+                            width: "150px",
+                            height: "150px",
+                            borderRadius: "50%",
+                          }}
+                        />
+                      ) : (
+                        <img
+                          src="/images/men.png"
+                          alt="Profile"
+                          style={{
+                            width: "150px",
+                            height: "150px",
+                            borderRadius: "50%",
+                          }}
+                        />
+                      )}
+                      <h4 className="mt-3">Admin Name: {auth?.user?.name}</h4>
+                      <h4>Admin Email: {auth?.user?.email}</h4>
+                      <h4>Admin Contact: {auth?.user?.phone}</h4>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -107,6 +145,124 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+// import React, { useState, useEffect } from "react";
+// import Layout from "../../components/Layout/Layout";
+// import UserMenu from "../../components/Layout/UserMenu";
+// import { useAuth } from "../../context/auth";
+// import axios from "axios";
+// import { CircularProgressbar } from "react-circular-progressbar";
+// import "react-circular-progressbar/dist/styles.css";
+// import {
+//   BarChart,
+//   Bar,
+//   XAxis,
+//   YAxis,
+//   CartesianGrid,
+//   Tooltip,
+//   Legend,
+//   PieChart,
+//   Pie,
+//   Cell,
+//   LineChart,
+//   Line,
+//   ResponsiveContainer,
+// } from "recharts";
+
+// const Dashboard = () => {
+//   const [auth] = useAuth("");
+//   const [orderCount, setOrderCount] = useState(0);
+//   const [productCount, setProductCount] = useState(0);
+//   const [activityData, setActivityData] = useState([]);
+
+//   useEffect(() => {
+//     axios
+//       .get("http://localhost:8081/api/v1/auth/orders")
+//       .then((res) => setOrderCount(res.data.length))
+//       .catch((err) => console.log(err));
+
+//     axios
+//       .get("http://localhost:8081/api/v1/product/get-products")
+//       .then((res) => setProductCount(res.data.totalcount))
+//       .catch((err) => console.log(err));
+
+//     axios
+//       .get("http://localhost:8081/api/v1/auth/user-activity")
+//       .then((res) => setActivityData(res.data))
+//       .catch((err) => console.log(err));
+//   }, []);
+
+//   const orderData = [{ name: "Total Orders", value: orderCount }];
+//   const productData = [{ name: "Total Products", value: productCount }];
+//   const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
+
+//   return (
+//     <Layout title="Dashboard">
+//       <div className="container-fluid mt-5">
+//         <div className="row">
+//           <div className="col-md-3">
+//             <UserMenu />
+//           </div>
+
+//           <div className="col-md-9 mt-5">
+//             <h1 className="mb-4">Dashboard</h1>
+//             <div className="dashboard-card ">
+//               <CircularProgressbar
+//                 value={orderCount}
+//                 text={`${orderCount}%`}
+//                 maxValue={100}
+//                 styles={{
+//                   root: { width: "70px" },
+//                   path: { stroke: "#FFBB28" },
+//                   text: { fill: "#FFBB28", fontSize: "22px" },
+//                 }}
+//               />
+//               <div
+//                 className="name"
+//                 style={{ fontSize: "40px", marginLeft: "20px" }}
+//               >
+//                 Orders
+//               </div>
+//             </div>
+
+//             <div className="col-md-5">
+//               {/* <div className="card bg-light shadow-sm p-1"> */}
+//               <h4 className="mb">Total Orders</h4>
+//               <div className="box">
+//                 <ResponsiveContainer width="100%" height={300}>
+//                   <PieChart>
+//                     <Pie
+//                       data={orderData}
+//                       dataKey="value"
+//                       nameKey="name"
+//                       cx="50%"
+//                       cy="50%"
+//                       outerRadius={80}
+//                       fill="#8884d8"
+//                       label
+//                     >
+//                       {orderData.map((entry, index) => (
+//                         <Cell
+//                           key={`cell-${index}`}
+//                           fill={COLORS[index % COLORS.length]}
+//                         />
+//                       ))}
+//                     </Pie>
+//                     <Tooltip />
+//                     <Legend />
+//                   </PieChart>
+//                 </ResponsiveContainer>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//       {/* </div> */}
+//     </Layout>
+//   );
+// };
+
+// export default Dashboard;
 
 // import React, { useState, useEffect } from "react";
 // import Layout from "../../components/Layout/Layout";

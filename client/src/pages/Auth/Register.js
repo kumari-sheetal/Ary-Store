@@ -18,7 +18,7 @@ const Register = () => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/auth/register`,
-        { name, email, password, phone, address, answer }
+        { name, email, password, phone, address }
       );
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -36,8 +36,10 @@ const Register = () => {
     <Layout title="Register-ARY Store">
       <div className="register">
         <form onSubmit={handleSubmit}>
-          <h4 className="title">REGISTER FORM</h4>
-          <div className="mb-3">
+          <h4 className="title" style={{ color: "rgb(254, 186, 48)" }}>
+            REGISTER FORM
+          </h4>
+          <div className="form mb-3">
             <input
               type="text"
               value={name}
@@ -97,7 +99,7 @@ const Register = () => {
             />
           </div>
 
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <input
               type="text"
               value={answer}
@@ -107,7 +109,7 @@ const Register = () => {
               placeholder="What is your fav colour"
               required
             />
-          </div>
+          </div> */}
 
           <button type="submit" className="btn btn-primary">
             Register

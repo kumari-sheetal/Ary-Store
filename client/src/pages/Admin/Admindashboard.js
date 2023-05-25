@@ -57,6 +57,9 @@ import axios from "axios";
 import AdminMenu from "../../components/Layout/AdminMenu";
 import { useAuth } from "../../context/auth";
 import Layout from "../../components/Layout/Layout";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+
 import {
   BarChart,
   Bar,
@@ -112,83 +115,171 @@ const Admindashboard = () => {
 
   return (
     <Layout title={"Dashboard"}>
-      <div className="container-fluid m-3 p-3 mt-5">
+      <div className=" col m-3 p-3 mt-5">
         <div className="row">
           <div className="col-md-3 mt-5">
             <AdminMenu />
           </div>
-          <div className="col-md-9 mt-5">
+          <div className="col-md-8 mt-5">
             <h1>Admin Dashboard</h1>
-            <div className="row">
+            <div className="admin-dashboard ">
+              <div className="dashboard-card">
+                <CircularProgressbar
+                  value={productCount}
+                  text={`${productCount}%`}
+                  maxValue={100}
+                  styles={{
+                    root: { width: "70px" },
+                    path: { stroke: "#0088FE" },
+                    text: { fill: "#0088FE", fontSize: "22px" },
+                  }}
+                />
+                <div
+                  className="name"
+                  style={{ fontSize: "40px", marginLeft: "20px" }}
+                >
+                  Products
+                </div>
+              </div>
+              <div className="dashboard-card">
+                <CircularProgressbar
+                  value={categoryCount}
+                  text={`${categoryCount}%`}
+                  maxValue={100}
+                  styles={{
+                    root: { width: "70px" },
+                    path: { stroke: "#00C49F" },
+                    text: { fill: "#00C49F", fontSize: "22px" },
+                  }}
+                />{" "}
+                <div
+                  className="name"
+                  style={{ fontSize: "40px", marginLeft: "20px" }}
+                >
+                  Categories
+                </div>
+              </div>
+              <div className="dashboard-card">
+                <CircularProgressbar
+                  value={orderCount}
+                  text={`${orderCount}%`}
+                  maxValue={100}
+                  styles={{
+                    root: { width: "70px" },
+                    path: { stroke: "#FFBB28" },
+                    text: { fill: "#FFBB28", fontSize: "22px" },
+                  }}
+                />
+                <div
+                  className="name"
+                  style={{ fontSize: "40px", marginLeft: "20px" }}
+                >
+                  Orders
+                </div>
+              </div>
+            </div>
+            <div className="row mt-5">
               <div className="col">
-                <div className="card bg-light shadow-sm p-3">
-                  <h4 className="mb-3"></h4>
-                  <div className="box mb-3">
-                    {" "}
-                    <BarChart width={600} height={300} data={data}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="name" />
-                      <YAxis />
-                      <Tooltip />
-                      <Legend />
-                      <Bar dataKey="value" fill="#8884d8" />
-                    </BarChart>
-                  </div>
+                {/* <div className="box"> */}
+                <h4 className="mb-3"></h4>
+                <div className="box mb-3">
+                  {" "}
+                  <BarChart width={600} height={300} data={data}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="value" fill="#8884d8" />
+                  </BarChart>
+                  {/* </div> */}
                 </div>
               </div>
               <div className="col-md-6">
-                <div className="card bg-light shadow-sm p-3">
-                  <h4 className="mb-3"></h4>
-                  <div className="box mb-3">
-                    <PieChart width={600} height={300}>
-                      <Pie
-                        data={data}
-                        dataKey="value"
-                        nameKey="name"
-                        cx="50%"
-                        cy="50%"
-                        outerRadius={80}
-                        fill="#8884d8"
-                        label
-                      >
-                        {data.map((entry, index) => (
-                          <Cell
-                            key={`cell-${index}`}
-                            fill={COLORS[index % COLORS.length]}
-                          />
-                        ))}
-                      </Pie>
-                      <Tooltip />
-                      <Legend />
-                    </PieChart>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 mt-4">
-                <div className="card bg-light shadow-sm p-3">
-                  <h4 className="mb-3">Orders Status</h4>
-                  <div className="box mb-3">
-                    <LineChart
-                      width={600}
-                      height={300}
-                      data={previousOrderData}
-                      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                {/* <div className="card bg-light shadow-sm p-3"> */}
+                <h4 className="mb-3"></h4>
+                <div className="box mb-3">
+                  <PieChart width={600} height={300}>
+                    <Pie
+                      data={data}
+                      dataKey="value"
+                      nameKey="name"
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={80}
+                      fill="#8884d8"
+                      label
                     >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="month" />
-                      <YAxis />
-                      <Tooltip />
-                      <Legend />
-                      <Line
-                        type="monotone"
-                        dataKey="orders"
-                        stroke="#8884d8"
-                        activeDot={{ r: 8 }}
-                      />
-                    </LineChart>
+                      {data.map((entry, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={COLORS[index % COLORS.length]}
+                        />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                    <Legend />
+                  </PieChart>
+                  {/* </div> */}
+                </div>
+                <div className="col-md-5">
+                  <div className="card bg-dark shadow-sm p-1">
+                    <div className="card-body">
+                      <div className="text-center">
+                        {auth?.user?.gender === "female" ? (
+                          <img
+                            src="/images/female.jpeg"
+                            alt="Profile"
+                            style={{
+                              width: "150px",
+                              height: "150px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        ) : (
+                          <img
+                            src="/images/men.png"
+                            alt="Profile"
+                            style={{
+                              width: "150px",
+                              height: "150px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        )}
+                        <h4 className="mt-3">Admin Name: {auth?.user?.name}</h4>
+                        <h4>Admin Email: {auth?.user?.email}</h4>
+                        <h4>Admin Contact: {auth?.user?.phone}</h4>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              {/* <div className="col-md-6 "> */}
+              {/* <div className="card bg-light shadow-sm p-3"> */}
+              {/* <h4 className="mb-3">Orders Status</h4>
+                <div className="box mb-3"> */}
+              {/* <LineChart
+                    width={600}
+                    height={300}
+                    data={previousOrderData}
+                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="month" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line
+                      type="monotone"
+                      dataKey="orders"
+                      stroke="#8884d8"
+                      activeDot={{ r: 8 }}
+                    />
+                  </LineChart> */}
+              {/* </div> */}
+              {/* </div> */}
+              {/* </div> */}
               <div className="col-md-6">{/* Additional content */}</div>
             </div>
           </div>

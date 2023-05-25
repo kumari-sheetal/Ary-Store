@@ -45,8 +45,8 @@ const CategoryProduct = () => {
   return (
     <Layout>
       <div className="container" style={{ marginTop: "100px" }}>
-        <h4 className="text">Category-{category?.name}</h4>
-        <h6 className="text ">{products?.length} Total Result</h6>
+        <h3 className=" filter text">Category-{category?.name}</h3>
+        <h4 className="text ">{products?.length} Total Result</h4>
 
         <div className="row">
           <div className="col-md-16">
@@ -76,13 +76,13 @@ const CategoryProduct = () => {
                     <p className="card-text">₹{p.price}</p>
 
                     <button
-                      className="btn btn-outline-primary ms-2"
+                      className="more btn ms-2"
                       onClick={() => navigate(`/product/${p.slug}`)}
                     >
                       More Details
                     </button>
                     <button
-                      className="btn btn-outline-dark ms-2"
+                      className=" add btn  ms-2"
                       onClick={() => onClick(p)}
                       //  {
                       // setCart([...cart, p]);

@@ -24,12 +24,13 @@ const Header = () => {
     localStorage.removeItem("auth");
     toast.success("Logout Successfully");
   };
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-        <div className="container-fluid ">
+      <nav className="navbar navbar-expand-lg fixed-top">
+        <div className="container-fluid">
           <button
-            className="navbar-toggler "
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo01"
@@ -39,17 +40,19 @@ const Header = () => {
           >
             <span className="navbar-toggler-icon" />
           </button>
+          <Link to="/" className="navbar-brand ml-auto">
+            <BiShoppingBag size={"2rem"} />
+            <span className="brand"> Ary-</span>
+            <span className="brandname"> Store</span>
+          </Link>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Link to="/" className="navbar-brand">
-              <BiShoppingBag />
-              Ary-Store
-            </Link>
-
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <Search />
-              <li className="nav-item"></li>
               <NavLink to="/" className="nav-link">
                 Home
+              </NavLink>
+              <NavLink to="/about" className="nav-link">
+                About
               </NavLink>
               <li className="nav-item dropdown">
                 <Link
@@ -59,16 +62,19 @@ const Header = () => {
                 >
                   Categories
                 </Link>
-                <ul className="dropdown-menu">
+                <ul
+                  className="dropdown-menu"
+                  style={{ backgroundColor: "rgb(245, 240, 234)" }}
+                >
                   <li>
-                    <Link className="dropdown-item" to={"/categories"}>
+                    <Link className="filter dropdown-item" to={"/categories"}>
                       All Categories
                     </Link>
                   </li>
                   {categories?.map((c) => (
-                    <li>
+                    <li key={c.slug}>
                       <Link
-                        className="dropdown-item"
+                        className=" filter dropdown-item"
                         to={`/category/${c.slug}`}
                       >
                         {c.name}
@@ -126,32 +132,15 @@ const Header = () => {
                   </li>
                 </>
               )}
-              {/* <li className="nav-item">
-                <Badge count={cart?.length} showZero>
-                  <NavLink to="/cart" className="nav-link">
-                    Cart
-                  </NavLink>
-                </Badge>
-              </li> */}
-              {/* <li className="nav-item">
-                {auth?.user?.role !== 1 && (
-                  <Badge count={cart?.length} showZero>
-                    <NavLink to="/cart" className="nav-link" style={{}}>
-                      Cart
-                    </NavLink>
-                  </Badge>
-                )}
-              </li> */}
               <li className="nav-item">
                 {auth?.user?.role !== 1 && (
                   <NavLink to="/cart" className="nav-link">
                     <Badge count={cart?.length} showZero>
-                      <BsCart4 size="2em" />
+                      <BsCart4 size="2em" className="cartb" />
                     </Badge>
                   </NavLink>
                 )}
               </li>
-
               <DarkMode />
             </ul>
           </div>

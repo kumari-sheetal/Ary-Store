@@ -7,6 +7,7 @@
   box-sizing: border-box;
 
 }
+
 /* font-family: 'Playfair Display', serif;
 font-family: 'Poppins', sans-serif; */
 
@@ -15,27 +16,98 @@ font-family: 'Poppins', sans-serif; */
   font-size:17px;
   line-height:26px;
   text-transform:uppercase;
+  background-color: rgb(95, 93, 91);
+  color: white;
   box-shadow: 0 8px 6px -6px  gray; 
   --webkit-box-shadow: 0 8px 6px -6px  gray; 
   border-bottom: 0px solid gray !important;
   overflow-y:visible
 }
-
+ 
+/* 
+.navbar-nav .nav-link.active, .navbar-nav .nav-link {
+  color:black;
+}  */
+.navbar-nav{
+  color: rgb(254, 186, 48);
+}
 .nav-link{
   font-weight:300 !important;
+  color: rgb(0, 0, 0);
+  
+}
+.nav-link:hover{
+  font-weight:300 !important;
+  color:rgb(254, 186, 48);
+  
+}
+.brand{
+  color: rgb(254, 186, 48);
+}
+.brandname{
+  /* color: rgb(36, 41, 44); */
+  color: rgb(0, 0, 0);
+  
+ word-spacing: -8px;
 }
 .active{
-  border-bottom:2px solid black;
+  border-bottom:2px solid rgb(254, 186, 48);
+ 
+
 }
 .navbar-brand{
   font-weight: 700;
+  font-size: 26px;
   font-family: "robot";
   letter-spacing: 3px;
+  color: rgb(254, 186, 48);
 }
-/*-----------Footer*/
+.cartb:hover{
+  color: rgb(254, 186, 48);
+}
+
+/* .-bs-dropdown-link-hover-bg{
+  background-color: #62aeff
+}  */
+
+
+
+/* -----------homepage----------- */
+.filter:hover{
+  color: rgb(254, 186, 48);
+}
+.more{
+  background-color: rgb(58, 54, 48);
+  color:   white;
+}
+.more:hover{
+  background-color:  rgb(254, 186, 48);
+  color:   black
+}
+
+.add{
+  background-color: rgb(226, 224, 222)
+}
+.add:hover{
+ background-color:  rgb(254, 186, 48);
+  color:   black;
+}
+.reset{
+  background-color:black;
+  color:   rgb(254, 186, 48);
+
+}
+.reset:hover{
+  background-color: rgb(254, 186, 48);
+  color:  black
+
+}
+
+/* -----------Footer
 .footer {
   color: white;
   padding: 42px;
+
   background: #000000;
 
   background: -webkit-linear-gradient(
@@ -55,7 +127,7 @@ font-family: 'Poppins', sans-serif; */
 .footer a:hover {
   color: #ffefba;
   border-bottom: 1px solid #ffefba;
-}
+} */
 
 /*---------- page not found ----- */
 .pnf {
@@ -125,7 +197,8 @@ font-family: 'Poppins', sans-serif; */
 /* cart */
 .box{
 
-   
+ 
+   background-color: #494949;
     width: 16.3cm;
 
     padding: 15px;
@@ -140,22 +213,34 @@ font-family: 'Poppins', sans-serif; */
 .pricecard-container{
   border:14px;
   box-shadow: inset 0 -3em 3em rgba(255, 255, 255, 0.377), 0 0 0 2px rgb(17, 16, 16),
- 0.3em 0.3em 1em rgba(255, 255, 255, 0.87);
+ 0.3em 0.3em 1em hsla(0, 0%, 100%, 0.87);
  border-radius: 10px;
- padding: 20px;
- 
- 
- /* justify-content: center;
- align-items: center; */
- width: 80%;
- margin:1vmax;
 
- max-width: 700px;
- width: 400%;
+ 
+ max-width:max-content;
  padding: 40px;
  background-color: rgb(230, 230, 230,0.5);
-margin-left: 12cm;
 
+ /* justify-content: center;
+ align-items: center; */
+ /* width: 80%; */
+ /* margin:1vmax; */
+
+ /* width: 400%; */
+
+
+
+}
+.payment{
+  background-color:rgb(254, 186, 48) ;
+  color: #000;
+}
+.payment:hover{
+  background-color: #000;
+  color: rgb(254, 186, 48) ;
+}
+.cash:hover{
+  background-color: white;
 }
 .container{
   border:14px;
@@ -183,51 +268,55 @@ margin-left: 12cm;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
+  height: 100vh;
+ 
+/* 
+  min-height: 90vh; */
   flex-direction: column;
-  background:rgb(189, 251, 255);  /* fallback for old browsers */
+  background:rgba(31,36,36, 0.1); 
+  
 }
 
 .register form {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  box-shadow: 0 0 10px rgb(58, 54, 48);
   padding: 20px;
-  background-color: #fff;
+  background-color: rgb(95, 93, 91);
+
+ 
 }
 
 .register form .title {
   text-align: center;
   margin-bottom: 15px;
   font-weight: bold;
-  font-family: "Playfair Display", serif;
-}z
+  font-family: poppins;
+  /* font-family: "Playfair Display", serif; */
+}
+.register form .title:hover {
+  color: rgb(254, 186, 48);
+ 
+}
 
 .register form input {
   border: none;
   border-bottom: 1px solid #000;
-  border-radius: 0;
+  /* border-radius: 0; */
 }
 
 .register form button {
   border: 1px solid black;
-  border-radius: 0;
+  /* border-radius: 0; */
   background-color: #000;
   color: white;
-  width: 250px;
+  width: 270px;
 }
 
 .register form button:hover {
-  border: 1px solid black;
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: 1px solid rgb(254, 186, 48);
+  background: rgb(254, 186, 48); /* fallback for old browsers */
+  color: #000;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* =======table-orders */
@@ -285,7 +374,7 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-  background-color: rgba(144, 136, 216, 0.05);
+  background-color: rgb(185, 185, 185);;
 }
 
 /* card */
@@ -300,14 +389,18 @@ tr:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 } */
 .card {
-  background-color: #f8f9fa;
-  color: black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* background-color: rgb(126, 126, 126 ); */
+  background-color:  rgb(95, 93, 91);
+  color: #ffffff;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 0 10px rgb(58, 54, 48);
   transition: transform 0.3s;
 }
 
 .card:hover {
   transform: scale(1.05);
+  background-color:  rgb(134, 134, 134);
+  color: #000;
 }
 
 .btn-outline-dark {
@@ -343,24 +436,28 @@ tr:hover {
 .category-card {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
-  background-color: light;
+  border-radius: 10%;
+
+  background-color: rgb(95, 93, 91);
+ 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgb(58, 54, 48);
   transition: transform 0.3s ease;
 }
 
-.category-card:hover {
+/* .category-card:hover {
   transform: scale(1.1);
-}
+
+  background-color: rgb(254, 186, 48);
+} */
 
 .category-image {
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  border-radius: 10%;
   object-fit: cover;
  
 
@@ -373,7 +470,15 @@ tr:hover {
    font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
+  color: #000;
  
+} 
+.category-name:hover {
+  font-size: 20px;
+ font-weight: bold;
+ margin-top: 10px;
+ color: rgb(254, 186, 48)
+
 } 
 
 
@@ -383,4 +488,145 @@ tr:hover {
   border: 1px solid #ccc;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+}
+
+
+
+/* admin dahboard */
+.admin-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dashboard-card {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 250px;
+  width: 30%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-right: 20px;
+}
+
+.card-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.card-info h3 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+/* ----------about us */
+.carousel .slide img {
+  width: 100%;
+  height: auto;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.contactus {
+  margin-top: 5%;
+}
+
+.bg-dark {
+  background-color: #333;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+/* ------------cart--------- */
+.shoppi:hover{
+  background-color:rgb(254, 186, 48) ;
+  color: #000;
+}
+.shoppi{
+  background-color:#000 ;
+  color: rgb(254, 186, 48) ;
+}
+/* -----------payment------------ */
+
+
+/* ---------------------------test */
+/* .category-card {
+  position: relative;
+  width: 100%;
+}
+
+.category-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.category-card:hover .category-image {
+  transform: scale(1.05);
+}
+
+.category-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.category-card:hover .category-name {
+  opacity: 1;
+} */
+
+
+
+
+/* About.css */
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.contact-icon {
+  font-size: 35px;
+  margin-right: 10px;
+}
+
+.contact-icon:hover {
+  color: rgb(254, 186, 48);
+  cursor: pointer;
 }

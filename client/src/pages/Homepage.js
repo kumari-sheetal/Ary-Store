@@ -135,7 +135,7 @@ const Homepage = () => {
     <Layout title={"AllProducts - Best offers "}>
       <div className="row mt-5">
         <div className="col-md-2">
-          <h4 className="text-center mt-5">Filter by Category</h4>
+          <h4 className="filter text-center mt-5">Filter by Category</h4>
           <div className="d-flex flex-column ">
             {categories?.map((c) => (
               <Checkbox
@@ -151,7 +151,10 @@ const Homepage = () => {
           {/*--------  Price filter---------*/}
           <div className="row mt-3">
             <div className="col-md-7">
-              <h4 className="text-center " style={{ marginLeft: "33px" }}>
+              <h4
+                className=" filter text-center "
+                style={{ marginLeft: "33px" }}
+              >
                 Price Filter
               </h4>
               <div className="d-flex flex-column">
@@ -172,7 +175,7 @@ const Homepage = () => {
               {/* <div className="col-md-70"> */}
               {/* <div className="row mt-3 "> */}
               <button
-                className="btn btn-outline-dark ms-4 mt-3 "
+                className="reset btn  ms-4 mt-3 "
                 onClick={() => window.location.reload()}
               >
                 Reset Filters
@@ -184,7 +187,7 @@ const Homepage = () => {
         </div>
 
         <div className="col-md-10  ">
-          <h1 className="product mt-5 ">All Products</h1>
+          <h1 className="filter product mt-5 ">All Products</h1>
 
           <div className="d-flex flex-wrap flex-row ">
             {/* <div
@@ -214,13 +217,14 @@ const Homepage = () => {
                   <p className="card-text">₹{p.price}</p>
 
                   <button
-                    className="btn btn-outline-primary ms-2"
+                    className="more btn  ms-2"
+                    // style={{ backgroundColor: "rgb(58, 54, 48)" }}
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
                     More Details
                   </button>
                   <button
-                    className="btn btn-outline-dark ms-2 "
+                    className="add btn btn ms-2 "
                     onClick={() => onClick(p)}
                   >
                     Add To Cart
@@ -232,7 +236,7 @@ const Homepage = () => {
           <div className="m-2 p-3">
             {products && products.length < total && products.length > 5 && (
               <button
-                className="btn btn-dark"
+                className="reset btn"
                 onClick={(e) => {
                   e.preventDefault();
                   setPage(page + 1);
