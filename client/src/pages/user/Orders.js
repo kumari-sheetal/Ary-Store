@@ -49,66 +49,59 @@ const Orders = () => {
                     <div className="border shadow">
                       <table className="table-responsive">
                         <thead>
-                          <tr>
+                          <tr className="table-h">
+                            <th scope="col">#</th>
                             <th
-                              style={{
-                                backgroundColor: "black",
-                                color: "white",
-                              }}
-                              scope="col"
-                            >
-                              #
-                            </th>
-                            <th
-                              style={{
-                                backgroundColor: "black",
-                                color: "white",
-                              }}
+                              // style={{
+                              //   backgroundColor: "black",
+                              //   color: "white",
+                              // }}
                               scope="col"
                             >
                               Status
                             </th>
                             <th
-                              style={{
-                                backgroundColor: "black",
-                                color: "white",
-                              }}
+                              // style={{
+                              //   backgroundColor: "black",
+                              //   color: "white",
+                              // }}
                               scope="col"
                             >
                               Buyer
                             </th>
+
                             <th
-                              style={{
-                                backgroundColor: "black",
-                                color: "white",
-                              }}
+                              // style={{
+                              //   backgroundColor: "black",
+                              //   color: "white",
+                              // }}
                               scope="col"
                             >
                               Date
                             </th>
                             <th
-                              style={{
-                                backgroundColor: "black",
-                                color: "white",
-                              }}
+                              // style={{
+                              //   backgroundColor: "black",
+                              //   color: "white",
+                              // }}
                               scope="col"
                             >
                               Payment
                             </th>
                             <th
-                              style={{
-                                backgroundColor: "black",
-                                color: "white",
-                              }}
+                              // style={{
+                              //   backgroundColor: "black",
+                              //   color: "white",
+                              // }}
                               scope="col"
                             >
                               Quantity
                             </th>
                             <th
-                              style={{
-                                backgroundColor: "black",
-                                color: "white",
-                              }}
+                              // style={{
+                              //   backgroundColor: "black",
+                              //   color: "white",
+                              // }}
                               scope="col"
                             >
                               Payment Status
@@ -143,11 +136,18 @@ const Orders = () => {
                           </tr>
                         </tbody>
                       </table>
-                      <div className="conatiner">
+                      <div
+                        className="table-bod  conatiner"
+                        style={{ backgroundColor: "white" }}
+                      >
                         {o?.products?.map((p, i) => (
                           <div
                             className="row mb-2  cards flex-row"
-                            style={{ marginLeft: "0px", marginRight: "0px" }}
+                            style={{
+                              marginLeft: "0px",
+                              marginRight: "0px",
+                              backgroundColor: "white",
+                            }}
                           >
                             <div className="col-md-4 ">
                               <div

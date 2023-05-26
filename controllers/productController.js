@@ -437,6 +437,13 @@ export const braintreePaymentController = async (req, res) => {
     console.log(error);
   }
 };
+const messages = [];
+export const apiController = (req, res) => {
+  const { sender, message } = req.body;
+  const newMessage = { sender, message, _id: Date.now() };
+  messages.push(newMessage);
+  res.json(newMessage);
+};
 
 // export const braintreePaymentController = async (req, res) => {
 //   try {

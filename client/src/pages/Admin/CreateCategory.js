@@ -100,7 +100,7 @@ const CreateCategory = () => {
               <AdminMenu />
             </div>
             <div className="col-md-9">
-              <h1>Manage category</h1>
+              <h1 className="filter">Manage category</h1>
               <div className="p-3 w-50">
                 <Categoryform
                   handleSubmit={handleSubmit}
@@ -145,7 +145,7 @@ const CreateCategory = () => {
 
                             <td>
                               <button
-                                className="btn btn-outline-dark ms-2"
+                                className="more btn  ms-2"
                                 onClick={() => {
                                   setVisible(true);
                                   setUpdatedName(c.name);
@@ -155,7 +155,7 @@ const CreateCategory = () => {
                                 Edit
                               </button>
                               <button
-                                className="btn btn-outline-danger ms-2"
+                                className="more btn ms-2"
                                 body
                                 onClick={() => {
                                   handleDelete(c._id);

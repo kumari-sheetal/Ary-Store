@@ -13,7 +13,7 @@ const AdminMenu = () => {
     <div>
       <div>
         <a
-          className="btn btn-dark mt-5"
+          className="more btn  mt-5"
           data-bs-toggle="offcanvas"
           href="#offcanvasExample"
           role="button"
@@ -23,18 +23,18 @@ const AdminMenu = () => {
         </a>
 
         <div
-          className="offcanvas offcanvas-start"
+          className="panel offcanvas offcanvas-start"
           tabIndex={-1}
           id="offcanvasExample"
           aria-labelledby="offcanvasExampleLabel"
         >
           <div className="offcanvas-header">
-            <h5 className="offcanvas-title" id="offcanvasExampleLabel">
+            <h5 className=" filter offcanvas-title" id="offcanvasExampleLabel">
               Admin Panel
             </h5>
             <button
               type="button"
-              className="btn-close"
+              className="more btn-close"
               data-bs-dismiss="offcanvas"
               aria-label="Close"
               overflow
@@ -48,7 +48,7 @@ const AdminMenu = () => {
             >
               <NavLink
                 to="/dashboard/admin/create-category"
-                className="list-group-item list-group-item-action"
+                className="more btn"
                 style={{
                   display: "flex",
                   flexDirection: "row",
@@ -62,7 +62,7 @@ const AdminMenu = () => {
 
               <NavLink
                 to="/dashboard/admin/create-product"
-                className="list-group-item list-group-item-action"
+                className="more btn"
                 style={{
                   display: "flex",
                   flexDirection: "row",
@@ -75,7 +75,7 @@ const AdminMenu = () => {
               </NavLink>
               <NavLink
                 to="/dashboard/admin/products"
-                className="list-group-item list-group-item-action"
+                className="more btn"
                 style={{
                   display: "flex",
                   flexDirection: "row",
@@ -103,7 +103,7 @@ const AdminMenu = () => {
 
               <NavLink
                 to="/dashboard/admin/orders"
-                className="list-group-item list-group-item-action"
+                className="more btn"
                 style={{
                   display: "flex",
                   flexDirection: "row",
@@ -113,6 +113,19 @@ const AdminMenu = () => {
               >
                 <TbUsers size="3em" />
                 <span>All Orders</span>
+              </NavLink>
+              <NavLink
+                to="/dashboard/admin/chat"
+                className="more btn"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "15px",
+                  alignItems: "center",
+                }}
+              >
+                <TbUsers size="3em" />
+                <span>Admin chat</span>
               </NavLink>
             </div>
           </div>

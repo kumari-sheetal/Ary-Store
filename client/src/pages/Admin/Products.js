@@ -66,7 +66,7 @@ const Products = () => {
           <div className="col-md-3">
             <AdminMenu />
           </div>
-          <h1>All Product list</h1>
+          <h1 className="filter">All Product list</h1>
           <div className="col-md-12">
             <div className="d-flex flex-wrap flex-row ">
               {products?.map((p) => (
@@ -98,7 +98,7 @@ const Products = () => {
           <div className="m-2 p-3">
             {products && products.length < total && (
               <button
-                className="btn btn-dark"
+                className=" more btn "
                 onClick={(e) => {
                   e.preventDefault();
                   setPage(page + 1);

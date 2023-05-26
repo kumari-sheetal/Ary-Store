@@ -7,6 +7,8 @@ import toast from "react-hot-toast";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import DarkMode from "./Darkmode/DarkMode";
+import ChatBot from "../components/ChatBot";
+import Chat from "../components/ChatBot";
 
 const Homepage = () => {
   const navigate = useNavigate();
