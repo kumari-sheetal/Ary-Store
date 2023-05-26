@@ -7,6 +7,7 @@ import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import "./../../components/style/category.css";
+import AdminChat from "./AdminChat";
 const { Option } = Select;
 
 const CreateProduct = () => {
@@ -72,14 +73,14 @@ const CreateProduct = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9 create-product-container">
-            <h1>Create Product</h1>
+            <h1 className="filter">Create Product</h1>
             <div className="m-1 w-75">
               <Select
                 bordered={false}
                 placeholder="Select a category"
                 size="large"
                 showSearch
-                className="form-select mb-3"
+                className=" form-select mb-3"
                 onChange={(value) => {
                   setCategory(value);
                 }}
@@ -169,7 +170,7 @@ const CreateProduct = () => {
                 </Select>
               </div>
               <div className="mb-3">
-                <button className="btn btn-primary" onClick={handleCreate}>
+                <button className=" reset btn " onClick={handleCreate}>
                   CREATE PRODUCT
                 </button>
               </div>

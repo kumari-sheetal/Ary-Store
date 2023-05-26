@@ -1,6 +1,7 @@
 import express from "express";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import {
+  apiController,
   braintreePaymentController,
   braintreeTokenController,
   deleteProductController,
@@ -80,5 +81,13 @@ router.get("/braintree/token", braintreeTokenController);
 
 //payments
 router.post("/braintree/payment", requireSignIn, braintreePaymentController);
+const messages = [];
+//api
+router.post("/messages", apiController);
 
+//
+// Get all messages
+router.get("/message", (req, res) => {
+  res.json(messages);
+});
 export default router;
