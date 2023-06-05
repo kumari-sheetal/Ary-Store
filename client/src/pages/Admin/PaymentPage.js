@@ -120,111 +120,122 @@ const PaymentPage = () => {
 
   return (
     <Layout>
-      <div className="col-md-4 text mt-5">
-        <div className="container " style={{ textAlign: "-webkit-center" }}>
-          <br />
-          <div className="filter">
-            <h2>Card Summary</h2>
-          </div>
-          <p>Total | Checkout | Payment</p>
+      <div className="d-flex justify-content-center align-items-center">
+        <div className="col-md-4 text mt-5">
+          <div className="pay-box">
+            <br />
 
-          <hr />
-          <h4>Total:{totalPrice()}</h4>
+            <div className="filter" style={{ marginLeft: "6cm" }}>
+              <h2>Card Summary</h2>
+            </div>
+            <p style={{ marginLeft: "6cm" }}>Total | Checkout | Payment</p>
 
-          {auth?.user?.address ? (
-            <>
+            <hr />
+            <h4 style={{ marginLeft: "6cm" }}>Total:{totalPrice()}</h4>
+
+            {auth?.user?.address ? (
+              <>
+                <div className="mb-3">
+                  <h4 style={{ marginLeft: "4cm" }}>
+                    Current Address - {auth?.user?.address}{" "}
+                  </h4>
+                  {/* <h5>{auth?.user?.address}</h5> */}
+                  <button
+                    className="shoppi btn"
+                    style={{ marginLeft: "6cm" }}
+                    onClick={() => navigate("/dashboard/user/profile")}
+                  >
+                    Update Address
+                  </button>
+                </div>
+              </>
+            ) : (
               <div className="mb-3">
-                <h4>Current Address - {auth?.user?.address} </h4>
-                {/* <h5>{auth?.user?.address}</h5> */}
-                <button
-                  className="shoppi btn"
-                  onClick={() => navigate("/dashboard/user/profile")}
-                >
-                  Update Address
-                </button>
-              </div>
-            </>
-          ) : (
-            <div className="mb-3">
-              {auth?.token ? (
-                <button
-                  className="btn btn-outline-warning"
-                  onClick={() => navigate("/dashboard/user/profile")}
-                >
-                  Update Address
-                </button>
-              ) : (
-                <button
-                  className="btn btn-outline-warning"
-                  onClick={() =>
-                    navigate("/login", {
-                      state: "/cart",
-                    })
-                  }
-                >
-                  Please login to Checkout
-                </button>
-              )}
-            </div>
-          )}
-          <div className="pricecard-container ">
-            <div className="filter">
-              <h3>Payment Method</h3>
-            </div>
-            {auth?.token && (
-              <div className="mt-2">
-                {!clientToken || !cart?.length ? (
-                  ""
+                {auth?.token ? (
+                  <button
+                    className="btn btn-outline-warning"
+                    onClick={() => navigate("/dashboard/user/profile")}
+                  >
+                    Update Address
+                  </button>
                 ) : (
-                  <>
-                    <DropIn
-                      options={{
-                        authorization: clientToken,
-                        paypal: {
-                          flow: "vault",
-                        },
-                      }}
-                      onInstance={(instance) => setInstance(instance)}
-                    />
-                    <Form>
-                      <Form.Group className=" cash mb-3" id="formGridCheckbox">
-                        <div
-                          className="  border rounded p-3"
-                          style={{ background: "#FAFAFA", border: "14px" }}
-                        >
-                          <div className="d-flex align-items-center">
-                            <Form.Check
-                              type="checkbox"
-                              id="cod-checkbox"
-                              label=""
-                              onChange={(e) =>
-                                setIsCODChecked(e.target.checked)
-                              }
-                              style={{ fontSize: "1.2rem" }}
-                            />
-                            <Form.Label
-                              htmlFor="cod-checkbox"
-                              className=" cash mb-0 ms-2"
-                            >
-                              Cash on Delivery
-                            </Form.Label>
-                          </div>
-                        </div>
-                      </Form.Group>
-                    </Form>
-
-                    <button
-                      className="payment btn"
-                      onClick={handlePayment}
-                      // disabled={!loading || !instance || !auth?.user?.address}
-                    >
-                      Make Payment
-                      {/* {loading ? "Processing ...." : "Make Payment"} */}
-                    </button>
-                  </>
+                  <button
+                    className="btn btn-outline-warning"
+                    onClick={() =>
+                      navigate("/login", {
+                        state: "/cart",
+                      })
+                    }
+                  >
+                    Please login to Checkout
+                  </button>
                 )}
               </div>
             )}
+
+            <div className="pricecard-container ">
+              <div className="filter">
+                <h3>Payment Method</h3>
+              </div>
+              {auth?.token && (
+                <div className="mt-2">
+                  {!clientToken || !cart?.length ? (
+                    ""
+                  ) : (
+                    <>
+                      <DropIn
+                        options={{
+                          authorization: clientToken,
+                          paypal: {
+                            flow: "vault",
+                          },
+                        }}
+                        onInstance={(instance) => setInstance(instance)}
+                      />
+                      <Form>
+                        <Form.Group
+                          className=" cash mb-3"
+                          id="formGridCheckbox"
+                        >
+                          <div
+                            className="  border rounded p-3"
+                            style={{ background: "#FAFAFA", border: "14px" }}
+                          >
+                            <div className="d-flex align-items-center">
+                              <Form.Check
+                                type="checkbox"
+                                id="cod-checkbox"
+                                label=""
+                                onChange={(e) =>
+                                  setIsCODChecked(e.target.checked)
+                                }
+                                style={{ fontSize: "1.2rem" }}
+                              />
+                              <Form.Label
+                                htmlFor="cod-checkbox"
+                                className=" cash mb-0 ms-2"
+                              >
+                                Cash on Delivery
+                              </Form.Label>
+                            </div>
+                          </div>
+                        </Form.Group>
+                      </Form>
+
+                      <button
+                        className="payment btn"
+                        // style={{ marginLeft: "5cm" }}
+                        onClick={handlePayment}
+                        // disabled={!loading || !instance || !auth?.user?.address}
+                      >
+                        Make Payment
+                        {/* {loading ? "Processing ...." : "Make Payment"} */}
+                      </button>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -233,7 +244,7 @@ const PaymentPage = () => {
 };
 
 export default PaymentPage;
-
+// ===================
 // import React, { useState, useEffect } from "react";
 // import Layout from "../../components/Layout/Layout";
 // import { useCart } from "../../context/Cart";

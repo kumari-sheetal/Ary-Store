@@ -7,7 +7,7 @@ import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import "./../../components/style/category.css";
-import AdminChat from "./AdminChat";
+import AdminChat from "./Chatapp";
 const { Option } = Select;
 
 const CreateProduct = () => {

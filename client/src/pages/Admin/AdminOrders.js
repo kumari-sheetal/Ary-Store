@@ -69,7 +69,7 @@ const AdminOrders = () => {
             <AdminMenu />
           </div>
           <div className="col-md-6">
-            <div className="d-flex justify-content-between align-items-center mb-4">
+            <div className="filter d-flex justify-content-between align-items-center mb-4">
               <h1>All Orders list</h1>
 
               {/* 
@@ -225,7 +225,7 @@ const AdminOrders = () => {
                             )} */}
                           </div>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-8">
                           <p>Name:{p.name}</p>
                           <p>Description:{p.description.substring(0, 30)}</p>
                           <p>Price: {p.price}</p>

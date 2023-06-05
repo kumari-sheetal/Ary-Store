@@ -4,6 +4,8 @@ import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../Auth/AuthStyle/AuthStyles.css";
+// import { Row } from "module";
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,9 +38,24 @@ const Register = () => {
     <Layout title="Register-ARY Store">
       <div className="register">
         <form onSubmit={handleSubmit}>
-          <h4 className="title" style={{ color: "rgb(254, 186, 48)" }}>
-            REGISTER FORM
-          </h4>
+          {/* <h4 className="title" style={{ color: "rgb(254, 186, 48)" }}>
+            REGISTER FORM */}
+          <h4 className="title">
+            <div className="mb-4">
+              <span
+                className="fs-28 font-w900 text-center"
+                style={{ color: "#FEBA30" }}
+              >
+                REGISTER{" "}
+                <span
+                  className="fs-24 font-w900 text-center"
+                  style={{ color: "#000000" }}
+                >
+                  FORM
+                </span>
+              </span>
+            </div>
+          </h4>{" "}
           <div className="form mb-3">
             <input
               type="text"
@@ -62,7 +79,6 @@ const Register = () => {
               required
             />
           </div>
-
           <div className="mb-3">
             <input
               type="password"
@@ -74,7 +90,6 @@ const Register = () => {
               required
             />
           </div>
-
           <div className="mb-3">
             <input
               type="text"
@@ -86,7 +101,6 @@ const Register = () => {
               required
             />
           </div>
-
           <div className="mb-3">
             <input
               type="text"
@@ -98,7 +112,6 @@ const Register = () => {
               required
             />
           </div>
-
           {/* <div className="mb-3">
             <input
               type="text"
@@ -110,7 +123,6 @@ const Register = () => {
               required
             />
           </div> */}
-
           <button type="submit" className="btn btn-primary">
             Register
           </button>

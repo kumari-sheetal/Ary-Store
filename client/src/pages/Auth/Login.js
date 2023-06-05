@@ -43,8 +43,22 @@ const Login = () => {
     <Layout title="Register-ARY Store">
       <div className="register">
         <form onSubmit={handleSubmit}>
-          <h4 className="title">LOGIN FORM</h4>
-
+          <h4 className="title">
+            <div className="mb-4">
+              <span
+                className="fs-28 font-w900 text-center"
+                style={{ color: "#FEBA30" }}
+              >
+                LOGIN{" "}
+                <span
+                  className="fs-24 font-w900 text-center"
+                  style={{ color: "#000000" }}
+                >
+                  FORM
+                </span>
+              </span>
+            </div>
+          </h4>
           <div className="mb-3">
             <input
               type="email"
@@ -57,7 +71,6 @@ const Login = () => {
               required
             />
           </div>
-
           <div className="mb-3">
             <input
               type="password"
@@ -69,7 +82,6 @@ const Login = () => {
               required
             />
           </div>
-
           <div className="mb-3">
             <button
               type="button"
@@ -81,7 +93,6 @@ const Login = () => {
               Forgot Password
             </button>
           </div>
-
           <button type="submit" className="btn btn-primary">
             Login
           </button>
