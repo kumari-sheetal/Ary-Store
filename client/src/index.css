@@ -206,16 +206,22 @@ font-family: 'Poppins', sans-serif; */
 }
 
 /* cart */
+/* -----admon dashboard-----= */
 .box{
 
  
-   background-color: #494949;
+  background-color: rgb(58, 54, 48);
+/* color: #ffffff; */
     width: 16.3cm;
-
+   border-radius: 10px;
     padding: 15px;
     margin: 2px;
   
 }
+.box:hover{
+  transform: scale(1.07);
+}
+
 .category {
   width: 80cm;
   height: 80cm;
@@ -226,9 +232,10 @@ font-family: 'Poppins', sans-serif; */
   box-shadow: inset 0 -3em 3em rgba(255, 255, 255, 0.377), 0 0 0 2px rgb(17, 16, 16),
  0.3em 0.3em 1em hsla(0, 0%, 100%, 0.87);
  border-radius: 10px;
-
  
- max-width:max-content;
+
+/*  
+ max-width:max-content; */
  padding: 40px;
  background-color: rgb(230, 230, 230,0.5);
 
@@ -238,7 +245,24 @@ font-family: 'Poppins', sans-serif; */
  /* margin:1vmax; */
 
  /* width: 400%; */
-
+}
+.pay-box{
+  border:14px;
+  /* box-shadow: inset 0 -3em 3em rgba(255, 255, 255, 0.377), 0 0 0 2px rgb(17, 16, 16),
+ 0.3em 0.3em 1em rgba(255, 255, 255, 0.87); */
+ border-radius: 2px;
+ padding: 20px;
+ 
+ 
+ /* justify-content: center;
+ align-items: center; */
+ /* width: 80%; */
+ /* margin:5vmax; */
+/* 
+ max-width: 1650px;
+ width: 400cm; */
+ padding: 10px;
+ /* background-color: rgb(230, 230, 230,0.5); */
 
 
 }
@@ -265,7 +289,7 @@ font-family: 'Poppins', sans-serif; */
  align-items: center;
  width: 80%;
  margin:5vmax;
-
+margin-top: 3cm;
  max-width: 1650px;
  width: 400cm;
  padding: 10px;
@@ -284,7 +308,7 @@ font-family: 'Poppins', sans-serif; */
 /* 
   min-height: 90vh; */
   flex-direction: column;
-  background:rgba(31,36,36, 0.1); 
+  background-color: rgb(245, 240, 234);
   
 }
 
@@ -444,9 +468,15 @@ tr:hover {
   .btn-dark:hover {
   background-color: #23272b;
   }
-  
+  /* -----------dashboard card */
  
-  
+  .card-dashboard{
+    background-color:  rgb(95, 93, 91);
+    color: #ffffff;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 0 10px rgb(58, 54, 48);
+    transition: transform 0.3s;
+  }
   
 
 
@@ -526,14 +556,19 @@ tr:hover {
 .dashboard-card {
   display: flex;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: rgb(58, 54, 48);
+  color: white;
   padding: 20px;
   border-radius: 8px;
   min-width: 250px;
   width: 30%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 15px;
+  margin: 5px;
+
 }
+.dashboard-card:hover {  color: rgb(0, 0, 0);
+
+  transform: scale(1.09);}
 
 .card-icon {
   font-size: 40px;
@@ -645,7 +680,7 @@ tr:hover {
 }
 
 .contact-icon {
-  font-size: 35px;
+  font-size: 40px;
   margin-right: 10px;
 }
 
@@ -707,3 +742,82 @@ tr:hover {
   color: #fff;
   cursor: pointer;
 }
+/* .carousel.carousel-slider {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  width:80%;
+} */
+
+.carousel-image {
+  height: 300px;
+  width: 100%;
+}
+
+/* .about-background {
+  background-image: url("/home/user/Projects/Ary-Store/client/public/images/ary2.jpg");
+  background-size: cover;
+  background-position: center;
+  /* Add more styles as desired */
+
+  .slider {
+    overflow: hidden;
+    width: 100vw;
+    height: 50vh;
+    /* position: relative; */
+  }
+    
+   .slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+    animation: slider 12.5s infinite;
+   }
+    
+   .slider .slide:nth-child(1) {
+      background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');
+      animation-delay: 0s;
+   }
+   
+   .slider .slide:nth-child(2) {
+      background-image: url('https://images.unsplash.com/photo-1578916171728-46686eac8d58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHN0b3JlfGVufDB8fDB8fHww&w=1000&q=80');
+      animation-delay: -2.5s;
+   }
+   
+   .slider .slide:nth-child(3) {
+      background-image: url('https://c1.wallpaperflare.com/preview/681/733/160/food-aisle-store-chips.jpg');
+      animation-delay: -5s;
+   }
+   
+   .slider .slide:nth-child(4) {
+      background-image: url('https://images.unsplash.com/photo-1534723452862-4c874018d66d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+      animation-delay: -7.5s;
+   }
+   
+   .slider .slide:nth-child(5) {
+      background-image: url('https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+      animation-delay: -10s;
+   }
+   
+   @keyframes slider {
+    0%, 16%, 100% {
+      transform: translateX(0);
+      animation-timing-function: ease;
+    }
+    20% {
+      transform: translateX(-100%);
+      animation-timing-function: step-end;
+    }
+    96% {
+      transform: translateX(100%);
+      animation-timing-function: ease;
+    }
+  }
+  .call{
+    margin-right: 2.5cm;
+  }
+

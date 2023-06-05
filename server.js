@@ -1,4 +1,126 @@
+// import express from "express";
+// import dotenv from "dotenv";
+// import morgan from "morgan";
+// import connectDB from "./config/db.js";
+// import authRoute from "./routes/authRoute.js";
+// import cors from "cors";
+// import categoryRoutes from "./routes/categoryRoutes.js";
+// import productRoutes from "./routes/productRoutes.js";
+// import messageRoutes from "./routes/messageRoutes.js";
+// import bcrypt from "bcrypt";
+// import http from "http";
+// import { Server } from "socket.io";
+// // import { transport } from "./mail/transporter.js";
+
+// //configure env
+// dotenv.config();
+
+// //database config
+// connectDB();
+
+// //rest object
+// const app = express();
+// const server = http.createServer(app);
+// const io = new Server(server);
+// //node mailer
+// app.set("view engine", "ejs");
+// app.use(express.urlencoded({ extended: false }));
+// //middlewares
+// app.use(cors());
+// app.use(express.json());
+// app.use(morgan("dev"));
+
+// //Routes
+// app.use("/api/v1/auth", authRoute);
+// app.use("/api/v1/category", categoryRoutes);
+// app.use("/api/v1/product", productRoutes);
+
+// //rest api
+// app.get("/", (req, res) => {
+//   res.send({ message: "Welcome to the Ary-store" });
+// });
+
+// //port
+// const PORT = process.env.PORT || 8081;
+
+// // run listen
+// app.listen(PORT, () => {
+//   console.log(` ${process.env.DEV_MODE} , Server Started ${PORT}`);
+// });
+// app.js
+// ------------------------------------2nd
+// import express from "express";
+// import http from "http";
+// import { Server } from "socket.io";
+// import bodyParser from "body-parser";
+// import mongoose from "mongoose";
+// import dotenv from "dotenv";
+// import morgan from "morgan";
+// import connectDB from "./config/db.js";
+// import authRoute from "./routes/authRoute.js";
+// import cors from "cors";
+// import categoryRoutes from "./routes/categoryRoutes.js";
+// import productRoutes from "./routes/productRoutes.js";
+// import messageRoutes from "./routes/messageRoutes.js";
+
+// dotenv.config();
+// connectDB();
+
+// const app = express();
+// const server = http.createServer(app);
+// export const io = new Server(server);
+// const port = process.env.PORT || 8081;
+
+// app.set("view engine", "ejs");
+// app.use(express.urlencoded({ extended: false }));
+// app.use(cors());
+// app.use(express.json());
+// app.use(morgan("dev"));
+
+// app.use("/api/v1/auth", authRoute);
+// app.use("/api/v1/category", categoryRoutes);
+// app.use("/api/v1/product", productRoutes);
+// app.use("/api/v1/msg", messageRoutes);
+
+// app.get("/", (req, res) => {
+//   res.send({ message: "Welcome to the Ary-store" });
+// });
+
+// // io.on("connection", (socket) => {
+// //   console.log("A user connected:", socket.id);
+
+// //   socket.on("join", (userId) => {
+// //     socket.join(userId);
+// //   });
+
+// //   socket.on("disconnect", () => {
+// //     console.log("A user disconnected:", socket.id);
+// //   });
+// // });
+// io.on("connection", (socket) => {
+//   console.log("A user connected:", socket.id);
+
+//   socket.on("join", (userId) => {
+//     socket.join(userId);
+//   });
+
+//   socket.on("newMessage", (message) => {
+//     console.log("New message received:", message);
+//   });
+
+//   socket.on("disconnect", () => {
+//     console.log("A user disconnected:", socket.id);
+//   });
+// });
+// server.listen(port, () => {
+//   console.log(`${process.env.DEV_MODE}, Server Started ${port}`);
+// });
+// --------------------3
 import express from "express";
+import http from "http";
+import { Server } from "socket.io";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import connectDB from "./config/db.js";
@@ -6,41 +128,50 @@ import authRoute from "./routes/authRoute.js";
 import cors from "cors";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
-import bcrypt from "bcrypt";
+import messageRoutes from "./routes/messageRoutes.js";
 
-// import { transport } from "./mail/transporter.js";
-
-//configure env
 dotenv.config();
-
-//database config
 connectDB();
 
-//rest object
 const app = express();
+const server = http.createServer(app);
+export const io = new Server(server);
+const port = process.env.PORT || 8081;
 
-//node mailer
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
-//middlewares
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
-//Routes
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Replace with your React app's URL
+    methods: "GET,POST", // Allow only GET and POST methods
+  })
+);
+
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
+app.use("/api/v1/msg", messageRoutes);
 
-//rest api
 app.get("/", (req, res) => {
   res.send({ message: "Welcome to the Ary-store" });
 });
 
-//port
-const PORT = process.env.PORT || 8081;
+io.on("connection", (socket) => {
+  console.log("A user connected:", socket.id);
 
-// run listen
-app.listen(PORT, () => {
-  console.log(` ${process.env.DEV_MODE} , Server Started ${PORT}`);
+  socket.on("join", (userId) => {
+    socket.join(userId);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("A user disconnected:", socket.id);
+  });
+});
+
+server.listen(port, () => {
+  console.log(`Server Started on port ${port}`);
 });

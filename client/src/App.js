@@ -29,8 +29,8 @@ import AdminOrders from "./pages/Admin/AdminOrders";
 import PaymentPage from "./pages/Admin/PaymentPage";
 import Password from "antd/es/input/Password";
 import ResetPassword from "./pages/Auth/ResetPassword";
-import UserChat from "./pages/user/UserChat";
-import AdminChat from "./pages/Admin/AdminChat";
+import ChatApp from "./pages/user/ChatApp";
+import AdminChatApp from "./pages/Admin/Chatapp";
 
 function App() {
   return (
@@ -48,7 +48,7 @@ function App() {
           <Route path="user" element={<Dashboard />} />
           <Route path="user/orders" element={<Orders />} />
           <Route path="user/profile" element={<Profile />} />
-          <Route path="user/chat" element={<UserChat />} />
+          <Route path="user/chat" element={<ChatApp />} />
         </Route>
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<Admindashboard />} />
@@ -58,7 +58,7 @@ function App() {
           <Route path="admin/products" element={<Products />} />
           <Route path="admin/users" element={<User />} />
           <Route path="admin/orders" element={<AdminOrders />} />
-          <Route path="admin/chat" element={<AdminChat />} />
+          <Route path="admin/chat" element={<AdminChatApp />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />

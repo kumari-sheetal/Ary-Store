@@ -18,6 +18,9 @@ const AdminMenu = () => {
           href="#offcanvasExample"
           role="button"
           aria-controls="offcanvasExample"
+          style={{ marginLeft: "2cm" }}
+
+          // -------
         >
           &#9776; Open Sidebar
         </a>

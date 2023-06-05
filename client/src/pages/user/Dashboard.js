@@ -76,7 +76,41 @@ const Dashboard = () => {
                 Orders
               </div>
             </div>
-
+            <div className="col-md-5">
+              <div
+                className="card  shadow-sm p-1"
+                style={{ backgroundColor: "rgb(58, 54, 48)" }}
+              >
+                <div className="card-body">
+                  <div className="text-center">
+                    {auth?.user?.gender === "female" ? (
+                      <img
+                        src="/images/female.jpeg"
+                        alt="Profile"
+                        style={{
+                          width: "150px",
+                          height: "150px",
+                          borderRadius: "50%",
+                        }}
+                      />
+                    ) : (
+                      <img
+                        src="/images/men.png"
+                        alt="Profile"
+                        style={{
+                          width: "150px",
+                          height: "150px",
+                          borderRadius: "50%",
+                        }}
+                      />
+                    )}
+                    <h4 className="mt-3">Admin Name: {auth?.user?.name}</h4>
+                    <h4>Admin Email: {auth?.user?.email}</h4>
+                    <h4>Admin Contact: {auth?.user?.phone}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="col-md-8">
               <h4 className="mb">Total Orders</h4>
               <div className="box">
@@ -88,7 +122,7 @@ const Dashboard = () => {
                       nameKey="name"
                       cx="50%"
                       cy="50%"
-                      outerRadius={80}
+                      outerRadius={120}
                       fill="#8884d8"
                       label
                     >
@@ -103,38 +137,6 @@ const Dashboard = () => {
                     <Legend />
                   </PieChart>
                 </ResponsiveContainer>
-              </div>
-              <div className="col-md-5">
-                <div className="card bg-dark shadow-sm p-1">
-                  <div className="card-body">
-                    <div className="text-center">
-                      {auth?.user?.gender === "female" ? (
-                        <img
-                          src="/images/female.jpeg"
-                          alt="Profile"
-                          style={{
-                            width: "150px",
-                            height: "150px",
-                            borderRadius: "50%",
-                          }}
-                        />
-                      ) : (
-                        <img
-                          src="/images/men.png"
-                          alt="Profile"
-                          style={{
-                            width: "150px",
-                            height: "150px",
-                            borderRadius: "50%",
-                          }}
-                        />
-                      )}
-                      <h4 className="mt-3">Admin Name: {auth?.user?.name}</h4>
-                      <h4>Admin Email: {auth?.user?.email}</h4>
-                      <h4>Admin Contact: {auth?.user?.phone}</h4>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

@@ -84,6 +84,8 @@ body {
     /* background-color:rgba(31,36,36, 0.1); */
     /* background: linear-gradient(360deg, rgb(245, 240, 234) 0%, rgb(226, 224, 221) 100%) 0% 0% no-repeat padding-box padding-box transparent; */
 background-color: rgb(245, 240, 234);
+/* background-color: rgba(31,36,36, 0.1);  */
+
     color: rgb(0, 0, 0);
   }
   
@@ -100,8 +102,11 @@ background-color: rgb(245, 240, 234);
     background-color:#292929;
     color: #fff;
   }
-
-
+/* --------------dashboard--card */
+.dark-mode .card-dashboard{
+    background-color:#292929;
+    color: #fff;
+}
 /* Dark mode styles */
 
 .dark-mode body {
@@ -165,6 +170,14 @@ input.dark-mode-checkbox:checked ~ body {
 .dark-mode .abc{
     color: #ffffff;
 }
+/* ---------------chat-app---------- */
+.dark-mode .sent {
+    background-color: #272727;
+    text-align: right;
+  } 
+  .dark-mode .received {
+    background-color: #6d6d6d;
+  }
 /* -------------register/login----------- */
 .dark-mode .register {
     background-color:   #292929;
@@ -226,8 +239,9 @@ input.dark-mode-checkbox:checked ~ body {
 .dark-mode .navbar-nav .nav-link.active{
     color: white
 }
-
-
+/* ------------admin dashboard (box) */
+.dark-mode .dashboard-card {background-color:  #5e5e5e;color:  rgb(254, 186, 48);}
+.dark-mode .box{background-color:  #5e5e5e;}
 /* .dark-mode .dropdown-menu{  background-color: #62aeff} */
 
 

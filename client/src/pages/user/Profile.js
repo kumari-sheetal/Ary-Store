@@ -4,7 +4,7 @@ import UserMenu from "../../components/Layout/UserMenu";
 import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import axios from "axios";
-import UserChat from "./UserChat";
+import UserChat from "./ChatApp";
 
 const Profile = () => {
   //context
@@ -56,6 +56,13 @@ const Profile = () => {
   };
   return (
     <Layout title={"Update profile"}>
+      {/* <div className="container-fluid mt-5">
+        <div className="row">
+          <div className="col-md-3">
+            <UserMenu />
+          </div>
+        </div>
+      </div> */}
       <div className="register">
         <form onSubmit={handleSubmit}>
           <h4 className="title">User Profile</h4>

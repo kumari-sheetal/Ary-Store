@@ -182,7 +182,7 @@ const Orders = () => {
                                 )} */}
                               </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-8">
                               <p>Name:{p.name}</p>
                               <p>
                                 Description:{p.description.substring(0, 30)}

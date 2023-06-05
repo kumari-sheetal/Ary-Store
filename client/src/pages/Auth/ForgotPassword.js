@@ -202,7 +202,23 @@ const ForgotPassword = () => {
     <Layout title={"Forgot Password - Ary Store"}>
       <div className="register">
         <form onSubmit={handleSubmit}>
-          <h4 className="title">Forgot Password</h4>
+          {/* <h4 className="title">Forgot Password</h4> */}
+          <h4 className="title">
+            <div className="mb-4">
+              <span
+                className="fs-28 font-w900 text-center"
+                style={{ color: "#FEBA30" }}
+              >
+                Forgot{" "}
+                <span
+                  className="fs-24 font-w900 text-center"
+                  style={{ color: "#000000" }}
+                >
+                  Password
+                </span>
+              </span>
+            </div>
+          </h4>
 
           <div className="mb-3">
             {/* <label htmlFor="email">Email:</label> */}

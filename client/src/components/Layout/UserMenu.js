@@ -13,7 +13,7 @@ const UserMenu = () => {
         role="button"
         aria-controls="offcanvasExample"
       >
-        &#9776;
+        &#9776;Open Sidebar
       </a>
       <div
         className=" panel offcanvas offcanvas-start"
