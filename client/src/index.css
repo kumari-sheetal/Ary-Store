@@ -821,3 +821,16 @@ tr:hover {
     margin-right: 2.5cm;
   }
 
+
+  
+  
+  .form-control:focus {
+      color: var(--bs-body-color);
+      background-color: var(--bs-form-control-bg);
+      border-color: rgb(254, 186, 48);
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem  rgb(254, 186, 48);
+      
+/*       
+      rgb(19 255 60 / 25%); */
+  }

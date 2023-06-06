@@ -175,7 +175,7 @@ const PaymentPage = () => {
 
             <div className="pricecard-container ">
               <div className="filter">
-                <h3>Payment Method</h3>
+                <h3 style={{ marginLeft: "4cm" }}>Payment Method</h3>
               </div>
               {auth?.token && (
                 <div className="mt-2">
