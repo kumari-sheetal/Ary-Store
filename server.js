@@ -140,17 +140,12 @@ const port = process.env.PORT || 8081;
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+
 app.use(express.json());
+app.use(cors());
 app.use(morgan("dev"));
 
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Replace with your React app's URL
-    methods: "GET,POST", // Allow only GET and POST methods
-  })
-);
-
+app.use(express.urlencoded({ extended: false }));
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
