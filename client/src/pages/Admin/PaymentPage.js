@@ -114,7 +114,6 @@ const PaymentPage = () => {
       }
     } catch (error) {
       console.log(error);
-      // setLoading(false);
     }
   };
 
@@ -150,7 +149,7 @@ const PaymentPage = () => {
                 </div>
               </>
             ) : (
-              <div className="mb-3">
+              <div className="mb-3" style={{ marginLeft: "6cm" }}>
                 {auth?.token ? (
                   <button
                     className="btn btn-outline-warning"

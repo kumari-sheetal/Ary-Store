@@ -174,7 +174,7 @@ const ChatApp = () => {
         </div>
       </div>
       <div className="box-chat">
-        <h1 style={{ color: "white" }}>Chat App</h1>
+        <h1 style={{ color: "white", textAlign: "center" }}>Chat App</h1>
         {/* <h4 className="mt-3 user-name">User Name: {auth?.user?.name}</h4>{" "} */}
         {/* Display user name */}
         {/* <h4>User Email: {auth?.user?.email}</h4>
