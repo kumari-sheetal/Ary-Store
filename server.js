@@ -9,7 +9,7 @@
 // import messageRoutes from "./routes/messageRoutes.js";
 // import bcrypt from "bcrypt";
 // import http from "http";
-// import { Server } from "socket.io";
+// // import { Server } from "socket.io";
 // // import { transport } from "./mail/transporter.js";
 
 // //configure env
@@ -20,11 +20,11 @@
 
 // //rest object
 // const app = express();
-// const server = http.createServer(app);
-// const io = new Server(server);
+// // const server = http.createServer(app);
+// // const io = new Server(server);
 // //node mailer
 // app.set("view engine", "ejs");
-// app.use(express.urlencoded({ extended: false }));
+// // app.use(express.urlencoded({ extended: false }));
 // //middlewares
 // app.use(cors());
 // app.use(express.json());
@@ -47,7 +47,7 @@
 // app.listen(PORT, () => {
 //   console.log(` ${process.env.DEV_MODE} , Server Started ${PORT}`);
 // });
-// app.js
+
 // ------------------------------------2nd
 // import express from "express";
 // import http from "http";

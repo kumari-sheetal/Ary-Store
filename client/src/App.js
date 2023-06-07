@@ -37,7 +37,9 @@ function App() {
     <div>
       <Toaster />
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<About />} />
+        <Route path="/home" element={<Homepage />} />
+
         <Route path="/product/:slug" element={<ProductDetails />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/cart" element={<CartPage />} />

@@ -40,7 +40,7 @@ const Header = () => {
           >
             <span className="navbar-toggler-icon" />
           </button>
-          <Link to="/" className="navbar-brand ml-auto">
+          <Link to="/home" className="navbar-brand ml-auto">
             <BiShoppingBag size={"2rem"} />
             <span className="brand"> Ary-</span>
             <span className="brandname"> Store</span>
@@ -48,10 +48,10 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <Search />
-              <NavLink to="/" className="nav-link">
+              <NavLink to="/home" className="nav-link">
                 Home
               </NavLink>
-              <NavLink to="/about" className="nav-link">
+              <NavLink to="/" className="nav-link">
                 About
               </NavLink>
               <li className="nav-item dropdown">

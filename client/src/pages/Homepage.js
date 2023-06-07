@@ -189,7 +189,7 @@ const Homepage = () => {
         </div>
 
         <div className="col-md-10  ">
-          <h2 className="filter product mt-5 ">All Products</h2>
+          <h1 className="filter product mt-5 ">All Products</h1>
 
           <div className="d-flex flex-wrap flex-row ">
             {/* <div

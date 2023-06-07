@@ -397,7 +397,7 @@ export const braintreeTokenController = async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
+    console.log("13231412", error);
   }
 };
 
@@ -409,7 +409,7 @@ export const braintreePaymentController = async (req, res) => {
     if (Array.isArray(cart)) {
       cart.map((i) => {
         total += i.price;
-        console.log(error);
+        // console.log("payment error", error);
       });
     }
     let newTransaction = await gateway.transaction.sale(
@@ -434,9 +434,10 @@ export const braintreePaymentController = async (req, res) => {
       }
     );
   } catch (error) {
-    console.log(error);
+    console.log("error", error);
   }
 };
+
 const messages = [];
 export const apiController = (req, res) => {
   const { sender, message } = req.body;
