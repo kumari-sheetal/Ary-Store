@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
-import "../Auth/AuthStyle/AuthStyles.css";
+
 import { useAuth } from "../../context/auth";
 
 const Login = () => {
@@ -23,12 +23,15 @@ const Login = () => {
       );
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
+        console.log(res.data.user, "user");
         setAuth({
           ...auth,
           user: res.data.user,
           token: res.data.token,
         });
+
         localStorage.setItem("auth", JSON.stringify(res.data));
+
         navigate(location.state || "/");
       } else {
         toast.error(res.data.message);

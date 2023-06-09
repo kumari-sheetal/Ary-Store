@@ -134,15 +134,25 @@ dotenv.config();
 connectDB();
 
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    exposedHeaders: ["Content-Length", "X-Example-Header"],
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  })
+);
 const server = http.createServer(app);
 export const io = new Server(server);
 const port = process.env.PORT || 8081;
 
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
-app.use(cors());
+
 app.use(morgan("dev"));
 
 app.use(express.urlencoded({ extended: false }));
@@ -158,6 +168,9 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
   console.log("A user connected:", socket.id);
 
+  setTimeout(() => {
+    socket.emit("message", "This is a message from the server");
+  }, 4000);
   socket.on("join", (userId) => {
     socket.join(userId);
   });

@@ -24,6 +24,11 @@ const userSchema = new mongoose.Schema(
       type: {},
       required: true,
     },
+    gender: {
+      type: String, // Add the gender field
+      enum: ["male", "female"], // Specify the allowed values for gender
+      required: true,
+    },
     // answer: {
     //   type: String,
     //   required: true,
