@@ -178,6 +178,19 @@ input.dark-mode-checkbox:checked ~ body {
   .dark-mode .received {
     background-color: #6d6d6d;
   }
+.dark-mode .mores{
+    background-color:  rgb(254, 186, 48);
+
+    color:   white;
+  }
+ .dark-mode .mores:hover{
+    background-color: #6d6d6d;
+    color:  white;
+  }
+.dark-mode .footer-icon-label{
+    color: white;
+    background-color: white;
+}
 /* -------------register/login----------- */
 .dark-mode .register {
     background-color:   #292929;

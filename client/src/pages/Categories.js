@@ -67,6 +67,24 @@ const Categories = () => {
       image2:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCfS1Cw6WYFLUbaTUKhuISYZYoRswUXagn1b1L8CeijyV2oR8LLit3gv7tnHwHXRB51PM&usqp=CAU",
     },
+    {
+      image1:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHuN0nSQ76E5SmsxTHnV82i6kPVBKCHaI-WuH_jH1M7GYoc7axI6GiuYbsEE49a-vFxm8&usqp=CAU",
+      image2:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCfS1Cw6WYFLUbaTUKhuISYZYoRswUXagn1b1L8CeijyV2oR8LLit3gv7tnHwHXRB51PM&usqp=CAU",
+    },
+    {
+      image1:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHuN0nSQ76E5SmsxTHnV82i6kPVBKCHaI-WuH_jH1M7GYoc7axI6GiuYbsEE49a-vFxm8&usqp=CAU",
+      image2:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCfS1Cw6WYFLUbaTUKhuISYZYoRswUXagn1b1L8CeijyV2oR8LLit3gv7tnHwHXRB51PM&usqp=CAU",
+    },
+    {
+      image1:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHuN0nSQ76E5SmsxTHnV82i6kPVBKCHaI-WuH_jH1M7GYoc7axI6GiuYbsEE49a-vFxm8&usqp=CAU",
+      image2:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCfS1Cw6WYFLUbaTUKhuISYZYoRswUXagn1b1L8CeijyV2oR8LLit3gv7tnHwHXRB51PM&usqp=CAU",
+    },
     // Add other image pairs for each category
     // { image1: "url1", image2: "url2" },
   ];

@@ -37,7 +37,9 @@ router.post(
 router.get("/get-product", getproductController);
 //get products ---------admin-----------
 router.get("/get-product-admin", getproductadminController);
+
 //get -all -products --------------admindashboard(charts)
+
 router.get("/get-products", getproductCharts);
 
 //get-single-product

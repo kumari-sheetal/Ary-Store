@@ -763,7 +763,7 @@ tr:hover {
   .slider {
     overflow: hidden;
     width: 100vw;
-    height: 75vh;
+    height: 70vh;
     /* position: relative; */
   }
     
@@ -772,7 +772,7 @@ tr:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 80%;
+    height: 75%;
     background-size: cover;
     background-position: center;
     animation: slider 12.5s infinite;
@@ -835,6 +835,51 @@ tr:hover {
       rgb(19 255 60 / 25%); */
   }
 
+.footer-icon-label:hover{
+ 
+background-color: rgb(254, 186, 48); 
+
+}
+/* .ant-checkbox-input :hover {
+  border-color: black;
+  background-color: rgb(254, 186, 48);
+} */
+
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-checkbox-checked .ant-checkbox-inner {
+  background-color:rgb(254, 186, 48);
+  border-color: rgb(254, 186, 48);
+}
+:where(.css-dev-only-do-not-override-1vtf12y).ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+  border-color: rgb(254, 186, 48);
+  background-color: rgb(254, 186, 48);
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-checkbox:hover .ant-checkbox-inner,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-checkbox-checked:hover .ant-checkbox-inner,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-checkbox:hover .ant-checkbox-inner::after,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-checkbox-checked:hover .ant-checkbox-inner::after {
+  border-color: rgb(254, 186, 48) !important;
+  background-color: rgb(254, 186, 48) !important;
+}
+
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-radio-wrapper:hover .ant-radio-checked .ant-radio-inner,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-radio-wrapper:hover .ant-radio-inner {
+  border-color: rgb(254, 186, 48)!important;
+  background-color: rgb(254, 186, 48) !important;
+}
+
+
+.mores{
+  background-color: rgb(58, 54, 48);
+  color:   white;
+}
+.mores:hover{
+  background-color:  rgb(254, 186, 48);
+  color:  white;
+}
+
   /*-------------checkbox----------- */
 
 
@@ -848,3 +893,10 @@ tr:hover {
 } */
 /* Checkbox and Radio Button Styles */
 /* Checkbox and Radio Button Styles */
+/* -----about page cards */
+.about{
+ color: rgb(254, 186, 48); 
+}
+.about:hover{
+  color: white; 
+}

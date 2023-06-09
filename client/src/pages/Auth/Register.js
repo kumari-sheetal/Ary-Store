@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../Auth/AuthStyle/AuthStyles.css";
+// import "../Auth/AuthStyle/AuthStyles.css";
 // import { Row } from "module";
 
 const Register = () => {
@@ -12,7 +12,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [gender, setGender] = useState(""); // Added gender state
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -20,7 +20,7 @@ const Register = () => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/auth/register`,
-        { name, email, password, phone, address }
+        { name, email, password, phone, address, gender } // Added gender in the request body
       );
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -38,8 +38,6 @@ const Register = () => {
     <Layout title="Register-ARY Store">
       <div className="register">
         <form onSubmit={handleSubmit}>
-          {/* <h4 className="title" style={{ color: "rgb(254, 186, 48)" }}>
-            REGISTER FORM */}
           <h4 className="title">
             <div className="mb-4">
               <span
@@ -112,17 +110,20 @@ const Register = () => {
               required
             />
           </div>
-          {/* <div className="mb-3">
-            <input
-              type="text"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
+          <div className="mb-3">
+            <label htmlFor="gender">Gender:</label>
+            <select
+              id="gender"
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
               className="form-control"
-              id="exampleInputName"
-              placeholder="What is your fav colour"
               required
-            />
-          </div> */}
+            >
+              <option value="">Select gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
           <button type="submit" className="btn btn-primary">
             Register
           </button>

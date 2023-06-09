@@ -37,7 +37,7 @@ var transport = nodemailer.createTransport({
 export const registerController = async (req, res) => {
   //register
   try {
-    const { name, email, password, phone, address } = req.body;
+    const { name, email, password, phone, address, gender } = req.body;
     //validations
     if (!name) {
       return res.send({ message: "Name is required" });
@@ -53,6 +53,9 @@ export const registerController = async (req, res) => {
     }
     if (!address) {
       return res.send({ message: "address is required" });
+    }
+    if (!gender) {
+      return res.send({ message: "Gender is required" });
     }
     // if (!answer) {
     //   return res.send({ message: "answer is required" });
@@ -76,6 +79,7 @@ export const registerController = async (req, res) => {
       phone,
       address,
       password: hashedpassword,
+      gender,
       // answer,
     }).save();
     res.status(201).send({
