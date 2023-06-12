@@ -43,14 +43,15 @@ const CategoryProduct = () => {
   };
 
   return (
-    <Layout>
-      <div className="container" style={{ marginTop: "100px" }}>
-        <h3 className=" filter text">Category-{category?.name}</h3>
-        <h4 className="text ">{products?.length} Total Result</h4>
+    <Layout title={"Category page "}>
+      <div className=" mt-5">
+        <div className="" style={{ marginTop: "100px" }}>
+          <h3 className=" filter text">Category-{category?.name}</h3>
+          <h4 className="text ">{products?.length} Total Result</h4>
 
-        <div className="row">
+          {/* <div className="row"> */}
           <div className="col-md-16">
-            <div className="d-flex flex-wrap">
+            <div className="d-flex flex-wrap flex-row ">
               {products?.map((p) => (
                 <div
                   className="card m-3 "
@@ -114,7 +115,8 @@ const CategoryProduct = () => {
           </div> */}
           </div>
         </div>
-      </div>
+      </div>{" "}
+      {/* </div> */}
     </Layout>
   );
 };
