@@ -69,22 +69,22 @@ const Categories = () => {
     },
     {
       image1:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHuN0nSQ76E5SmsxTHnV82i6kPVBKCHaI-WuH_jH1M7GYoc7axI6GiuYbsEE49a-vFxm8&usqp=CAU",
+        "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSNHEtv01kyhBrikeGI2jwWObNqlt-_ckLpQIYHwk6ZgkmsW7cbV6EyE7uP_KoutHmQsegMO2uhpbEZ2S2uAf8ACaNL_c63Y6AaZWO9GbWfttBpM5nME2m7mA&usqp=CAE",
       image2:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCfS1Cw6WYFLUbaTUKhuISYZYoRswUXagn1b1L8CeijyV2oR8LLit3gv7tnHwHXRB51PM&usqp=CAU",
+        "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRzJ5NH4PrSCkueVfCCz9lDZAWSohHl-r6qlsBxkCeVEaveV77wvxEJDhKptrYG3HyaUdWDN_gpkNL8yzDhjmi8dO3-MBJWDazZItxW8_1oWbVlcf1f3gDDOw&usqp=CAE",
     },
     {
       image1:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHuN0nSQ76E5SmsxTHnV82i6kPVBKCHaI-WuH_jH1M7GYoc7axI6GiuYbsEE49a-vFxm8&usqp=CAU",
+        "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRf60jAJdBsOprx-JjVRuP_Y5g4Vk3kiIE9KI23WbSzL2QBMiw7SbDwYbXklmuDEdwWnPYKX_BdyXHbXQqCMf7VDAJ0otMZ5UKiVD7DEiQ&usqp=CAE",
       image2:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCfS1Cw6WYFLUbaTUKhuISYZYoRswUXagn1b1L8CeijyV2oR8LLit3gv7tnHwHXRB51PM&usqp=CAU",
+        "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTu_kfTVRhqFDXPXWUJvr_KGJBMr4jqfQhjnWkj1Gb1qrIo82u78oBL0wYt3GdBZWxz_q-4XEUYTSeMLNh0FabGVJAFkC3J_y7obSIXixx1SC_BmYTDvyIrWw&usqp=CAE",
     },
-    {
-      image1:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHuN0nSQ76E5SmsxTHnV82i6kPVBKCHaI-WuH_jH1M7GYoc7axI6GiuYbsEE49a-vFxm8&usqp=CAU",
-      image2:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCfS1Cw6WYFLUbaTUKhuISYZYoRswUXagn1b1L8CeijyV2oR8LLit3gv7tnHwHXRB51PM&usqp=CAU",
-    },
+    // {
+    //   image1:
+    //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHuN0nSQ76E5SmsxTHnV82i6kPVBKCHaI-WuH_jH1M7GYoc7axI6GiuYbsEE49a-vFxm8&usqp=CAU",
+    //   image2:
+    //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCfS1Cw6WYFLUbaTUKhuISYZYoRswUXagn1b1L8CeijyV2oR8LLit3gv7tnHwHXRB51PM&usqp=CAU",
+    // },
     // Add other image pairs for each category
     // { image1: "url1", image2: "url2" },
   ];

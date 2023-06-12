@@ -129,11 +129,22 @@ import cors from "cors";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
+//config env
 dotenv.config();
+
+//db config
 connectDB();
 
+//es-module
+// const _filename = fileURLToPath(import.meta.url);
+// const _dirname = path.dirname(_filename);
+
+//objects
 const app = express();
+
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -154,6 +165,8 @@ app.set("view engine", "ejs");
 app.use(express.json());
 
 app.use(morgan("dev"));
+
+// app.use(express.static(path.join(_dirname, "./client/build")));
 
 app.use(express.urlencoded({ extended: false }));
 app.use("/api/v1/auth", authRoute);
