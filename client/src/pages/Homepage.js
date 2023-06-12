@@ -9,6 +9,7 @@ import { Prices } from "../components/Prices";
 import DarkMode from "./Darkmode/DarkMode";
 import ChatBot from "../components/ChatBot";
 import Chat from "../components/ChatBot";
+import { HiRefresh } from "react-icons/hi";
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -177,10 +178,10 @@ const Homepage = () => {
               {/* <div className="col-md-70"> */}
               {/* <div className="row mt-3 "> */}
               <button
-                className="reset btn  ms-4 mt-3 "
+                className="reset btn  ms-5 mt-3 "
                 onClick={() => window.location.reload()}
               >
-                Reset Filters
+                <HiRefresh size={"2rem"} />
               </button>
               {/* </div> */}
               {/* </div> */}
