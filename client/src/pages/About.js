@@ -696,9 +696,7 @@ const About = () => {
                     <span
                       className="footer-icon-label"
                       style={{ fontWeight: "bold", color: "black" }}
-                    >
-                      Twitter
-                    </span>
+                    ></span>
                   </a>
                   <a
                     href={linkedinUrl}
@@ -710,9 +708,7 @@ const About = () => {
                     <span
                       className="footer-icon-label"
                       style={{ fontWeight: "bold", color: "black" }}
-                    >
-                      LinkedIn
-                    </span>
+                    ></span>
                   </a>
                   <a
                     href={youtubeUrl}
@@ -725,9 +721,7 @@ const About = () => {
                     <span
                       className="footer-icon-label"
                       style={{ fontWeight: "bold", color: "black" }}
-                    >
-                      YouTube
-                    </span>
+                    ></span>
                   </a>
                 </div>
               </div>

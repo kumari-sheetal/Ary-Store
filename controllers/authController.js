@@ -417,6 +417,7 @@ export const resetPassWordUpdate = async (req, res) => {
   const { id, token } = req.params;
   const { password } = req.body;
   var userEmail;
+  console.log(password, "pasd");
   if (!password) {
     return res.json({ status: "Password is required!!" });
   }

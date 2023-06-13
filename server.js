@@ -118,8 +118,8 @@
 // --------------------3
 import express from "express";
 import http from "http";
-import { Server } from "socket.io";
-import bodyParser from "body-parser";
+// import { Server } from "socket.io";
+// import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import morgan from "morgan";
@@ -129,8 +129,8 @@ import cors from "cors";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
-import path from "path";
-import { fileURLToPath } from "url";
+// import path from "path";
+// import { fileURLToPath } from "url";
 
 //config env
 dotenv.config();
@@ -144,20 +144,20 @@ connectDB();
 
 //objects
 const app = express();
-
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    exposedHeaders: ["Content-Length", "X-Example-Header"],
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-  })
-);
-const server = http.createServer(app);
-export const io = new Server(server);
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     exposedHeaders: ["Content-Length", "X-Example-Header"],
+//     credentials: true,
+//     preflightContinue: false,
+//     optionsSuccessStatus: 204,
+//   })
+// );
+// const server = http.createServer(app);
+// export const io = new Server(server);
 const port = process.env.PORT || 8081;
 
 app.set("view engine", "ejs");
@@ -178,21 +178,21 @@ app.get("/", (req, res) => {
   res.send({ message: "Welcome to the Ary-store" });
 });
 
-io.on("connection", (socket) => {
-  console.log("A user connected:", socket.id);
+// io.on("connection", (socket) => {
+//   console.log("A user connected:", socket.id);
 
-  setTimeout(() => {
-    socket.emit("message", "This is a message from the server");
-  }, 4000);
-  socket.on("join", (userId) => {
-    socket.join(userId);
-  });
+//   setTimeout(() => {
+//     socket.emit("message", "This is a message from the server");
+//   }, 4000);
+//   socket.on("join", (userId) => {
+//     socket.join(userId);
+//   });
 
-  socket.on("disconnect", () => {
-    console.log("A user disconnected:", socket.id);
-  });
-});
+//   socket.on("disconnect", () => {
+//     console.log("A user disconnected:", socket.id);
+//   });
+// });
 
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server Started on port ${port}`);
 });
