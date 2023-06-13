@@ -900,3 +900,176 @@ background-color: rgb(254, 186, 48);
 .about:hover{
   color: white; 
 }
+
+/* CSS Styling
+.chat-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-wrapper {
+  display: flex;
+  width: 800px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-list {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.user {
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #9a7b7b;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user.active {
+  background-color: #755555;
+}
+
+.chat-box {
+  flex: 2;
+  padding: 20px;
+}
+
+.messages-container {
+  height: 300px;
+  overflow-y: auto;
+ 
+}
+
+.reply-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  
+}
+
+.reply-container input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  
+}
+
+.reply-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.reply-container button:hover {
+  background-color: #0069d9;
+}
+.box-chat{
+
+ 
+  background-color: rgb(58, 54, 48);
+/* color: #ffffff; */
+    /* width: 16.3cm; */
+   /* border-radius: 10px;
+    padding: 25px;
+    margin: 10cm;
+    margin-top: 1cm;
+  
+} */ 
+
+/* Adjust the styling as needed */
+/* CSS Styling  for client side chat app
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.messages-container {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.sent {
+  justify-content: flex-end;
+}
+
+.received {
+  justify-content: flex-start;
+}
+
+.sender-name {
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Adjust the styling as needed */
+
+/* Media queries for responsive chatbox 
+@media (max-width: 600px) {
+  .chat-container {
+    padding: 0 10px;
+  }
+
+  input[type="text"] {
+    margin-bottom: 10px;
+  }
+}
+*/
+
+/* .chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+
+} */
+/* .messages-container {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+} */
+

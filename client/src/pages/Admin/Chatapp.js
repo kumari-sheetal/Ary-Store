@@ -1,67 +1,71 @@
-import React, { useState, useEffect } from "react";
-import io from "socket.io-client";
-import { useAuth } from "../../context/auth";
+// --------------------
+
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Layout from "../../components/Layout/Layout";
-import "../user/Chat.css";
 import AdminMenu from "../../components/Layout/AdminMenu";
-const socket = io("http://localhost:8081");
+import "./Chatapp.css";
 
-const AdminChatApp = () => {
+const Chatapp = () => {
+  // State variables
   const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState("");
-  const [sender, setSender] = useState("Admin"); // Set the sender name for the admin
-  const [receiver, setReceiver] = useState("User"); // Set the receiver name as needed
-  const [auth] = useAuth("");
+  const [adminReply, setAdminReply] = useState("");
+  const [selectedUser, setSelectedUser] = useState("");
+  const [users, setUsers] = useState([]);
 
+  // Fetch messages on component mount
   useEffect(() => {
-    // Fetch initial messages
     fetchMessages();
-
-    // Listen for new messages
-    socket.on("newMessage", (message) => {
-      setMessages((prevMessages) => [...prevMessages, message]);
-    });
-
-    return () => {
-      // Clean up socket connection
-      socket.off("newMessage");
-    };
   }, []);
 
+  // Update user list when messages change
+  useEffect(() => {
+    setUsers(getUniqueUsers());
+  }, [messages]);
+
+  // Fetch messages from the API
   const fetchMessages = async () => {
     try {
-      const response = await fetch("http://localhost:8081/api/v1/msg/messages");
-      const data = await response.json();
-      setMessages(data);
+      const response = await axios.get(
+        "http://localhost:8081/api/v1/msg/messages"
+      );
+      setMessages(response.data);
     } catch (error) {
-      console.error("Error fetching messages:", error);
+      console.error(error);
     }
   };
 
-  const sendMessage = async (e) => {
-    e.preventDefault();
-    if (!inputMessage) return;
-
+  // Send a reply to the selected user
+  const sendReply = async (clientId) => {
     try {
-      const response = await fetch("http://localhost:8081/api/v1/msg", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ sender, receiver, message: inputMessage }),
+      await axios.post("http://localhost:8081/api/v1/msg/messages", {
+        sender: "admin",
+        receiver: clientId,
+        message: adminReply,
       });
-
-      if (response.ok) {
-        setInputMessage("");
-        // Add the sent message to the client-side messages array
-        const newMessage = { sender, receiver, message: inputMessage };
-        setMessages((prevMessages) => [...prevMessages, newMessage]);
-      } else {
-        console.error("Failed to send message");
-      }
+      setAdminReply("");
+      fetchMessages();
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.error(error);
     }
+  };
+
+  // Get unique users from messages
+  const getUniqueUsers = () => {
+    const usersSet = new Set();
+    messages.forEach((message) => {
+      usersSet.add(message.sender);
+      usersSet.add(message.receiver);
+    });
+    return Array.from(usersSet);
+  };
+
+  // Find messages between admin and a specific client
+  const findClientMessages = (clientName) => {
+    return messages.filter(
+      (message) =>
+        message.sender === clientName || message.receiver === clientName
+    );
   };
 
   return (
@@ -73,40 +77,59 @@ const AdminChatApp = () => {
           </div>{" "}
         </div>{" "}
       </div>
-      <div className="box-chat">
-        <h1 style={{ color: "white", textAlign: "center" }}>Chat App</h1>
-        {/* <h4 className="mt-3 user-name">User Name: {auth?.user?.name}</h4>{" "} */}
-        <div className="messages-container">
-          {messages.map((message) => (
-            <div
-              key={message._id}
-              className={`message ${
-                message.sender === sender ? "sent" : "received"
-              }`}
-            >
-              <p>
-                <span className="sender-name">
-                  {message.sender === sender ? "You" : message.sender}:{" "}
-                  {message.message}
-                </span>
-              </p>
+      <div className="chat-container">
+        <div className="chat-wrapper">
+          <div className="user-list">
+            <div className="text-ld" style={{ color: "rgb(254, 186, 48)" }}>
+              <h2>User list </h2>
             </div>
-          ))}
+            {users.map((user) => (
+              <div
+                key={user}
+                className={`user ${selectedUser === user ? "active" : ""}`}
+                onClick={() => setSelectedUser(user)}
+              >
+                {user}
+              </div>
+            ))}
+          </div>
+          {selectedUser && (
+            <div className="chat-box">
+              <div className="text-lg" style={{ color: "rgb(254, 186, 48)" }}>
+                <h3>Chat with {selectedUser}:</h3>
+              </div>{" "}
+              <div className="messages-container">
+                {findClientMessages(selectedUser).map((message) => (
+                  <div
+                    key={message._id}
+                    className={`message ${
+                      message.sender === "admin" ? "sent" : "received"
+                    }`}
+                  >
+                    <p>{message.message}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="reply-container">
+                <input
+                  type="text"
+                  placeholder="Write here your Message"
+                  value={adminReply}
+                  onChange={(e) => setAdminReply(e.target.value)}
+                />
+                <button
+                  className=" add btn"
+                  onClick={() => sendReply(selectedUser)}
+                >
+                  Reply
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-        <form onSubmit={sendMessage}>
-          <input
-            type="text"
-            value={inputMessage}
-            placeholder="Write here your Message"
-            onChange={(e) => setInputMessage(e.target.value)}
-          />
-          <button className="reset mt-2" type="submit">
-            Send
-          </button>
-        </form>
       </div>
     </Layout>
   );
 };
 
-export default AdminChatApp;
+export default Chatapp;
