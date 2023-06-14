@@ -496,9 +496,9 @@ const About = () => {
           </div>
         </div>{" "}
         <div className="row">
-          <div className="col-md-12 mt-5">
+          <div className="col-md-12 ">
             <div className="row">
-              <div className="col-md-3">
+              <div className="col-md-3 mt-5">
                 <div className="card">
                   <p className="text-justify mt-2">
                     {/* Welcome to our online store! At AryStore, we are passionate
@@ -527,7 +527,7 @@ const About = () => {
                   </p>
                 </div>{" "}
               </div>
-              <div className="col-md-3">
+              <div className="col-md-3 mt-5">
                 <div className="card">
                   <p className="text-justify mt-2">
                     {/* we understand the importance of adapting traditional systems
@@ -546,7 +546,7 @@ const About = () => {
                   </p>
                 </div>{" "}
               </div>
-              <div className="col-md-3">
+              <div className="col-md-3 mt-5">
                 <div className="card">
                   <p className="text-justify mt-2">
                     {/* We take pride in our commitment to efficiency and speed.
@@ -565,7 +565,7 @@ const About = () => {
                   </p>
                 </div>{" "}
               </div>
-              <div className="col-md-3">
+              <div className="col-md-3 mt-5">
                 <div className="card">
                   <p className="text-justify mt-2">
                     {/* Thank you for choosing ary-Store as your trusted partner in
@@ -668,64 +668,63 @@ const About = () => {
               <BiSupport className="contact-icon" /> : 1800-0000-0000 (toll
               free)
             </p>
-            <footer className="">
-              <div className="">
-                <div className="footer-icons">
-                  <a
-                    href={facebookUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-icon"
-                  >
-                    <FaFacebook size={38} />
-                    <span
-                      className="footer-icon-label"
-                      style={{ fontWeight: "bold", color: "black" }}
-                    >
-                      Facebook
-                    </span>
-                  </a>
-                  <a
-                    href={twitterUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-icon"
-                    style={{ margin: "2cm", color: "#1DA1F2" }}
-                  >
-                    <FaTwitter size={38} />
-                    <span
-                      className="footer-icon-label"
-                      style={{ fontWeight: "bold", color: "black" }}
-                    ></span>
-                  </a>
-                  <a
-                    href={linkedinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-icon"
-                  >
-                    <FaLinkedin size={38} />
-                    <span
-                      className="footer-icon-label"
-                      style={{ fontWeight: "bold", color: "black" }}
-                    ></span>
-                  </a>
-                  <a
-                    href={youtubeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-icon"
-                    style={{ margin: "2cm", color: "red" }}
-                  >
-                    <FaYoutube size={38} />
-                    <span
-                      className="footer-icon-label"
-                      style={{ fontWeight: "bold", color: "black" }}
-                    ></span>
-                  </a>
-                </div>
-              </div>
-            </footer>
+            {/* <footer className="">
+              <div className=""> */}
+            <div className="footer-icons">
+              <a
+                href={facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-icon"
+              >
+                <FaFacebook size={38} />
+                <span
+                  className="footer-icon-label"
+                  style={{ fontWeight: "bold", color: "black" }}
+                ></span>
+              </a>
+
+              <a
+                href={twitterUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-icon"
+                style={{ margin: "40px", color: "#1DA1F2" }}
+              >
+                <FaTwitter size={38} />
+                <span
+                  className="footer-icon-label"
+                  style={{ fontWeight: "bold", color: "black" }}
+                ></span>
+              </a>
+              <a
+                href={linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-icon"
+              >
+                <FaLinkedin size={38} />
+                <span
+                  className="footer-icon-label"
+                  style={{ fontWeight: "bold", color: "black" }}
+                ></span>
+              </a>
+              <a
+                href={youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-icon"
+                style={{ margin: "40px", color: "red" }}
+              >
+                <FaYoutube size={38} />
+                <span
+                  className="footer-icon-label"
+                  style={{ fontWeight: "bold", color: "black" }}
+                ></span>
+              </a>
+            </div>
+            {/* </div>
+            </footer> */}
             {/* <div className="row">
               <div className="col-md-2">
                 <div className="card">

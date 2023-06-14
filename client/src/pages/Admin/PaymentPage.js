@@ -212,7 +212,7 @@ const PaymentPage = () => {
                                 htmlFor="cod-checkbox"
                                 className=" cash mb-0 ms-2"
                               >
-                                Cash on Delivery
+                                Cash on Delivery(Rs 10)
                               </Form.Label>
                             </div>
                           </div>

@@ -113,6 +113,7 @@
 // };
 
 // export default ChatApp;
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/auth";
@@ -170,7 +171,7 @@ const ChatApp = () => {
             <UserMenu />
           </div>
           <div className="box-chat mt-5">
-            <h2>Client Chat</h2>
+            <h2> Chat with Admin</h2>
 
             <div className="chat">
               {clientMessages.map((message) => (

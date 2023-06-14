@@ -1,47 +1,21 @@
-/* adjust font size and line height for mobile devices */
-@media (max-width: 768px) {
-    body {
-      font-size: 16px;
-      line-height: 1.5;
-    }
-  }
-  
-  /* adjust layout and spacing for mobile devices */
-  @media (max-width: 768px) {
-    .container {
-      width: 100%;
-      padding: 20px;
-    }
-    .row {
-      display: flex;
-      flex-direction: column;
-    }
-    .col {
-      margin-bottom: 20px;
-    }
-  }
-  
-  /* adjust menu and navigation for mobile devices */
-  @media (max-width: 768px) {
-    .menu {
-      display: none;
-    }
-    .hamburger {
-      display: block;
-    }
-    .nav {
-      display: none;
-    }
-    .nav-open {
-      display: block;
-    }
-  }
-  
-  /* adjust images for mobile devices */
-  @media (max-width: 768px) {
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  }
+
+
+ .card-details {
+   padding: 10px;
+ }
+
+ @media (max-width: 768px) {
+   .card-img-top {
+     max-height: 250px;
+     max-width: 250px;
+     min-width: 200px;
+     min-height: 250px;
+   }
+
+   .card-details {
+     padding: 5px;
+   }
+ }
+
+ 
   

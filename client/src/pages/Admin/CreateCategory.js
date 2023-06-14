@@ -145,7 +145,7 @@ const CreateCategory = () => {
 
                             <td>
                               <button
-                                className="more btn  ms-2"
+                                className="more btn  ms-2 mt-2 "
                                 onClick={() => {
                                   setVisible(true);
                                   setUpdatedName(c.name);
@@ -155,7 +155,7 @@ const CreateCategory = () => {
                                 Edit
                               </button>
                               <button
-                                className="more btn ms-2"
+                                className="more btn ms-2 mt-2"
                                 body
                                 onClick={() => {
                                   handleDelete(c._id);
