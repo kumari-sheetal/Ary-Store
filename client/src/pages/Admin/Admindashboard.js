@@ -127,8 +127,8 @@ const Admindashboard = () => {
             </div>
           </div>
 
-          <div className="row mt-3">
-            <div className="col-md-7">
+          <div className="row mt-3 ">
+            <div className="col-md-7 mt-2">
               <div
                 className="border shadow"
                 style={{
@@ -151,7 +151,7 @@ const Admindashboard = () => {
                 </ResponsiveContainer>
               </div>
             </div>{" "}
-            <div className="col-md-5">
+            <div className="col-md-5 mt-2">
               <div
                 className="border shadow"
                 style={{

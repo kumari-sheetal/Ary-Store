@@ -1,5 +1,3 @@
-// --------------------
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Layout from "../../components/Layout/Layout";
@@ -74,8 +72,8 @@ const Chatapp = () => {
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />
-          </div>{" "}
-        </div>{" "}
+          </div>
+        </div>
       </div>
       <div className="chat-container">
         <div className="chat-wrapper">
@@ -97,7 +95,7 @@ const Chatapp = () => {
             <div className="chat-box">
               <div className="text-lg" style={{ color: "rgb(254, 186, 48)" }}>
                 <h3>Chat with {selectedUser}:</h3>
-              </div>{" "}
+              </div>
               <div className="messages-container">
                 {findClientMessages(selectedUser).map((message) => (
                   <div
@@ -118,7 +116,7 @@ const Chatapp = () => {
                   onChange={(e) => setAdminReply(e.target.value)}
                 />
                 <button
-                  className=" add btn"
+                  className="add btn"
                   onClick={() => sendReply(selectedUser)}
                 >
                   Reply

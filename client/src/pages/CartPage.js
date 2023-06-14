@@ -230,120 +230,121 @@ const CartPage = () => {
   // };
   return (
     <Layout>
-      <div className="container">
+      <div className="mt-5">
         <div className="row">
-          <div className="col-md-12"></div>
-          {/* <h1 className="text">{`Hello${auth?.token && auth?.user?.name}`}</h1> */}
-          <h4 className=" filter text">
-            {cart?.length > 0
-              ? `You have ${cart.length} items in your Cart ${
-                  auth?.token ? "" : "Please Login to Checkout"
-                }`
-              : "Your Cart is Empty"}
-          </h4>
-          {/* <h1>Your cart</h1> */}
-          <div className="row">
-            <div className="col-md-7">
-              {cart?.map((p) => (
-                <div className="row mb-4 p-2 card flex-row m-1">
-                  <div className="col-md-4">
-                    <div
-                      className="cards m-1  "
-                      // style={{ width: "18rem" }}
-                      key={p._id}
-                    >
-                      <img
-                        src={`http://localhost:8081/api/v1/product/product-photo/${p._id}`}
-                        className="card-img-top"
+          <div className="col-md-12 mt-5">
+            {/* <h1 className="text">{`Hello${auth?.token && auth?.user?.name}`}</h1> */}
+            <h4 className="filter text">
+              {cart?.length > 0
+                ? `You have ${cart.length} items in your Cart ${
+                    auth?.token ? "" : "Please Login to Checkout"
+                  }`
+                : "Your Cart is Empty"}
+            </h4>
+            {/* <h1>Your cart</h1> */}
+            <div className="row">
+              <div className="col-md-7">
+                {cart?.map((p) => (
+                  <div className="row mb-4 p-2 card flex-row m-1">
+                    <div className="col-md-4">
+                      <div
+                        className="cards m-1"
+                        // style={{ width: "18rem" }}
+                        key={p._id}
+                      >
+                        <img
+                          src={`http://localhost:8081/api/v1/product/product-photo/${p._id}`}
+                          className="card-img-top"
+                          // style={{
+                          //   maxHeight: "250px",
+                          //   maxWidth: "250px",
+                          //   minWidth: "200px",
+                          //   minHeight: "250px",
+                          // }}
+                          alt={p.name}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-8 card-details">
+                      <p>
+                        <b>Name: </b> {p.name}
+                      </p>
+                      <p>
+                        <b>Description: </b> {p.description.substring(0, 30)}
+                      </p>
+                      <p>
+                        <b>Price: </b> {p.price}
+                      </p>
+                      <div
                         style={{
-                          maxHeight: "250px",
-                          maxWidth: "250px",
-                          minWidth: "200px",
-                          minHeight: "250px",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "10px",
                         }}
-                        alt={p.name}
-                      />
+                      >
+                        <AiOutlineMinus onClick={() => handleMinus(p._id)} />
+
+                        {p.quantity}
+
+                        <IoMdAdd onClick={() => handleAdd(p._id)} />
+                      </div>
+
+                      <button
+                        className="add btn"
+                        onClick={() => removeCartItem(p._id)}
+                      >
+                        Remove
+                      </button>
                     </div>
                   </div>
-                  <div className="col-md-8 ">
-                    <p>
-                      <b>Name: </b> {p.name}
-                    </p>
-                    <p>
-                      <b>Description: </b> {p.description.substring(0, 30)}
-                    </p>
-                    <p>
-                      <b>Price: </b> {p.price}
-                    </p>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                      }}
-                    >
-                      <AiOutlineMinus onClick={() => handleMinus(p._id)} />
-
-                      {p.quantity}
-
-                      <IoMdAdd onClick={() => handleAdd(p._id)} />
-                    </div>
-
-                    <button
-                      className="add btn "
-                      onClick={() => removeCartItem(p._id)}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className=" col-md-4 ">
-              <div className="filter">
-                <h2>Card Summary</h2>
+                ))}
               </div>
-              <p>Total | Checkout | Payment</p>
-              <hr />
 
-              <h4>Total:{totalPrice()}</h4>
-              {auth?.user?.address ? (
-                <>
-                  <div className="mb-3">
-                    <h4>Current Address -{auth?.user?.address} </h4>
-                    {/* <h5>{auth?.user?.address}</h5> */}
-                    <button
-                      className="shoppi btn mt-2"
-                      onClick={handleShopping}
-                    >
-                      Continue Shopping
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <div className="mb-3">
-                  {auth?.token ? (
-                    <button
-                      className="shoppi btn mt-2"
-                      onClick={handleShopping}
-                    >
-                      Continue Shopping
-                    </button>
-                  ) : (
-                    <button
-                      className="shoppi btn"
-                      onClick={() =>
-                        navigate("/login", {
-                          state: "/cart",
-                        })
-                      }
-                    >
-                      Please login to Checkout
-                    </button>
-                  )}
+              <div className=" col-md-4">
+                <div className="filter">
+                  <h2>Card Summary</h2>
                 </div>
-              )}
+                <p>Total | Checkout | Payment</p>
+                <hr />
+
+                <h4>Total: {totalPrice()}</h4>
+                {auth?.user?.address ? (
+                  <>
+                    <div className="mb-3">
+                      <h4>Current Address -{auth?.user?.address} </h4>
+                      {/* <h5>{auth?.user?.address}</h5> */}
+                      <button
+                        className="shoppi btn mt-2"
+                        onClick={handleShopping}
+                      >
+                        Continue Shopping
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <div className="mb-3">
+                    {auth?.token ? (
+                      <button
+                        className="shoppi btn mt-2"
+                        onClick={handleShopping}
+                      >
+                        Continue Shopping
+                      </button>
+                    ) : (
+                      <button
+                        className="shoppi btn"
+                        onClick={() =>
+                          navigate("/login", {
+                            state: "/cart",
+                          })
+                        }
+                      >
+                        Please login to Checkout
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
