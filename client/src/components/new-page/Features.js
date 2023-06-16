@@ -6,53 +6,53 @@ const Features = () => {
       <section className="features" id="features">
         <div className="content">
           <h1 className="heading">
-            our <span>features</span>
+            Our <span>Features</span>
           </h1>
           <div className="box-container">
             <div className="row " style={{ gap: "1cm", width: "100%" }}>
               <div className="box" style={{ background: "white" }}>
                 <img src="images/feature-img-1.png" alt="" />
-                <h3>fresh and organic</h3>
+                <h3>Fresh and Organic</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit,
-                  quis!
-                </p>
-                <a href="/" className="btn">
-                  read more
-                </a>
+                  Transforming campus shopping experience, one swift delivery at
+                  a time
+                </p>{" "}
+                {/* <a href="/" className="add btn">
+                  S
+                </a> */}
               </div>
               <div className="box" style={{ background: "white" }}>
                 <img src="images/feature-img-2.png" alt="" />
-                <h3>free delivery</h3>
+                <h3>Fast Delivery</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit,
-                  quis!
+                  We bring the speed of online shopping right to your campus
+                  doorstep
                 </p>
-                <a href="/" className="btn">
+                {/* <a href="/" className="btn">
                   read more
-                </a>
+                </a> */}
               </div>
               <div className="box" style={{ background: "white" }}>
                 <img src="images/feature-img-3.png" alt="" />
-                <h3>easy payment</h3>
+                <h3>Easy Payment</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit,
-                  quis!
+                  From offline to online, we are your trusted partner in digital
+                  transformation within our campus walls
                 </p>
-                <a href="/" className="btn">
+                {/* <a href="/" className="btn">
                   read more
-                </a>
+                </a> */}
               </div>
               <div className="box" style={{ background: "white" }}>
-                <img src="images/feature-img-3.png" alt="" />
-                <h3>easy payment</h3>
+                <img src="images/best-qul.jpg" alt="" />
+                <h3>Best Quality</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit,
-                  quis!
+                  Our mission is to bridge the gap between offline and online,
+                  creating a campus community empowered by digital convenience
                 </p>
-                <a href="/" className="btn">
+                {/* <a href="/" className="btn">
                   read more
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

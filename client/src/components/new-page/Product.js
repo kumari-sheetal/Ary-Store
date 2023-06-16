@@ -11,7 +11,7 @@ const Product = () => {
     <div className="product">
       <div className="row ">
         <h1 className="heading">
-          our <span>products</span>
+          Our <span>Products</span>
         </h1>
 
         <div className="card m-3 " style={{ width: "8cm", height: "8cm" }}>

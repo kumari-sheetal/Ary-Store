@@ -46,7 +46,7 @@ const Reviews = () => {
               <div className="box-container">
                 <div className="row">
                   <div className="box" style={{ background: "white" }}>
-                    <img src="images/store.jpeg" alt="" />
+                    <img src="images/r1.jpeg" alt="" />
                     <p>
                       Welcome to Ary-store, the exclusive online platform
                       designed to revolutionize the way you experience shopping
@@ -66,16 +66,15 @@ const Reviews = () => {
               <div className="box-container">
                 <div className="row">
                   <div className="box " style={{ background: "white" }}>
-                    <img src="images/toy.jpeg" alt="" />
+                    <img src="images/r2.jpeg" alt="" />
                     <p>
                       With our emphasis on swift deliveries, you can say goodbye
                       to long wait times. We understand the importance of
                       efficiency in a busy academic environmimport Reviews from
-                      '../components/new-page/Reviews'; logistics team works
-                      tirelessly to ensure your orders are processed and
-                      dispatched in the shortest possible time frame. Trust us
-                      to deliver your purchases promptly, allowing you to focus
-                      on your studies and campus life.
+                      logistics team works tirelessly to ensure your orders are
+                      processed and dispatched in the shortest possible time
+                      frame. Trust us to deliver your purchases promptly,
+                      allowing you to focus on your studies and campus life.
                     </p>
                     {/* <h3>john deo</h3> */}
                   </div>{" "}
@@ -85,7 +84,7 @@ const Reviews = () => {
             <SwiperSlide>
               <div className="row">
                 <div className="box " style={{ background: "white" }}>
-                  <img src="images/t2.webp" alt="" />
+                  <img src="images/r3.avif" alt="" />
                   <p>
                     Our website provides an intuitive and user-friendly
                     interface, making it easy for you to navigate and explore
@@ -102,7 +101,7 @@ const Reviews = () => {
             <SwiperSlide>
               <div className="row">
                 <div className="box " style={{ background: "white" }}>
-                  <img src="images/decor.jpg" alt="" />
+                  <img src="images/r4.jpg" alt="" />
                   <p>
                     Join our growing community of campus shoppers and embrace
                     the future of convenient and efficient shopping with
@@ -120,7 +119,7 @@ const Reviews = () => {
             <SwiperSlide>
               <div className="row">
                 <div className="box " style={{ background: "white" }}>
-                  <img src="images/decor1.png" alt="" />
+                  <img src="images/r5.jpeg" alt="" />
                   <p>
                     Our website is designed with your convenience in mind. With
                     just a few clicks, you can browse through our extensive
