@@ -10,39 +10,42 @@ const Category = () => {
         <div className="box-container">
           <div className="row " style={{ gap: "1cm", width: "100%" }}>
             <div className="box" style={{ background: "white" }}>
-              <img src="images/food7.webp" alt="" />
-              <h3>vegetables</h3>
+              <img src="images/cat-1.png" alt="" />
+              <h3>Vegetables</h3>
               <p>upto 45% off</p>
-              <button type="button" className="btn">
+              {/* <button type="button" className=" add btn">
                 shop now
-              </button>
+              </button> */}
+              <a href="/home" className=" add btn">
+                Shop now
+              </a>
             </div>
 
             <div className="box" style={{ background: "white" }}>
-              <img src="images/camera.jpeg" alt="" />
-              <h3>fresh fruits</h3>
+              <img src="images/cat-2.png" alt="" />
+              <h3>Fresh Fruits</h3>
               <p>upto 45% off</p>
-              <button type="button" className="btn">
-                shop now
-              </button>
+              <a href="/home" className=" add btn">
+                Shop now
+              </a>
             </div>
 
             <div className="box" style={{ background: "white" }}>
-              <img src="images/h.jpeg" alt="" />
-              <h3>dairy products</h3>
+              <img src="images/c1.jpeg" alt="" />
+              <h3>Clothes</h3>
               <p>upto 45% off</p>
-              <button type="button" className="btn">
-                shop now
-              </button>
+              <a href="/home" className=" add btn">
+                Shop now
+              </a>
             </div>
 
             <div className="box" style={{ background: "white" }}>
-              <img src="images/images.jpeg" alt="" />
-              <h3>freshh meat</h3>
+              <img src="images/s1.jpg" alt="" />
+              <h3>Stationery </h3>
               <p>upto 45% off</p>
-              <button type="button" className="btn">
-                shop now
-              </button>
+              <a href="/home" className=" add btn">
+                Shop now
+              </a>
             </div>
           </div>{" "}
         </div>

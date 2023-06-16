@@ -30,10 +30,10 @@ const Footer = () => {
                 <span className="brandname">Store</span>
               </b>
             </h3>
-            <p>
+            {/* <p>
               Lorem, Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Natus,
               Laudantium?
-            </p>
+            </p> */}
             <div className="share">
               <a href="https://www.facebook.com/your-profile">
                 <i>
@@ -80,13 +80,13 @@ const Footer = () => {
               <i>
                 <FontAwesomeIcon icon={faEnvelope} />
               </i>
-              example@example.com
+              www.help@arystore.com
             </a>
             <a href="/" className="links">
               <i>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
               </i>
-              Pernambuco, Brazil
+              Baru Sahib , Himachal Pradesh
             </a>
           </div>
           <div className="bod">
@@ -96,31 +96,31 @@ const Footer = () => {
                 <span className="brandname">-Info</span>
               </b>
             </h3>
-            <a href="#home" className="links">
+            <a href="/home" className="links">
               <i>
                 <FontAwesomeIcon icon={faArrowRight} />
               </i>
               Home
             </a>
-            <a href="#features" className="links">
+            <a href="/" className="links">
               <i>
                 <FontAwesomeIcon icon={faArrowRight} />
               </i>
               Features
             </a>
-            <a href="#products" className="links">
+            <a href="/home" className="links">
               <i>
                 <FontAwesomeIcon icon={faArrowRight} />
               </i>
               Products
             </a>
-            <a href="#categories" className="links">
+            <a href="/categories" className="links">
               <i>
                 <FontAwesomeIcon icon={faArrowRight} />
               </i>
               Categories
             </a>
-            <a href="#reviews" className="links">
+            {/* <a href="#reviews" className="links">
               <i>
                 <FontAwesomeIcon icon={faArrowRight} />
               </i>
@@ -131,7 +131,7 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faArrowRight} />
               </i>
               Blogs
-            </a>
+            </a> */}
           </div>
         </div>
         <div className="credits">
