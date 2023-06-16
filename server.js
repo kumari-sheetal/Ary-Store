@@ -139,8 +139,8 @@ dotenv.config();
 connectDB();
 
 //es-module
-// const _filename = fileURLToPath(import.meta.url);
-// const _dirname = path.dirname(_filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 //objects
 const app = express();
@@ -166,13 +166,17 @@ app.use(express.json());
 
 app.use(morgan("dev"));
 
-// app.use(express.static(path.join(_dirname, "./client/build")));
+// app.use(express.static(path.join(__dirname, "./client/build")));
 
 app.use(express.urlencoded({ extended: false }));
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 app.use("/api/v1/msg", messageRoutes);
+
+// app.get("*", function (req, res) {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 app.get("/", (req, res) => {
   res.send({ message: "Welcome to the Ary-store" });
