@@ -277,6 +277,7 @@ input.dark-mode-checkbox:checked ~ body {
     color: rgb(0, 0, 0);
   }
 
+
   /* ----products---- */
   /* .dark-mode  .categories.box {
     background: black;
@@ -294,6 +295,10 @@ input.dark-mode-checkbox:checked ~ body {
   
   .dark-mode .reviews .box p {
     color: rgb(0, 0, 0);
+
   }
+
+
   
  
+
