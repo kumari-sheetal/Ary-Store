@@ -128,7 +128,7 @@ const AdminMenu = () => {
                 }}
               >
                 <TbUsers size="3em" />
-                <span>Admin chat</span>
+                <span>Chats</span>
               </NavLink>
             </div>
           </div>
@@ -139,22 +139,3 @@ const AdminMenu = () => {
 };
 
 export default AdminMenu;
-
-// <div className="list-group">
-//              <NavLink to ="/dashboard/admin/create-category" className="list-group-item list-group-item-action list-group-item-success"><FcViewDetails size="50px" />Create Category</NavLink>
-//              <NavLink to ="/dashboard/admin/create-product" className="list-group-item list-group-item-action list-group-item-info"><MdProductionQuantityLimits/>Create Products</NavLink>
-//              <NavLink to ="/dashboard/admin/users" className="list-group-item list-group-item-action list-group-item-warning"><TbUsers/>Users</NavLink>
-//              <NavLink to ="/dashboard/admin/order-list" className="list-group-item list-group-item-action list-group-item-danger"><HiOutlineClipboardDocumentList/>Orders List</NavLink>
-//            </div>
-
-// <div className="text-center">
-// <div className="list-group">
-// <h4>Admin Panel</h4>
-
-//   <NavLink to ="/dashboard/admin/create-category" className="list-group-item list-group-item-action list-group-item-success">Create Category</NavLink>
-//   <NavLink to ="/dashboard/admin/create-product" className="list-group-item list-group-item-action list-group-item-info">Create Products</NavLink>
-//   <NavLink to ="/dashboard/admin/users" className="list-group-item list-group-item-action list-group-item-warning">Users</NavLink>
-//   <NavLink to ="/dashboard/admin/order-list" className="list-group-item list-group-item-action list-group-item-danger">Orders List</NavLink>
-
-//   </div>
-// </div>

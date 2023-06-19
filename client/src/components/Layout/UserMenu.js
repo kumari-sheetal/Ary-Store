@@ -81,7 +81,7 @@ const UserMenu = () => {
               }}
             >
               <MdProductionQuantityLimits size="3em" />
-              <span>user Chat</span>
+              <span>Chat with Admin</span>
             </NavLink>
           </div>
         </div>
