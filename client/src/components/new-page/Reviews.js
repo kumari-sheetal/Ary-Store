@@ -51,11 +51,10 @@ const Reviews = () => {
                       Welcome to Ary-store, the exclusive online platform
                       designed to revolutionize the way you experience shopping
                       within our college campus. We specialize in converting
-                      offline systems into seamless online solutions, ensuring
-                      quick and efficient deliveries right to your
-                      doorstep.Whether you need textbooks, course materials,
+                      offline systems into  online solutions, ensuring
+                      quick and efficient deliveries right to your doorstep.Whether you need textbooks, course materials,
                       electronics, or any other essential items, we bring them
-                      to you with unparalleled speed and efficiency.
+                      to you.Happy Shopping!
                     </p>
                     {/* <h3>john deo</h3> */}
                   </div>{" "}
