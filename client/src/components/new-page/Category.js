@@ -16,36 +16,36 @@ const Category = () => {
               {/* <button type="button" className=" add btn">
                 shop now
               </button> */}
-              <a href="/home" className=" add btn">
+              {/* <a href="/home" className=" add btn">
                 Shop now
-              </a>
+              </a> */}
             </div>
 
             <div className="box" style={{ background: "white" }}>
               <img src="images/cat-2.png" alt="" />
               <h3>Fresh Fruits</h3>
               <p>upto 45% off</p>
-              <a href="/home" className=" add btn">
+              {/* <a href="/home" className=" add btn">
                 Shop now
-              </a>
+              </a> */}
             </div>
 
             <div className="box" style={{ background: "white" }}>
               <img src="images/c1.jpeg" alt="" />
               <h3>Clothes</h3>
               <p>upto 45% off</p>
-              <a href="/home" className=" add btn">
+              {/* <a href="/home" className=" add btn">
                 Shop now
-              </a>
+              </a> */}
             </div>
 
             <div className="box" style={{ background: "white" }}>
               <img src="images/s1.jpg" alt="" />
               <h3>Stationery </h3>
               <p>upto 45% off</p>
-              <a href="/home" className=" add btn">
+              {/* <a href="/home" className=" add btn">
                 Shop now
-              </a>
+              </a> */}
             </div>
           </div>{" "}
         </div>

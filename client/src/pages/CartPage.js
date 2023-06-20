@@ -525,7 +525,7 @@ const CartPage = () => {
                         <tr key={item._id}>
                           <td>
                             <img
-                              src={`http://localhost:8081/api/v1/product/product-photo/${item._id}`}
+                              src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${item._id}`}
                               className="card-img-top"
                               style={{
                                 maxHeight: "250px",
