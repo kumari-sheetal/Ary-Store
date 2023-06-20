@@ -24,7 +24,7 @@ const AdminOrders = () => {
   const getOrders = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8081/api/v1/auth/all-orders"
+        `${process.env.REACT_APP_API}/api/v1/auth/all-orders`
       );
       setOrders(data);
     } catch (error) {
@@ -50,7 +50,7 @@ const AdminOrders = () => {
   const handleChange = async (orderId, value) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:8081/api/v1/auth/order-status/${orderId}`,
+        `${process.env.REACT_APP_API}/api/v1/auth/order-status/${orderId}`,
         {
           status: value,
         }
@@ -200,7 +200,7 @@ const AdminOrders = () => {
                             key={p._id}
                           >
                             <img
-                              src={`http://localhost:8081/api/v1/product/product-photo/${p._id}`}
+                              src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                               className="card-img-top"
                               style={{
                                 maxHeight: "250px",

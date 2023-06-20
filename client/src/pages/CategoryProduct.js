@@ -18,7 +18,7 @@ const CategoryProduct = () => {
   const getProductbycate = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8081/api/v1/product/product-category/${params.slug}`
+        `${process.env.REACT_APP_API}/api/v1/product/product-category/${params.slug}`
       );
       setProducts(data?.products);
       setCategory(data?.category);
@@ -59,7 +59,7 @@ const CategoryProduct = () => {
                   key={p._id}
                 >
                   <img
-                    src={`http://localhost:8081/api/v1/product/product-photo/${p._id}`}
+                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     style={{
                       maxHeight: "250px",

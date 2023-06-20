@@ -30,7 +30,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        "http://localhost:8081/api/v1/auth/profile",
+        `${process.env.REACT_APP_API}/api/v1/auth/profile`,
         {
           name,
           email,

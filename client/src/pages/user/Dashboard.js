@@ -36,17 +36,17 @@ const Dashboard = () => {
   ];
   useEffect(() => {
     axios
-      .get("http://localhost:8081/api/v1/auth/orders")
+      .get(`${process.env.REACT_APP_API}/api/v1/auth/orders`)
       .then((res) => setOrderCount(res.data.length))
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:8081/api/v1/product/get-products")
+      .get(`${process.env.REACT_APP_API}/api/v1/product/get-products`)
       .then((res) => setProductCount(res.data.totalcount))
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:8081/api/v1/auth/user-activity")
+      .get(`${process.env.REACT_APP_API}/api/v1/auth/user-activity`)
       .then((res) => setActivityData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -54,7 +54,7 @@ const Dashboard = () => {
   const getOrders = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8081/api/v1/auth/orders"
+        `${process.env.REACT_APP_API}/api/v1/auth/orders`
       );
       setOrders(data);
     } catch (error) {

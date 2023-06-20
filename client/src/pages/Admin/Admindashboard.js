@@ -29,17 +29,17 @@ const Admindashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8081/api/v1/product/get-products")
+      .get(`${process.env.REACT_APP_API}/api/v1/product/get-products`)
       .then((res) => setProductCount(res.data.totalcount))
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:8081/api/v1/category/get-category")
+      .get(`${process.env.REACT_APP_API}/api/v1/category/get-category`)
       .then((res) => setCategoryCount(res.data.category.length))
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:8081/api/v1/auth/all-orders")
+      .get(`${process.env.REACT_APP_API}/api/v1/auth/all-orders`)
       .then((res) => setOrderCount(res.data.length))
       .catch((err) => console.log(err));
   }, []);

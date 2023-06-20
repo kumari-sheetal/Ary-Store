@@ -25,7 +25,7 @@ const Chatapp = () => {
   const fetchMessages = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8081/api/v1/msg/messages"
+        `${process.env.REACT_APP_API}/api/v1/msg/messages`
       );
       setMessages(response.data);
     } catch (error) {
@@ -36,7 +36,7 @@ const Chatapp = () => {
   // Send a reply to the selected user
   const sendReply = async (clientId) => {
     try {
-      await axios.post("http://localhost:8081/api/v1/msg/messages", {
+      await axios.post(`${process.env.REACT_APP_API}/api/v1/msg/messages`, {
         sender: "admin",
         receiver: clientId,
         message: adminReply,

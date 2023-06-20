@@ -133,7 +133,7 @@ const ChatApp = () => {
   const fetchMessages = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8081/api/v1/msg/messages?username=${auth?.user?.name}`
+        `${process.env.REACT_APP_API}/api/v1/msg/messages?username=${auth?.user?.name}`
       );
       setMessages(response.data);
     } catch (error) {
@@ -145,7 +145,7 @@ const ChatApp = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:8081/api/v1/msg/messages", {
+      await axios.post(`${process.env.REACT_APP_API}/api/v1/msg/messages`, {
         sender: auth?.user?.name,
         receiver: "admin",
         message: newMessage,
