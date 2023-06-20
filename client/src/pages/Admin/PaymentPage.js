@@ -39,7 +39,7 @@ const PaymentPage = () => {
   const getToken = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8081/api/v1/product/braintree/token"
+        `${process.env.REACT_APP_API}/api/v1/product/braintree/token`
       );
       setClientToken(data?.clientToken);
     } catch (error) {
@@ -87,7 +87,7 @@ const PaymentPage = () => {
       if (isCODChecked) {
         // Update the payment status in the database
         const { data } = await axios.post(
-          "http://localhost:8081/api/v1/auth/order-details",
+          `${process.env.REACT_APP_API}/api/v1/auth/order-details`,
           {
             cart,
 
@@ -101,7 +101,7 @@ const PaymentPage = () => {
       } else {
         const { nonce } = await instance.requestPaymentMethod();
         const { data } = await axios.post(
-          "http://localhost:8081/api/v1/product/braintree/payment",
+          `${process.env.REACT_APP_API}/api/v1/product/braintree/payment`,
           {
             nonce,
             cart,

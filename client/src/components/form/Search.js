@@ -11,7 +11,7 @@ const Search = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `http://localhost:8081/api/v1/product/search/${values.Keyword}`
+        `${process.env.REACT_APP_API}/api/v1/product/search/${values.Keyword}`
       );
       setValues({ ...values, results: data });
       navigate("/search");

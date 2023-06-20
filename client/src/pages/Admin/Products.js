@@ -14,7 +14,7 @@ const Products = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8081/api/v1/product/get-product-admin"
+        `${process.env.REACT_APP_API}/api/v1/product/get-product-admin`
       );
       setProducts(data.products);
     } catch (error) {
@@ -31,7 +31,7 @@ const Products = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8081/api/v1/product/product-count"
+        `${process.env.REACT_APP_API}/api/v1/product/product-count`
       );
       setTotal(data?.total);
     } catch (error) {
@@ -49,7 +49,7 @@ const Products = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:8081/api/v1/product/product-list/$ {page}`
+        `${process.env.REACT_APP_API}/api/v1/product/product-list/$ {page}`
       );
       setProducts([...products, ...data?.products]);
       setLoading(false);
@@ -81,7 +81,7 @@ const Products = () => {
                     key={p._id}
                   >
                     <img
-                      src={`http://localhost:8081/api/v1/product/product-photo/${p._id}`}
+                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       style={{ width: "158px", height: "158px" }}
                       alt={p.name}

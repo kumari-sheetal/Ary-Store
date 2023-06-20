@@ -48,11 +48,12 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <Search />
-              <NavLink to="/home" className="nav-link">
+
+              <NavLink to="/" className="nav-link">
                 Home
               </NavLink>
-              <NavLink to="/" className="nav-link">
-                About
+              <NavLink to="/home" className="nav-link">
+                Products
               </NavLink>
               <li className="nav-item dropdown">
                 <Link

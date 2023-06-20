@@ -353,7 +353,7 @@ export const resetPassword = async (req, res) => {
       expiresIn: "5m",
     });
 
-    const link = `http://localhost:8081/api/v1/auth/reset-password/${oldUser._id}/${token}`;
+    const link = `${process.env.REACT_APP_API}/api/v1/auth/reset-password/${oldUser._id}/${token}`;
     const textHtml = `Please click <a href=${link}> here </a>to reset Password`;
 
     var mainOptions = {
